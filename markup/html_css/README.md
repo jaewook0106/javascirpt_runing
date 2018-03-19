@@ -1,16 +1,16 @@
-##CSS
+## CSS
 
 [생활코딩 html 정보](https://opentutorials.org/module/552/4786)
 [생활코딩 css 정보](https://opentutorials.org/module/441/3798)
 
 
-####박스 구조
+#### 박스 구조
 
 [생활코딩 박스구조 설명](https://opentutorials.org/module/441/3798)
 
 ![박스구조](../images/img_box.png)
 
-#####border 계산 없이 안쪽으로 넣기 
+##### border 계산 없이 안쪽으로 넣기 
 box-sizing 
 - content-box
 - padding-box
@@ -19,10 +19,10 @@ box-sizing
 box-sizing:border-box
 ````
 
-####말줄임
+#### 말줄임
 말줄임은 너비값이 정해져야됩니다. 
 
-#####한줄 처리 말줄임
+##### 한줄 처리 말줄임
 ````
 overflow:hidden;
 word-wrap:normal;
@@ -30,7 +30,7 @@ white-space:nowrap;
 text-overflow:ellipsis;
 ````
 
-#####두줄 처리 말줄임 (IE하위 버전은 안됨)
+##### 두줄 처리 말줄임 (IE하위 버전은 안됨)
 ````
 overflow:hidden;
 display: -webkit-box;
@@ -44,19 +44,19 @@ line-height:1.2em;
 height:3.6em;
 ````
 
-####float 해제
+#### float 해제
 
 float를 쓸 경우 박스구조가 떠있는 상태가 되므로 해당 부모엘리먼트는 높이값을 못잡는다.
 잡기 위해서는 float을 해제 시켜줘야된다.
 
-#####방법1
+##### 방법1
 ````
 overflow:hidden;
  
 float를 준 엘리먼트를 감싼 부모한테 주면된다. 사용에 따라 다르지만 해당 영역 밖에 있는 곳까지 보여야되는 효과를 줄려면 쓸 수가 없다.
 ````
 
-#####방법2
+##### 방법2
 ````
 <div>
 	<div style="float:left"></div>
@@ -66,7 +66,7 @@ float를 준 엘리먼트를 감싼 부모한테 주면된다. 사용에 따라 
 하단에 태그 하나를 생성 후 스타일을 주는 방식. 잘안쓰는 방법이다.
 ````
 
-#####방법3
+##### 방법3
 ````
 <style>
 	.test:after{
@@ -83,7 +83,7 @@ float를 준 엘리먼트를 감싼 부모한테 주면된다. 사용에 따라 
 가상으로 컨텐츠를 만들어 해제시키는 방법
 ````
 
-####background
+#### background
 background 에는 여러가지 속성이 있습니다.
 background:url('주소') repeat값 position값
  
@@ -95,14 +95,14 @@ background:url('주소') repeat값 position값
 - background-attachment:fixed; - background를 해당 위치값 고정 시키므로써 화면상에 따라다니게한다. 
 - background-clip : border-box, padding-box, content-box  - 백그라운드 영역 지정 ie9 이
  
-####Ratio
+#### Ratio
 레티나 대응
 
 ````
 @media only screen and (-webkit-min-device-pixel-ratio: 1.5), not all, only screen and (min-resolution: 1.5dppx), only screen and (min-resolution: 144dpi)
 ````
 
-####border
+#### border
 
 보더 값은 위,아래,오른쪽,왼쪽 따로 스타일을 지정할 수 있습니다.
 
@@ -117,13 +117,13 @@ border-collapse   - separate: 테이블 줄이 합쳐지지 않는 상태에서 
 ````
 
 
-####미디어쿼리
+#### 미디어쿼리
 모바일 경우 디바이스 가로값 마다 css 스타일이 달라지는 경우가 있다. 그럴때 미디어쿼리를 써서 해당되는 가로값부분만 적용 가능하다.
 ````
 @media all and (min-width: 321px) and (max-width: 375px){}
 ````
 
-###css3
+### css3
 
 #### transition
 transition: all 2s ease-in-out 1s : 해당되는 property, 변형되는 시간, 효과, delay
@@ -142,7 +142,7 @@ div {
 
 #### transform
 
-#####종류
+##### 종류
 - matrix(n,n,n,n,n)
 - matrix3d(n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n)
 - translate(x,y)

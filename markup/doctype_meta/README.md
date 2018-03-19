@@ -1,24 +1,24 @@
-##DOCTYPE 선언
+## DOCTYPE 선언
 
 HTML을 시작하기 위해선 DOCTYPE을 선언해야된다. (선언을 하면서 웹문서를 시작하곘다 라는 의미)
 
-###DOCTYPE 종류
+### DOCTYPE 종류
 
-####HTML5
+#### HTML5
 최신버전으로 현재 사용하고있는 선언문
-####선언방식
+#### 선언방식
 ````
 <!DOCTYPE html>
 ````
 
-####HTML4.01
+#### HTML4.01
 
-#####모드 종류
+##### 모드 종류
 - strict (엄격 모드)(표현 효과 위주의 마크업 태크 금지)
 - transitional (일반적으로 많이 사용하는 모드)
 - frameset (프레임셋에서만 사용할 경우 선언)
 
-####선언방식
+#### 선언방식
 ````
 strict 방식
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -30,9 +30,9 @@ frameset 방식
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
 ````
 
-####XHTML 1.0
+#### XHTML 1.0
 
-#####모드 종류
+##### 모드 종류
 - strict (엄격 모드)(표현 효과 위주의 마크업 태크 금지)
 - transitional (일반적으로 많이 사용하는 모드)
 - frameset (프레임셋에서만 사용할 경우 선언)
@@ -52,10 +52,10 @@ frameset 방식
 [html5 vs html4 참고](http://cafe.daum.net/clearring/Pthj/94?q=html4)
 
 
-##META 태그
+## META 태그
 HTML문서가 어떤 무서인지 설명하거나 추가적인 정보를 알리는 태그
 
-####기본적인 메타 태그
+#### 기본적인 메타 태그
 인코딩 
 ````
 <meta charset="UTF-8">
@@ -118,19 +118,19 @@ ios 경우 숫자만 써져있을 경우 tel로 자동 링크, mail 일경우 ma
 
 
 
-####파비콘
+#### 파비콘
 ````
 <link rel="shortcut icon" href="/images/common/ico_favicon.ico">
 ````
 
 
-###css 선언
+### css 선언
 
 - inline 방식 (직접 태그에 작성하는 방식) ````<div style="width:100%">술마시자</div>````
 - link 방식  ````<link href="../css/style.css" rel="stylesheet">````
 - static 방식 (head style 방식) ````<style> #id{width:100%} </style>````
 
-###js 선언
+### js 선언
 ````<script type="text/javascript" src="/js/head.js"></script>````
 
 head에 넣을 경우
