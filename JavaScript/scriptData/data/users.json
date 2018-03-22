@@ -1,0 +1,60 @@
+[
+	{
+		"id":"edwd0106",
+		"pwd":"@@1234",
+		"name": "최재욱",
+		"nameEng": "Edward",
+		"birth": "19850106",
+		"age": 33,
+		"mail": "edward@daum.net",
+		"address": {
+			"nation": {
+				"code": "KOR",
+				"nameEng": "Republic of Korea",
+				"name": "대한민국"
+			},
+			"province": {
+				"code": "KYG",
+				"nameEng": "Kyongido",
+				"name": "경기도"
+			},
+			"city": {
+				"code": "SOL",
+				"nameEng": "Seoul",
+				"name": "서웉특별시"
+			}
+		},
+		"PurchaseList": [],
+		"WatchList": [],
+		"PurchaseHistoryList": []
+	},
+	{
+		"id":"shawn0819",
+		"pwd":"@@5678",
+		"name": "이시원",
+		"nameEng": "Shawn",
+		"birth": "19880819",
+		"age": 30,
+		"mail": "shawn@daum.net",
+		"address": {
+			"nation": {
+				"code": "KOR",
+				"nameEng": "Republic of Korea",
+				"name": "대한민국"
+			},
+			"province": {
+				"code": "KYG",
+				"nameEng": "Kyongido",
+				"name": "경기도"
+			},
+			"city": {
+				"code": "YNG",
+				"nameEng": "Yongin",
+				"name": "용인시"
+			}
+		},
+		"PurchaseList": [],
+		"WatchList": [],
+		"PurchaseHistoryList": []
+	}
+]
