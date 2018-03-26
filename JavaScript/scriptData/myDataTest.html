@@ -12,10 +12,10 @@
 <script>
   "use strict";
 
-	const UsersData = [
+  const UsersData = [
     {
-      "id":"edwd0106",
-      "pwd":"@@1234",
+      "id": "edwd0106",
+      "pwd": "@@1234",
       "name": "최재욱",
       "nameEng": "Edward",
       "birth": "19850106",
@@ -43,8 +43,8 @@
       "PurchaseHistoryList": []
     },
     {
-      "id":"shawn0819",
-      "pwd":"@@5678",
+      "id": "shawn0819",
+      "pwd": "@@5678",
       "name": "이시원",
       "nameEng": "Shawn",
       "birth": "19880819",
@@ -72,72 +72,98 @@
       "PurchaseHistoryList": []
     }
   ];
-	const GoodData = {
-    "foodList":[
+  const GoodData = {
+    "foodList": [
       {
-        "code":"FPO0201",
-        "name":"프링글스-양파맛",
-        "nameEng":"Pringles-onion",
-        "price":{
-          "currency":"$",
-          "count":30,
-          "discounted":30,
-          "exchangeRate":1000
+        "code": "FPO0201",
+        "name": "프링글스-양파맛",
+        "nameEng": "Pringles-onion",
+        "price": {
+          "currency": "$",
+          "count": 30,
+          "discounted": 30,
+          "exchangeRate": 1000
         },
-        "date":{
-          "expiration":{
-            "start":"20180301",
-            "end":"20190401"
+        "date": {
+          "expiration": {
+            "start": "20180301",
+            "end": "20190401"
           },
-          "manufactured":"20180201"
+          "manufactured": "20180201"
         },
-        "enhancement":100,
-        "productCount":40
+        "enhancement": 100,
+        "productCount": 40
       },
       {
-        "code":"FPP0101",
-        "name":"프링글스-피자맛",
-        "nameEng":"Pringles-pizza",
-        "price":{
-          "currency":"$",
-          "count":38,
-          "discounted":0,
-          "exchangeRate":1000
+        "code": "FPP0101",
+        "name": "프링글스-피자맛",
+        "nameEng": "Pringles-pizza",
+        "price": {
+          "currency": "$",
+          "count": 38,
+          "discounted": 0,
+          "exchangeRate": 1000
         },
-        "date":{
-          "expiration":{
-            "start":"20180208",
-            "end":"20190305"
+        "date": {
+          "expiration": {
+            "start": "20180208",
+            "end": "20190305"
           },
-          "manufactured":"20180101"
+          "manufactured": "20180101"
         },
-        "enhancement":60,
-        "productCount":58
+        "enhancement": 60,
+        "productCount": 58
       },
       {
-        "code":"FPH0108",
-        "name":"프링글스-매운맛",
-        "nameEng":"Pringles-hot-spice",
-        "price":{
-          "currency":"$",
-          "count":32,
-          "discounted":0,
-          "exchangeRate":1000
+        "code": "FPH0108",
+        "name": "프링글스-매운맛",
+        "nameEng": "Pringles-hot-spice",
+        "price": {
+          "currency": "$",
+          "count": 32,
+          "discounted": 0,
+          "exchangeRate": 1000
         },
-        "date":{
-          "expiration":{
-            "start":"20180214",
-            "end":"20190312"
+        "date": {
+          "expiration": {
+            "start": "20180214",
+            "end": "20190312"
           },
-          "manufactured":"20180108"
+          "manufactured": "20180108"
         },
-        "enhancement":80,
-        "productCount":42
+        "enhancement": 80,
+        "productCount": 42
       }
     ]
   };
-	console.log('front ',UsersData);
-	console.log('front ',GoodData);
+  console.log('front ', UsersData);
+  console.log('front ', GoodData);
+
+	/* 데이터 정제 */
+  // getEngName (name)=> EngName
+  // getEngCity (city)=> EngCity
+  // ...
+  const getEngData = (data, copyObj, age) => {
+//	  const dataCopy = Array.prototype.slice.call(data);
+    let dataArr = [];
+    data.map(function (data) {
+      let dataList = copyObj(data);
+      let dataAddress = dataList.address || {};
+
+      dataAddress.city.name = dataAddress.city.nameEng || "";
+      dataAddress.nation.name = dataAddress.nation.nameEng || "";
+      dataAddress.province.name = dataAddress.province.nameEng || "";
+
+      dataList.name = dataList.nameEng || "";
+      dataList.manAge = age(dataList.birth) || 0;
+
+//			delete dataAddress.city.nameEng;
+//      delete dataAddress.nation.nameEng;
+//      delete dataAddress.province.nameEng;
+      dataArr.push(dataList);
+    });
+    return dataArr;
+  };
 
 	/* obj 깊은복사 */
   function copyObj(obj) {
@@ -154,74 +180,47 @@
     return copy;
   }
 
-
-  /* 만나이 계산 */
+	/* 만나이 계산 */
   // getAge(age) => real age
-  function age(birth){
+  function getAge(birth) {
     const date = new Date();
     const year = date.getFullYear();
     const month = date.getMonth() + 1;
     const day = date.getDate();
     let birthStr;
-    if(typeof birth === "number"){
+    if (typeof birth === "number") {
       birthStr = String(birth);
-		}else{
+    } else {
       birthStr = birth;
-		}
-    let birthYear = Number(birthStr.substr(0,4));
-    let birthMonth = Number(birthStr.substr(4,2));
-    let birthDay = Number(birthStr.substr(6,2));
-    if(month === birthMonth){
-      if(day <= birthDay){
+    }
+    let birthYear = Number(birthStr.substr(0, 4));
+    let birthMonth = Number(birthStr.substr(4, 2));
+    let birthDay = Number(birthStr.substr(6, 2));
+    if (month === birthMonth) {
+      if (day <= birthDay) {
         return year - birthYear + 1;
-			}else{
+      } else {
         return year - birthYear;
-			}
-    }else if(month < birthMonth){
+      }
+    } else if (month < birthMonth) {
       return year - birthYear;
-		}else{
+    } else {
       return year - birthYear + 1;
-		}
-	}
+    }
+  }
 
-  /* 데이터 정제 */
-  // getEngName (name)=> EngName
-	// getEngCity (city)=> EngCity
-	// ...
-	const engData = (data, copyObj,age)=>{
-//	  const dataCopy = Array.prototype.slice.call(data);
-		let dataArr = [];
-    data.map(function(data){
-      let dataList = copyObj(data);
-      let dataAddress = dataList.address || {};
+  //	const KorData ={
+  //	  city:city.name
+  //	};
+  //
+  //	const EngData = {
+  //	  city:getEngName(city.name)
+  //	};
 
-      dataAddress.city.name = dataAddress.city.nameEng || "";
-      dataAddress.nation.name = dataAddress.nation.nameEng || "";
-      dataAddress.province.name = dataAddress.province.nameEng || "";
+  //render(data,type)=> type === 'KOR' ? KorData : EngData
 
-      dataList.name = dataList.nameEng || "";
-      dataList.manAge = age(dataList.birth) || 0;
-
-//			delete dataAddress.city.nameEng;
-//      delete dataAddress.nation.nameEng;
-//      delete dataAddress.province.nameEng;
-      dataArr.push(dataList);
-		});
-    return dataArr;
-	};
-
-//	const KorData ={
-//	  city:city.name
-//	};
-//
-//	const EngData = {
-//	  city:getEngName(city.name)
-//	};
-
-	//render(data,type)=> type === 'KOR' ? KorData : EngData
-
-//	const koData =
-	console.log('test :', engData(UsersData,copyObj,age));
+  //	const KorData =
+  console.log('test :', getEngData(UsersData, copyObj, getAge));
 
 
 </script>
