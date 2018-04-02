@@ -39,19 +39,21 @@
 
 		}
 
-
-		.top{position:relative;background-color:#007aff;text-align:center}
-		.top .logo{display:inline-block;padding:20px 0;font-size:20px;font-weight:bold;color:#fff}
+		.ico_election{background:url('./images/ico_election.png') 0 0 no-repeat;background-size:50px 50px;vertical-align:top}
+		.top{position:relative;height:124px;background:url('./images/top_bg.png') 0 0 no-repeat;background-size:cover;text-align:center}
+		.top .logo{display:inline-block;width:119px;padding-top:11px}
+		.top .img_logo{width:100%;vertical-align:top}
 		.top .top_txt{position:absolute;top:20px;right:20px;text-align:right}
 		.top .txt_date{display:block;color:#fff}
 		.top .txt_dday{display:block;font-size:16px;font-weight:bold;color:yellow}
-
 
 		.main_tab{overflow:hidden}
 		.main_tab li{float:left;width:33.33333%}
 		.main_tab .link_tab{display:block;height:40px;text-align:center;color:#333}
 		.main_tab .txt_inner{display:inline-block;padding-top:10px}
-		.main_tab .ico_tab{display:none;width:10px;height:10px;margin-right:5px;vertical-align:top;margin-top:5px;background-color:red}
+		.main_tab .ico_tab{display:none;width:14px;height:14px;margin:3px 5px 0 0;background-position:0 0}
+
+		.green .main_tab .ico_tab{background-position:-15px 0}
 
 		.main_tab .on .ico_tab{display:inline-block}
 		.main_tab .on .link_tab{background-color:greenyellow;color:blue}
@@ -60,6 +62,8 @@
 		.sub_tab:before{display:block;position:absolute;bottom:0;left:0;right:0;height:1px;background-color:#eee;content:''}
 		.sub_tab li{width:50%}
 		.sub_tab .on .link_tab{position:relative;border-bottom:1px solid #333;box-sizing:border-box;background:none}
+
+
 
 		@media all and (max-width:359px){
 
@@ -70,7 +74,7 @@
 <body>
 	<div class="wrap">
 		<div class="top">
-			<div class="logo">제17대<br>대선</div>
+			<div class="logo"><img src="./images/logo.png" alt="19대 대통령 선거" class="img_logo"></div>
 			<div class="top_txt">
 				<span class="txt_date">18.03.21</span>
 				<span class="txt_dday">D-17</span>
@@ -79,17 +83,17 @@
 		<ul class="main_tab">
 			<li>
 				<a href="javascript:;" class="link_tab">
-					<span class="txt_inner"><span class="ico_tab"></span>에드워드</span>
+					<span class="txt_inner"><span class="ico_tab ico_election"></span>에드워드</span>
 				</a>
 			</li>
 			<li class="on">
 				<a href="javascript:;" class="link_tab">
-					<span class="txt_inner"><span class="ico_tab"></span>에드워드</span>
+					<span class="txt_inner"><span class="ico_tab ico_election"></span>에드워드</span>
 				</a>
 			</li>
 			<li>
 				<a href="javascript:;" class="link_tab">
-					<span class="txt_inner"><span class="ico_tab"></span>에드워드</span>
+					<span class="txt_inner"><span class="ico_tab ico_election"></span>에드워드</span>
 				</a>
 			</li>
 		</ul>
@@ -108,7 +112,37 @@
 			</li>
 		</ul>
 
-
+		<div class="cont_debate">
+			<ul class="list_debate">
+				<li> <!-- state_end state_start -->
+					<div class="debate_inner">
+						<stron class="tit_debate">제목</stron><span class="circle_box"><span class="txt_inner">진행중</span></span>
+						<dl class="dl_comp">
+							<dt></dt>
+							<dd></dd>
+						</dl>
+						<dl class="dl_comp">
+							<dt></dt>
+							<dd><a href="javascript:;" class="link_txt"></a></dd>
+						</dl>
+						<dl class="dl_comp">
+							<dt></dt>
+							<dd></dd>
+						</dl>
+						<dl class="dl_comp">
+							<dt></dt>
+							<dd><a href="javascript:;" class="link_txt"></a></dd>
+						</dl>
+					</div>
+					<div>
+						<span>
+							<span></span>
+						</span>
+						<span>진행중</span>
+					</div>
+				</li>
+			</ul>
+		</div>
 
 	</div>
 </body>
