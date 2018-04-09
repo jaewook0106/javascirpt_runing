@@ -39,6 +39,8 @@
 
 		}
 
+		.wrap{margin-bottom:50px}
+
 		.ico_election{background:url('./images/ico_election.png') 0 0 no-repeat;background-size:50px 50px;vertical-align:top}
 		.top{position:relative;height:124px;background:url('./images/top_bg.png') 0 0 no-repeat;background-size:cover;text-align:center}
 		.top .logo{display:inline-block;width:119px;padding-top:11px}
@@ -49,20 +51,71 @@
 
 		.main_tab{overflow:hidden}
 		.main_tab li{float:left;width:33.33333%}
-		.main_tab .link_tab{display:block;height:40px;text-align:center;color:#333}
+		.main_tab .link_tab{display:block;height:40px;background-color:#f5f5f5;text-align:center;color:#333}
 		.main_tab .txt_inner{display:inline-block;padding-top:10px}
 		.main_tab .ico_tab{display:none;width:14px;height:14px;margin:3px 5px 0 0;background-position:0 0}
 
 		.green .main_tab .ico_tab{background-position:-15px 0}
 
 		.main_tab .on .ico_tab{display:inline-block}
-		.main_tab .on .link_tab{background-color:greenyellow;color:blue}
+		.main_tab .on .link_tab{font-weight:bold;background-color:#fff;color:#292b48}
 
 		.sub_tab{position:relative;padding:0 14px}
-		.sub_tab:before{display:block;position:absolute;bottom:0;left:0;right:0;height:1px;background-color:#eee;content:''}
+		.sub_tab:before{display:block;position:absolute;bottom:0;left:0;right:0;height:1px;background-color:#ebebeb;content:''}
 		.sub_tab li{width:50%}
-		.sub_tab .on .link_tab{position:relative;border-bottom:1px solid #333;box-sizing:border-box;background:none}
+		.sub_tab .link_tab{background-color:#fff}
+		.sub_tab .on .link_tab{position:relative;border-bottom:1px solid #292b48;color:#292b48;box-sizing:border-box;}
 
+		.dl_comp{font-size:15px}
+		.dl_comp:after{display:block;clear:both;content:''}
+		.dl_comp dt{float:left;width:34px;color:#919191}
+		.dl_comp dd{overflow:hidden}
+
+		.cont_debate{border-bottom:1px solid #c2c9d1}
+		.list_debate{margin:0 14px}
+		.list_debate .tit_debate{font-size:17px;font-weight:500;color:#000}
+		.list_debate .circle_box{display:inline-block;width:42px;height:20px;margin-left:5px;border:1px solid #d9d9d9;border-radius:50px;box-sizing:border-box;vertical-align:top;text-align:center}
+		.list_debate .circle_box .txt_inner{display:inline-block;margin-top:3px;font-size:11px;;vertical-align:top;color:#000}
+		.list_debate li{position:relative;padding:20px 0;border-top:1px solid #ddd}
+		.list_debate li:first-child{border-top:none}
+		.list_debate .txt_date{color:red}
+		.list_debate .info_onair{display:none;position:absolute;top:20px;right:0;width:56px;text-align:center}
+		.list_debate .info_onair .ico_election{display:inline-block;width:23px;height:22px;margin-top:15px;background-position:0 -15px}
+		.list_debate .info_onair .txt_inner{display:inline-block;margin-top:6px;color:#333}
+		.list_debate .circle_onair{display:block;height:54px;border:1px solid #333;border-radius:50%}
+
+		.list_debate .state_start .circle_box{border-color:red}
+		.list_debate .state_start .circle_box .txt_inner{color:red}
+		.list_debate .state_start .info_onair{display:block}
+		.list_debate .state_start .circle_onair{border-color:red}
+		.list_debate .state_start .info_onair .txt_inner{color:red}
+		.list_debate .state_start .info_onair .ico_election{background-position:-25px -15px}
+
+		.list_debate .state_end .txt_date{color:#333}
+		.list_debate .state_end .info_onair{display:block}
+
+		.test:after{content:attr(desc)}
+
+
+		.list_candidate{display:-webkit-box;display:-moz-box;display:-ms-flexbox;overflow-y:hidden;overflow-x:auto;-webkit-overflow-scrolling:touch}
+		.list_candidate::-webkit-scrollbar{display:none}
+		.list_candidate li{width:74px;padding:20px 0 14px;text-align:center}
+		.list_candidate .link_candidate{display:block}
+		.list_candidate .thumb_cont{display:inline-block;width:54px}
+		.list_candidate .thumb_cont .img_candidate{width:100%;border-radius:50%;vertical-align:top}
+		.list_candidate .txt_name{display:block;margin-top:5px;color:#222}
+		.list_candidate .txt_num{margin-right:3px;font-style:italic}
+
+		.list_candidate .on .txt_name{font-weight:500;color:#007aff}
+		.list_candidate .on{position:relative}
+		.list_candidate .on:after{position:absolute;bottom:0;left:8px;right:8px;height:1px;background-color:#007aff;content:''}
+
+
+		.place_election{padding:20px 14px}
+		.place_election .place_search{overflow:hidden}
+		.place_election .cont_place{float:left;width:49%;margin-left:2%}
+		.place_election .cont_place:first-child{margin-left:0}
+		.place_election .select_place{width:100%;padding:5px;border:1px solid #333;border-radius:50px}
 
 
 		@media all and (max-width:359px){
@@ -115,35 +168,238 @@
 		<div class="cont_debate">
 			<ul class="list_debate">
 				<li> <!-- state_end state_start -->
-					<div class="debate_inner">
-						<stron class="tit_debate">제목</stron><span class="circle_box"><span class="txt_inner">진행중</span></span>
-						<dl class="dl_comp">
-							<dt></dt>
-							<dd></dd>
-						</dl>
-						<dl class="dl_comp">
-							<dt></dt>
-							<dd><a href="javascript:;" class="link_txt"></a></dd>
-						</dl>
-						<dl class="dl_comp">
-							<dt></dt>
-							<dd></dd>
-						</dl>
-						<dl class="dl_comp">
-							<dt></dt>
-							<dd><a href="javascript:;" class="link_txt"></a></dd>
-						</dl>
-					</div>
-					<div>
-						<span>
-							<span></span>
+					<strong class="tit_debate">3차 대선후보 토론회</strong><span class="circle_box"><span class="txt_inner">진행중</span></span>
+					<dl class="dl_comp">
+						<dt>일시</dt>
+						<dd class="txt_date">4.18.(화) 20:00~22:00</dd>
+					</dl>
+					<dl class="dl_comp">
+						<dt>중계</dt>
+						<dd><a href="javascript:;" class="link_txt">kbs</a>, <a href="javascript:;" class="link_txt">sbs</a></dd>
+					</dl>
+					<dl class="dl_comp">
+						<dt>사회</dt>
+						<dd>최재욱 KBS 기자</dd>
+					</dl>
+					<dl class="dl_comp">
+						<dt>참석</dt>
+						<dd><a href="javascript:;" class="link_txt">최재욱</a>, <a href="javascript:;" class="link_txt">에드워드</a></dd>
+					</dl>
+					<a href="javascript:;" class="info_onair">
+						<span class="circle_onair">
+							<span class="ico_election"></span>
 						</span>
-						<span>진행중</span>
-					</div>
+						<span class="txt_inner">다시보기</span>
+					</a>
+				</li>
+				<li class="state_start"> <!-- state_end state_start -->
+					<strong class="tit_debate">3차 대선후보 토론회</strong><span class="circle_box"><span class="txt_inner">진행중</span></span>
+					<dl class="dl_comp">
+						<dt>일시</dt>
+						<dd class="txt_date">4.18.(화) 20:00~22:00</dd>
+					</dl>
+					<dl class="dl_comp">
+						<dt>중계</dt>
+						<dd><a href="javascript:;" class="link_txt">kbs</a>, <a href="javascript:;" class="link_txt">sbs</a></dd>
+					</dl>
+					<dl class="dl_comp">
+						<dt>사회</dt>
+						<dd>최재욱 KBS 기자</dd>
+					</dl>
+					<dl class="dl_comp">
+						<dt>참석</dt>
+						<dd><a href="javascript:;" class="link_txt">최재욱</a>, <a href="javascript:;" class="link_txt">에드워드</a></dd>
+					</dl>
+					<a href="javascript:;" class="info_onair">
+						<span class="circle_onair">
+							<span class="ico_election"></span>
+						</span>
+						<span class="txt_inner">다시보기</span>
+					</a>
+				</li>
+				<li class="state_end"> <!-- state_end state_start -->
+					<strong class="tit_debate">3차 대선후보 토론회</strong><span class="circle_box"><span class="txt_inner">진행중</span></span>
+					<dl class="dl_comp">
+						<dt>일시</dt>
+						<dd class="txt_date">4.18.(화) 20:00~22:00</dd>
+					</dl>
+					<dl class="dl_comp">
+						<dt>중계</dt>
+						<dd><a href="javascript:;" class="link_txt">kbs</a>, <a href="javascript:;" class="link_txt">sbs</a></dd>
+					</dl>
+					<dl class="dl_comp">
+						<dt>사회</dt>
+						<dd>최재욱 KBS 기자</dd>
+					</dl>
+					<dl class="dl_comp">
+						<dt>참석</dt>
+						<dd><a href="javascript:;" class="link_txt">최재욱</a>, <a href="javascript:;" class="link_txt">에드워드</a></dd>
+					</dl>
+					<a href="javascript:;" class="info_onair">
+						<span class="circle_onair">
+							<span class="ico_election"></span>
+						</span>
+						<span class="txt_inner">다시보기</span>
+					</a>
 				</li>
 			</ul>
 		</div>
 
+	</div>
+
+	<div class="wrap">
+		<div class="top">
+			<div class="logo"><img src="./images/logo.png" alt="19대 대통령 선거" class="img_logo"></div>
+			<div class="top_txt">
+				<span class="txt_date">18.03.21</span>
+				<span class="txt_dday">D-17</span>
+			</div>
+		</div>
+		<ul class="main_tab">
+			<li>
+				<a href="javascript:;" class="link_tab">
+					<span class="txt_inner"><span class="ico_tab ico_election"></span>에드워드</span>
+				</a>
+			</li>
+			<li class="on">
+				<a href="javascript:;" class="link_tab">
+					<span class="txt_inner"><span class="ico_tab ico_election"></span>에드워드</span>
+				</a>
+			</li>
+			<li>
+				<a href="javascript:;" class="link_tab">
+					<span class="txt_inner"><span class="ico_tab ico_election"></span>에드워드</span>
+				</a>
+			</li>
+		</ul>
+		<div class="profile_candidate">
+			<div class="cont_candidate">
+				<ul class="list_candidate">
+					<li class="on">
+						<a href="javascript:;" class="link_candidate">
+							<div class="thumb_cont">
+								<img src="https://dummyimage.com/108x108/aaa/thumb.jpg" alt="" class="img_candidate">
+							</div>
+							<span class="txt_name"><span class="txt_num">1</span><span class="screen_out">번</span>최재욱</span>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;" class="link_candidate">
+							<div class="thumb_cont">
+								<img src="https://dummyimage.com/108x108/aaa/thumb.jpg" alt="" class="img_candidate">
+							</div>
+							<span class="txt_name"><span class="txt_num">12</span><span class="screen_out">번</span>라르손손</span>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;" class="link_candidate">
+							<div class="thumb_cont">
+								<img src="https://dummyimage.com/108x108/aaa/thumb.jpg" alt="" class="img_candidate">
+							</div>
+							<span class="txt_name"><span class="txt_num">1</span><span class="screen_out">번</span>최재욱</span>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;" class="link_candidate">
+							<div class="thumb_cont">
+								<img src="https://dummyimage.com/108x108/aaa/thumb.jpg" alt="" class="img_candidate">
+							</div>
+							<span class="txt_name"><span class="txt_num">1</span><span class="screen_out">번</span>최재욱</span>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;" class="link_candidate">
+							<div class="thumb_cont">
+								<img src="https://dummyimage.com/108x108/aaa/thumb.jpg" alt="" class="img_candidate">
+							</div>
+							<span class="txt_name"><span class="txt_num">1</span><span class="screen_out">번</span>최재욱</span>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;" class="link_candidate">
+							<div class="thumb_cont">
+								<img src="https://dummyimage.com/108x108/aaa/thumb.jpg" alt="" class="img_candidate">
+							</div>
+							<span class="txt_name"><span class="txt_num">1</span><span class="screen_out">번</span>최재욱</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+
+		</div>
+	</div>
+
+	<div class="wrap">
+		<div class="top">
+			<div class="logo"><img src="./images/logo.png" alt="19대 대통령 선거" class="img_logo"></div>
+			<div class="top_txt">
+				<span class="txt_date">18.03.21</span>
+				<span class="txt_dday">D-17</span>
+			</div>
+		</div>
+		<ul class="main_tab">
+			<li>
+				<a href="javascript:;" class="link_tab">
+					<span class="txt_inner"><span class="ico_tab ico_election"></span>에드워드</span>
+				</a>
+			</li>
+			<li class="on">
+				<a href="javascript:;" class="link_tab">
+					<span class="txt_inner"><span class="ico_tab ico_election"></span>에드워드</span>
+				</a>
+			</li>
+			<li>
+				<a href="javascript:;" class="link_tab">
+					<span class="txt_inner"><span class="ico_tab ico_election"></span>에드워드</span>
+				</a>
+			</li>
+		</ul>
+
+		<div class="place_election">
+			<form>
+				<fieldset>
+					<legend class="screen_out">내투표찾기 입력창</legend>
+					<div class="place_search">
+						<div class="cont_place">
+							<label for="city" class="screen_out">시 선택</label>
+							<select id="city" class="select_place">
+								<option>서울</option>
+								<option>성남</option>
+								<option>부산</option>
+							</select>
+						</div>
+						<div class="cont_place">
+							<label for="town" class="screen_out">구 선택</label>
+							<select id="town" class="select_place">
+								<option>구로구</option>
+								<option>수정구</option>
+								<option>분당구</option>
+							</select>
+						</div>
+					</div>
+					<ul>
+						<li>
+							<input type="text" name="" class="input_text">
+						</li>
+						<li>
+							<input type="checkbox" name="" class="input_check">
+							<input type="checkbox" name="" class="input_check">
+							<input type="checkbox" name="" class="input_check">
+						</li>
+						<li>
+							<input type="radio" name="gender" class="input_radio">
+							<input type="radio" name="gender" class="input_radio">
+							<input type="radio" name="gender" class="input_radio">
+						</li>
+						<li>
+							<input type="text" class="input_text">
+						</li>
+					</ul>
+
+
+				</fieldset>
+			</form>
+		</div>
 	</div>
 </body>
 </html>

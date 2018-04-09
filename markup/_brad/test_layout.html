@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Title</title>
+	<style>
+		/*@charset "utf-8";*/
+		body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,textarea,p,blockquote,th,td,input,select,button{margin:0;padding:0}
+		fieldset,img{border:0 none}
+		dl,ul,ol,menu,li{list-style:none}
+		blockquote,q{quotes:none}
+		blockquote:before,blockquote:after{content:'';content:none}
+		q:before,q:after{content:'';content:none}
+		input,select,textarea,button{vertical-align:middle;font-size:100%}
+		table{border-collapse:collapse;border-spacing:0}
+		body{-webkit-text-size-adjust:none}
+		input[type='button'],input[type='email'],input[type='password'],input[type='reset'],input[type='search'],input[type='submit'],input[type='tel'],input[type='text']{-webkit-appearance:none;border-radius:0}
+		input[type='search']::-webkit-search-cancel-button,input[type='search']::-webkit-search-decoration{-webkit-appearance:none}
+		input:checked[type='checkbox']{background-color:#666;-webkit-appearance:checkbox}
+		button{border:0 none;border-radius:0;background:transparent;cursor:pointer;-webkit-appearance:button}
+		button::-moz-focus-inner{border:0;padding:0}
+		hr{display:none}
+		html,body{background:#fff}
+		a{color:#007aff;text-decoration:none}
+		address,caption,cite,code,dfn,em,var{font-style:normal;font-weight:normal}
+		body,th,td,input,select,textarea,button{font-size:14px;line-height:1.5;font-family:'Malgun Gothic','맑은 고딕',sans-serif;color:#000}
+		main{display:block}.iphone{font-family:helvetica,AppleSDGothicNeo,sans-serif}
+		.iphone b{font-family:AppleSDGothicNeo-Bold;font-weight:normal}
+		.iphone th,.iphone td,.iphone input,.iphone select,.iphone textarea,.iphone button{font-family:helvetica,AppleSDGothicNeo,sans-serif}
+		.android b{font-weight:bold}
+		.firefox button,input{background-image:none}
+		img[data-original-src]{background-color:#fff}
+		.ir_pm{display:block;overflow:hidden;font-size:0;line-height:0;text-indent:-9999px}
+		.ir_wa{display:block;overflow:hidden;position:relative;width:100%;height:100%;z-index:-1}
+		.screen_out{display:block;overflow:hidden;position:absolute;left:-9999px;width:1px;height:1px;font-size:0;line-height:0;text-indent:-9999px}
+		.screen_hide{height:0;font-size:0;line-height:0;visibility:hidden}
+
+		.ico_election{background:url("./images/ico_election.png") 0 0 no-repeat;background-size:50px 50px; vertical-align:top}
+		.ico_sns{background:url("./images/ico_sns.png") 0 0 no-repeat;background-size:50px 50px;vertical-align: top}
+
+		.top{position:relative;height:124px;background:url("./images/top_bg.png") 0 0 no-repeat;background-size:cover;text-align:center}
+		.top .logo{display:inline-block;width:119px;padding-top:11px}
+		.top .img_logo{width:100%;vertical-align:top;}
+		.top .top_txt{position:absolute;top:20px;right:20px;text-align:right}
+		.top_txt .txt_date{display:block;color:#fff}
+		.top_txt .txt_dDay{display:block;font-weight:bold;color:red}
+		.main_tab{overflow:hidden}
+		.main_tab .on .ico_tab{display:inline-block;}
+		.main_tab .on .link_tab{font-weight:bold;background-color:#fff;color:#292b48}
+		.main_tab .link_tab{display:block;height:40px;text-align:center;color:#333;background-color:#f5f5f5}
+		.main_tab .txt_inner{display:inline-block;padding-top:10px;}
+		.main_tab .ico_tab{display:none;width:14px;height:14px;margin:5px 5px 0 0;background-position: 0 0}
+		.main_tab li {float:left;width:33.33%;background-color:#eee}
+
+		.green .main_tab .ico_tab{background-position:0 -30px}
+		.wrap_candidate .candidate .cover_candidate{width:100%;background-repeat: no-repeat;background-size:cover;vertical-align:top}
+		.wrap_candidate .profile_candidate{position:relative;width:100%;height:71px;padding:0 14px;background-color: #007aff;box-sizing:border-box}
+		.wrap_candidate .profile_candidate:before{display:block;clear:both;content:''}
+		.wrap_candidate .txt_candidate {float:left;overflow:hidden;width:50%;height:40px;padding-top:15px;color:#fff}
+		.wrap_candidate .txt_candidate .txt_name{display:block;font-weight:bold;font-size:20px;line-height:1.2}
+		.wrap_candidate .txt_candidate .txt_bar{color:rgba(255,255,255,0.5)}
+
+		.wrap_candidate .sns_candidate {display:inline-block;width:50%;padding-top:20px}
+		.wrap_candidate .sns_candidate:before{display:block;clear:both;content:''}
+		.wrap_candidate .sns_candidate ul{float:right}
+		.wrap_candidate .sns_candidate li{float: left}
+		.wrap_candidate .btn_sns {float:left;height:30px;margin-left: 10px;}
+		.wrap_candidate .sns_candidate .wrap_circle{display:inline-block;width:30px;height:30px;border:1px solid #fff;border-radius:50%;box-sizing:border-box;vertical-align:top}
+		.wrap_candidate .sns_candidate .yellow{border-color:#fbe900;background-color:#fbe900}
+		.wrap_candidate .sns_candidate .ico_home{display:inline-block;width:13px;height:14px;margin:6px 0 0 7px;background-position: 0 0}
+		.wrap_candidate .sns_candidate .ico_facebook{display:inline-block;width:7px;height:14px;margin:7px 0 0 10px;background-position: -15px 0}
+		.wrap_candidate .sns_candidate .ico_twitter{display:inline-block;width:14px;height:12px;margin:9px 0 0 8px;background-position: -25px 0}
+		.wrap_candidate .sns_candidate .ico_plus{display:inline-block;width:16px;height:16px;margin:6px 0 0 6px;background-position: 0 -15px}
+
+		.wrap_candidate .info_candidate{margin:0 14px;border-bottom:1px solid #f0f1f3}
+		.wrap_candidate .info_candidate .wrap_info{padding:25px 0 15px}
+		.wrap_candidate .info_candidate .dl_comp {font-size: 15px}
+		.wrap_candidate .info_candidate .dl_comp:after{display:block;clear:both;content:''}
+		.wrap_candidate .info_candidate .dl_comp dt{float:left; margin-right:15px;color:#919191}
+		.wrap_candidate .info_candidate .dl_comp dd{overflow: hidden}
+		.wrap_candidate .info_candidate .dl_comp .txt_age{margin-left:6px;color:#919191}
+		.wrap_candidate .info_candidate .dl_comp .wrap_circle{display:inline-block;width:15px;height:15px;margin:2px 0 0 3px;border:1px solid rgba(0, 0, 0, 0.15);border-radius:50%; vertical-align: top;box-sizing: border-box}
+		.wrap_candidate .info_candidate .wrap_circle .ico_triangle{display: inline-block;width:4px;height:7px;margin : 3px 0 0 5px;background-position:-40px 0}
+		.wrap_candidate .info_candidate .cp_source{margin-bottom:20px;font-size:13px;color:#919191}
+
+
+
+		.profile_candidate .list_info:after{display:block;clear:both;content:''}
+		.profile_candidate .list_info li{position:relative;float:left;padding:0 5px 0 6px}
+		.profile_candidate .list_info li:after{position:absolute;top:5px;left:0;width:1px;height:10px;background-color:#fff;content:''}
+		.profile_candidate .list_info li:first-child{padding-left:0}
+		.profile_candidate .list_info li:first-child:after{display:none}
+
+	</style>
+</head>
+<body>
+<div class="wrap">
+	<div class="top">
+		<div class="logo"><img src="./images/logo.png" alt="제 19대 대통령 선" class="img_logo"></div>
+		<div class="top_txt">
+			<span class="txt_date">18.03.21</span>
+			<span class="txt_dDay">D-22</span>
+		</div>
+	</div>
+	<ul class="main_tab">
+		<li>
+			<a href="javascript:;" class="link_tab">
+				<span class="txt_inner"><span class="ico_election ico_tab"></span>개요</span>
+			</a>
+		</li>
+		<li>
+			<a href="javascript:;" class="link_tab">
+				<span class="txt_inner"><span class="ico_election ico_tab"></span>내선거</span>
+			</a>
+		</li>
+		<li class="on">
+			<a href="javascript:;" class="link_tab">
+				<span class="txt_inner"><span class="ico_election ico_tab"></span>후보자</span>
+			</a>
+		</li>
+	</ul>
+	<div class="main_cont">
+		<div>
+			<ul></ul>
+		</div>
+		<div class="wrap_candidate">
+			<div class="candidate">
+				<div class="wrap_img">
+					<img src="https://dummyimage.com/720x360/aaa/thumb.jpg" class="cover_candidate" title="후보자이미지">
+				</div>
+				<div class="profile_candidate">
+					<div class="txt_candidate">
+						<strong class="txt_name">문재인</strong>
+						<ul class="list_info">
+							<li>기호 1번</li>
+							<li>더불어민주당</li>
+							<li>서울</li>
+						</ul>
+					</div>
+					<div class="sns_candidate">
+						<ul>
+							<li>
+								<a href="javascript:;" class="btn_sns">
+									<span class="wrap_circle"><span class="ico_sns ico_home"></span></span>
+								</a>
+							</li>
+							<li >
+								<a href="javascript:;" class="btn_sns">
+									<span class="wrap_circle"><span class="ico_sns ico_facebook"></span></span>
+								</a>
+							</li>
+							<li >
+								<a href="javascript:;" class="btn_sns" >
+									<span class="wrap_circle"><span class="ico_sns ico_twitter"></span></span>
+								</a>
+							</li>
+							<li>
+								<a href="javascript:;" class="btn_sns">
+									<span class="wrap_circle yellow"><span class="ico_sns ico_plus"></span></span>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="info_candidate">
+				<div class="wrap_info">
+					<dl class="dl_comp">
+						<dt>출생</dt>
+						<dd>1962년 2월 26일<span class="txt_age">(만 55세)</span></dd>
+					</dl>
+					<dl class="dl_comp">
+						<dt>직업</dt>
+						<dd>정당인</dd>
+					</dl>
+					<dl class="dl_comp">
+						<dt>학력</dt>
+						<dd>서울대학교 대학원 의학과 박사 졸업</dd>
+					</dl>
+					<dl class="dl_comp">
+						<dt>경력</dt>
+						<dd>(현) 국민의당 당대표 <br> (전) 제19대 국회의원</dd>
+					</dl>
+					<dl class="dl_comp">
+						<dt>기타</dt>
+						<dd><a href="javascript:;" class="txt_link">재산, 병역, 전과 신고 보기<span class="wrap_circle"><span class="ico_sns ico_triangle"></span></span></a></dd>
+					</dl>
+				</div>
+				<div class="cp_source">제공:&nbsp;중앙선거관리위원회</div>
+			</div>
+		</div>
+		<div><ul></ul></div>
+		<div><ul></ul></div>
+	</div>
+</div>
+</body>
+</html>
