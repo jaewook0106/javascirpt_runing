@@ -3,9 +3,20 @@
 <head>
 	<meta charset="UTF-8">
 	<title>javascript 테스트</title>
+	<style>
+		.btn_test{display:block;width:100px;height:25px;background-color:#007aff;color:#fff;text-align:center}
+		.view{margin-top:30px;height:200px;background-color:#fff}
+	</style>
 </head>
 <body>
+	<a href="javascript:;" class="btn_test">버튼</a>
+	<div class="view"></div>
+
+
+	<script src="https://code.jquery.com/jquery-2.2.1.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script>
+
     const concat = (firstArr,nextArr,num)=>{
 
 			function concatArr(firstArr,nextArr,num){
@@ -57,53 +68,165 @@
    console.log(concat([0, 2, [3, 4, 5], [[6, 7]]],['a','b','c',[10,20],[[30,40]]],100));
 
 
+
+
+
+
     const difference = (root, target)=>{
-      const newArr = [];
+      let rootArr = root.slice(0);
 
-      let i;
-      let j;
-      for(i = 0; i < root.length; i+=1){
-        let differenceArr = [];
-        for(j = 0; j < target.length; j+=1){
-          if(root[i] !== target[j]){
-            differenceArr.push(false);
-          }else{
-            differenceArr.push(true);
+      target.forEach(function(targetItem){
+        let newArr = [];
+        rootArr.forEach(function(rootItem){
+          if(targetItem !== rootItem){
+            return newArr.push(rootItem);
 					}
-					console.log(differenceArr);
+				});
+        return rootArr = newArr;
+			});
 
-        }
-      }
-      return newArr;
+      return rootArr;
     };
 
-    console.log(difference([2,4,5,2],[2,7,6,0]));
+    console.log('difference, ',difference([2,4,5,7,8],[2,7,6,0]));
 
 
 
-    const test = () => {
-      const obj = {
-        "a":11,
-				"b":22,
-				"c":33,
-				"arr":[1,2,3]
+
+
+
+		const isObject = (obj) => obj === Object(obj);
+//		const isFunction = (func) => typeof func === 'function';
+    const isFunction = (func) => !!(func && func.constructor && func.call && func.apply);
+
+    const differenceBy = (root, target, type)=>{
+      let rootArr = root.slice(0);
+
+//      console.log(typeof type === 'function');
+
+
+			if(isFunction(type)){
+        target.forEach(function(targetItem){
+          const mathNum = type(targetItem);
+          let newArr = [];
+          rootArr.forEach(function(rootItem){
+            const mathRoot = type(rootItem);
+            if(mathNum !== mathRoot){
+              return newArr.push(mathRoot);
+            }
+          });
+          return rootArr = newArr;
+        });
+        return rootArr;
+			}else{
+
+        target.forEach(function(targetItem){
+          let newArr = [];
+//          console.log('targetItem',targetItem);
+          for(let i in targetItem){
+            if(type === i){
+
+              rootArr.forEach(function(rootItem){
+
+                for(let j in rootItem){
+                  if(type === j){
+                    if(targetItem[i] !== rootItem[j]){
+											let obj = {};
+//                      console.log('rootItem ad a',rootItem[j]);
+                      obj[type] = rootItem[j];
+                      return newArr.push(obj);
+                    }
+									}
+								}
+              });
+						}
+					}
+//					console.log('newArr',newArr);
+          return rootArr = newArr;
+        });
+        return rootArr;
+			}
+    };
+
+
+
+
+//    console.log('differenceBy, ',differenceBy([2.3,4.6,5.7,7.2,8.3],[2.1,7.3,6.5,9.6],Math.round));
+    console.log('differenceBy, ',differenceBy([{'x':1,'y':1},{'x':2},{'x':7,'y':3}],[{'x':1,'y':3},{'x':5,'y':5}],'x'));
+
+
+//    const test2 = 'aaa';
+//    const obj = {};
+//    obj[test2] = 1;
+//    console.log(obj);
+
+
+		const drop = function(arr,num){
+			let dropArr;
+		  if(num === undefined){
+		    dropArr = arr.splice(1,arr.length);
+			}else{
+        dropArr = arr.splice(num,arr.length);
+			}
+			return dropArr;
+		};
+
+		console.log('drop : ',drop([1,2,3,4,5],2));
+
+
+
+
+    const dropRight = function(arr,num){
+      let dropArr;
+      if(num === undefined){
+        dropArr = arr.splice(0,arr.length-1);
+      }else{
+        dropArr = arr.splice(0,arr.length - num);
+      }
+      return dropArr;
+    };
+
+    console.log('dropRight : ',dropRight([1,2,3,4,5],7));
+
+
+
+    const view = function(){
+      const $view = $('.view');
+      const $btn = $('.btn_test');
+
+      const obj1 = {
+        'a':1,
+				'b':2
+			};
+      const obj2 = {
+        'c':3,
+				'd':4
 			};
 
-//			for(let key in obj){
-//        console.log(key);
-//        console.log(obj[key]);
-//			}
+      $.extend(obj1,obj2);
 
-			const test = [1,3,5];
-			test.arr = 'aaa';
 
-			for(let key of test){
-			  console.log(key);
+
+
+      function clicker(target){
+        let state = true;
+        target.on('click',function(e){
+          animationEffect($view, 'eef', state);
+          state = !state;
+				});
+
 			}
-
-
+			function animationEffect(target, color, state){
+        if(state){
+          target.animate({backgroundColor:'#'+color,'height':600+'px'},200);
+				}else{
+          target.animate({backgroundColor:'#333','height':300+'px'},200);
+				}
+			}
+      clicker($btn);
 		};
-		test();
+    view();
+
 	</script>
 </body>
 </html>

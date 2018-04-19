@@ -1,0 +1,264 @@
+
+<!--
+문의 사항
+1) 한국어 쪽 after 가 왜 안 먹는지
+2) first-child 같은 것이 안 먹음
+3) checkbox 부분을 display:none를 하였는데 이 것이 맞는지
+4) 배경색이 왜 전체 페이지에 안 먹는지 ...
+5) 버튼 영역...
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!--<meta http-equiv="X-UA-Compatible" content="ie=edge">-->
+	<title> 네이버 - 회원약관 </title>
+	<style>
+		body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,textarea,p,blockquote,th,td,input,select,button{margin:0;padding:0}
+		fieldset,img{border:0 none}
+		dl,ul,ol,menu,li{list-style:none}
+		blockquote,q{quotes:none}
+		blockquote:before,blockquote:after{content:'';content:none}
+		q:before,q:after{content:'';content:none}
+		input,select,textarea,button{vertical-align:middle;font-size:100%}
+		table{border-collapse:collapse;border-spacing:0}
+		body{-webkit-text-size-adjust:none}
+		input[type='button'],input[type='email'],input[type='password'],input[type='reset'],input[type='search'],input[type='submit'],input[type='tel'],input[type='text']{-webkit-appearance:none;border-radius:0}
+		input[type='search']::-webkit-search-cancel-button,input[type='search']::-webkit-search-decoration{-webkit-appearance:none}
+		input:checked[type='checkbox']{background-color:#666;-webkit-appearance:checkbox}
+		button{border:0 none;border-radius:0;background:transparent;cursor:pointer;-webkit-appearance:button}
+		button::-moz-focus-inner{border:0;padding:0}
+		hr{display:none}
+		html,body{background:#fff}
+		a{color:#007aff;text-decoration:none}
+		address,caption,cite,code,dfn,em,var{font-style:normal;font-weight:normal}
+		body,th,td,input,select,textarea,button{font-size:14px;line-height:1.5;font-family:'Malgun Gothic','맑은 고딕',sans-serif;color:#000}
+		main{display:block}.iphone{font-family:helvetica,AppleSDGothicNeo,sans-serif}
+		.iphone b{font-family:AppleSDGothicNeo-Bold;font-weight:normal}
+		.iphone th,.iphone td,.iphone input,.iphone select,.iphone textarea,.iphone button{font-family:helvetica,AppleSDGothicNeo,sans-serif}
+		.android b{font-weight:bold}
+		.firefox button,input{background-image:none}
+		img[data-original-src]{background-color:#fff}
+		.ir_pm{display:block;overflow:hidden;font-size:0;line-height:0;text-indent:-9999px}
+		.ir_wa{display:block;overflow:hidden;position:relative;width:100%;height:100%;z-index:-1}
+		.screen_out{display:block;overflow:hidden;position:absolute;left:-9999px;width:1px;height:1px;font-size:0;line-height:0;text-indent:-9999px}
+		.screen_hide{height:0;font-size:0;line-height:0;visibility:hidden}
+		body{background-color:#f7f7f7}
+		.ico_naver{background:url(https://static.nid.naver.com/images/ui/join/m_sp_join_20170905.png) 0 0 no-repeat;background-size:146px 738px;vertical-align:top}
+		.wrap {width:100%}
+		.wrap .wrap_langauge{overflow: hidden}
+		.wrap .box_language{float:right;padding:14px}
+		.wrap .box_language::after{display:block;clear:both;width:100%;height:1px;content:''}
+		.box_language .select_comp{background-color:#fff;height:35px;width:100px;-webkit-appearance:none;-webkit-border-radius:0;padding-left:10px}
+		.box_language .select_comp::after{display:block;width:20px;height:20px;border:1px solid red;content:'▼'} /* 여기서 왜 after가 안먹을까? */
+		.wrap_content{padding:2%}
+
+		.wrap .wrap_logo{text-align: center}
+		.wrap_logo .link_logo{display:inline-block}
+		.wrap_logo .ico_logo{display:block;background-position: 0 15px;width:146px;height:44px}
+
+		.wrap_all_chk{padding:10px 14px;border-bottom:1px solid #f0f0f0}
+		/*.wrap_default_chk:first-child{border:1px solid red}*/ /*안먹음 ....*/
+		.first_chk{padding-top:10px}
+		.wrap_default_chk {padding-bottom:10px;padding-left:14px;padding-right:14px}
+		.wrap_all_chk .txt_desc{display: block;width:90%}
+
+		.wrap_all_chk .ico_chk_default{vertical-align: top;margin-top:20px}
+		.wrap_all_chk .ico_chk_choice{vertical-align: top;margin-top:20px}
+		.wrap_terms {background-color: #fff;border:1px solid #ededed;box-sizing: border-box;margin-bottom: 30px}
+		.wrap_terms .wrap_default_chk {position:relative;overflow: hidden}
+		.wrap_terms .chk_comp .txt_label{font-size:15px}
+		.wrap_terms .ico_chk_default{float:right;display:inline-block;width:22px;height:22px;background-position:-98px -72px;}
+		.wrap_terms .ico_chk_choice {background-position:-122px -72px;}
+		.wrap_terms .chk_terms{-webkit-appearance:none;display: none}
+		.wrap_terms .txt_label .inner_txt{padding-left:5px;font-size:12px;color:#8e8e8e}
+		.wrap_terms .txt_label .important_label{color:#1fbc02}
+
+		.wrap_terms .desc_terms{height:70px;border:1px solid #f0f0f0;background-color:#f7f7f7;margin:5px 0px;overflow-y: auto}
+		.wrap_terms .desc_terms .desc_txt{color:#8e8e8e;font-size:12px;padding:5px}
+
+		.wrap_btn {overflow: hidden}
+		.wrap_btn .btn_box{width:50%;height:61px;border:1px solid #e7e7e7;text-align:center;box-sizing: border-box;padding-top:15px;background-color: #fff;float:left;font-size:20px}
+		.wrap_btn .btn_box .link_btn{vertical-align: top;color:#000}
+		.wrap_btn .btn_box.diff{background-color:#1fbc02;border:1px solid #1fbc02;color: #000}
+		.wrap_btn .diff .link_btn{color:#fff}
+
+		.wrap_etc{text-align: center;padding-top:14px}
+		.wrap_etc .link_join{color:#000;text-decoration:underline}
+		.wrap_etc .desc_etc{color:#666}
+
+		.footer {text-align:center}
+		.footer copyright{color:#8e8e8e}
+
+		input[type=checkbox]:checked+.txt_label .ico_chk_default {
+			background-position:-122px -72px;
+		}
+
+	</style>
+</head>
+<body>
+<div class="wrap">
+	<div class="wrap_langauge">
+		<div class="box_language">
+			<label for="language"><span class="screen_out">언어 선택</span></label>
+			<select id="language" class="select_comp">
+				<option>한국어</option>
+				<option>영어</option>
+			</select>
+		</div>
+	</div>
+	<div class="wrap_logo">
+		<a href="javascript:;" class="link_logo"><span class="ico_naver ico_logo"></span></a>
+	</div>
+	<div class="wrap_content">
+		<div class="wrap_terms">
+			<form method="post" id="form_terms">
+				<div class="wrap_all_chk">
+					<div class="chk_comp">
+						<input type="checkbox" class="chk_terms" id="all_chk" name="all_use"/>
+						<label for="all_chk" class="txt_label">
+							<span class="ico_naver ico_chk_default"></span>
+							<span class="txt_desc">이용약관, 개인정보 수집 및 이용,</span>
+							<span class="txt_desc">위치정보 이용약관(선택), 프로모션 안내</span>
+							<span class="txt_desc">메일 수신(선택)에 모두 동의합니다.</span>
+						</label>
+					</div>
+				</div>
+				<div class="wrap_default_chk first_chk">
+					<div class="chk_comp">
+						<input type="checkbox" class="chk_terms" id="naver_use_terms" name="naver_use"/>
+						<label for="naver_use_terms" class="txt_label">
+							<span class="ico_naver ico_chk_default"></span> <!--선택 했을 때 ico_chk_choice, 선택 안했을 때 ico_chk_default-->
+							<span class="txt_title">네이버 이용약관 동의</span>
+							<span class="inner_txt important_label">(필수)</span>
+						</label>
+					</div>
+					<div class="desc_terms">
+						<div class="desc_txt">
+							제 1 조 (목적)<br>
+							이 약관은 네이버 주식회사 ("회사" 또는 "네이버")가 제공하는 네이버 및 네이버 관련 제반 서비스의 이용과 관련하여 회사와 회원과의 권리, 의무 및 책임사항, 기타 필요한 사항을 규정함을 목적으로 합니다.<br/><br/>
+
+							제 2 조 (정의)<br/>
+							이 약관에서 사용하는 용어의 정의는 다음과 같습니다.
+
+							①"서비스"라 함은 구현되는 단말기(PC, TV, 휴대형단말기 등의 각종 유무선 장치를 포함)와 상관없이 "회원"이 이용할 수 있는 네이버 및 네이버 관련 제반 서비스를 의미합니다.
+							②"회원"이라 함은 회사의 "서비스"에 접속하여 이 약관에 따라 "회사"와 이용계약을 체결하고 "회사"가 제공하는 "서비스"를 이용하는 고객을 말합니다.
+							③"아이디(ID)"라 함은 "회원"의 식별과 "서비스" 이용을 위하여 "회원"이 정하고 "회사"가 승인하는 문자와 숫자의 조합을 의미합니다.
+							④"비밀번호"라 함은 "회원"이 부여 받은 "아이디와 일치되는 "회원"임을 확인하고 비밀보호를 위해 "회원" 자신이 정한 문자 또는 숫자의 조합을 의미합니다.
+							⑤"유료서비스"라 함은 "회사"가 유료로 제공하는 각종 온라인디지털콘텐츠(각종 정보콘텐츠, VOD, 아이템 기타 유료콘텐츠를 포함) 및 제반 서비스를 의미합니다.
+							⑥"포인트"라 함은 서비스의 효율적 이용을 위해 회사가 임의로 책정 또는 지급, 조정할 수 있는 재산적 가치가 없는 "서비스" 상의 가상 데이터를 의미합니다.
+							⑦"게시물"이라 함은 "회원"이 "서비스"를 이용함에 있어 "서비스상"에 게시한 부호ㆍ문자ㆍ음성ㆍ음향ㆍ화상ㆍ동영상 등의 정보 형태의 글, 사진, 동영상 및 각종 파일과 링크 등을 의미합니다.
+							제 3 조 (약관의 게시와 개정)
+							①"회사"는 이 약관의 내용을 "회원"이 쉽게 알 수 있도록 서비스 초기 화면에 게시합니다.
+							②"회사"는 "약관의규제에관한법률", "정보통신망이용촉진및정보보호등에관한법률(이하 "정보통신망법")" 등 관련법을 위배하지 않는 범위에서 이 약관을 개정할 수 있습니다.
+							③"회사"가 약관을 개정할 경우에는 적용일자 및 개정사유를 명시하여 현행약관과 함께 제1항의 방식에 따라 그 개정약관의 적용일자 30일 전부터 적용일자 전일까지 공지합니다. 다만, 회원에게 불리한 약관의 개정의 경우에는 공지 외에 일정기간 서비스내 전자우편, 전자쪽지, 로그인시 동의창 등의 전자적 수단을 통해 따로 명확히 통지하도록 합니다.
+							④회사가 전항에 따라 개정약관을 공지 또는 통지하면서 회원에게 30일 기간 내에 의사표시를 하지 않으면 의사표시가 표명된 것으로 본다는 뜻을 명확하게 공지 또는 통지하였음에도 회원이 명시적으로 거부의 의사표시를 하지 아니한 경우 회원이 개정약관에 동의한 것으로 봅니다.
+							⑤회원이 개정약관의 적용에 동의하지 않는 경우 회사는 개정 약관의 내용을 적용할 수 없으며, 이 경우 회원은 이용계약을 해지할 수 있습니다. 다만, 기존 약관을 적용할 수 없는 특별한 사정이 있는 경우에는 회사는 이용계약을 해지할 수 있습니다.
+							제 4 조 (약관의 해석)
+							①"회사"는 "유료서비스" 및 개별 서비스에 대해서는 별도의 이용약관 및 정책(이하 "유료서비스약관 등")을 둘 수 있으며, 해당 내용이 이 약관과 상충할 경우에는 "유료서비스약관 등"이 우선하여 적용됩니다.
+							②이 약관에서 정하지 아니한 사항이나 해석에 대해서는 "유료서비스약관 등" 및 관계법령 또는 상관례에 따릅니다.
+							제 5 조 (이용계약 체결)
+							①이용계약은 "회원"이 되고자 하는 자(이하 "가입신청자")가 약관의 내용에 대하여 동의를 한 다음 회원가입신청을 하고 "회사"가 이러한 신청에 대하여 승낙함으로써 체결됩니다.
+						</div>
+					</div>
+				</div>
+				<div class="wrap_default_chk">
+					<div class="chk_comp">
+						<span class="ico_naver ico_chk_default"></span> <!--선택 했을 때 ico_chk_choice, 선택 안했을 때 ico_chk_default-->
+						<input type="checkbox" class="chk_terms" id="personal_use_terms" name="personal_use"/>
+						<label for="personal_use_terms" class="txt_label"><span class="txt_title">개인정보 수집 및 이용에 대한 안내</span><span class="inner_txt important_label">(필수)</span></label>
+					</div>
+					<div class="desc_terms">
+						<div class="desc_txt">
+							제 1 조 (목적)<br>
+							이 약관은 네이버 주식회사 ("회사" 또는 "네이버")가 제공하는 네이버 및 네이버 관련 제반 서비스의 이용과 관련하여 회사와 회원과의 권리, 의무 및 책임사항, 기타 필요한 사항을 규정함을 목적으로 합니다.<br/><br/>
+
+							제 2 조 (정의)<br/>
+							이 약관에서 사용하는 용어의 정의는 다음과 같습니다.
+
+							①"서비스"라 함은 구현되는 단말기(PC, TV, 휴대형단말기 등의 각종 유무선 장치를 포함)와 상관없이 "회원"이 이용할 수 있는 네이버 및 네이버 관련 제반 서비스를 의미합니다.
+							②"회원"이라 함은 회사의 "서비스"에 접속하여 이 약관에 따라 "회사"와 이용계약을 체결하고 "회사"가 제공하는 "서비스"를 이용하는 고객을 말합니다.
+							③"아이디(ID)"라 함은 "회원"의 식별과 "서비스" 이용을 위하여 "회원"이 정하고 "회사"가 승인하는 문자와 숫자의 조합을 의미합니다.
+							④"비밀번호"라 함은 "회원"이 부여 받은 "아이디와 일치되는 "회원"임을 확인하고 비밀보호를 위해 "회원" 자신이 정한 문자 또는 숫자의 조합을 의미합니다.
+							⑤"유료서비스"라 함은 "회사"가 유료로 제공하는 각종 온라인디지털콘텐츠(각종 정보콘텐츠, VOD, 아이템 기타 유료콘텐츠를 포함) 및 제반 서비스를 의미합니다.
+							⑥"포인트"라 함은 서비스의 효율적 이용을 위해 회사가 임의로 책정 또는 지급, 조정할 수 있는 재산적 가치가 없는 "서비스" 상의 가상 데이터를 의미합니다.
+							⑦"게시물"이라 함은 "회원"이 "서비스"를 이용함에 있어 "서비스상"에 게시한 부호ㆍ문자ㆍ음성ㆍ음향ㆍ화상ㆍ동영상 등의 정보 형태의 글, 사진, 동영상 및 각종 파일과 링크 등을 의미합니다.
+							제 3 조 (약관의 게시와 개정)
+							①"회사"는 이 약관의 내용을 "회원"이 쉽게 알 수 있도록 서비스 초기 화면에 게시합니다.
+							②"회사"는 "약관의규제에관한법률", "정보통신망이용촉진및정보보호등에관한법률(이하 "정보통신망법")" 등 관련법을 위배하지 않는 범위에서 이 약관을 개정할 수 있습니다.
+							③"회사"가 약관을 개정할 경우에는 적용일자 및 개정사유를 명시하여 현행약관과 함께 제1항의 방식에 따라 그 개정약관의 적용일자 30일 전부터 적용일자 전일까지 공지합니다. 다만, 회원에게 불리한 약관의 개정의 경우에는 공지 외에 일정기간 서비스내 전자우편, 전자쪽지, 로그인시 동의창 등의 전자적 수단을 통해 따로 명확히 통지하도록 합니다.
+							④회사가 전항에 따라 개정약관을 공지 또는 통지하면서 회원에게 30일 기간 내에 의사표시를 하지 않으면 의사표시가 표명된 것으로 본다는 뜻을 명확하게 공지 또는 통지하였음에도 회원이 명시적으로 거부의 의사표시를 하지 아니한 경우 회원이 개정약관에 동의한 것으로 봅니다.
+							⑤회원이 개정약관의 적용에 동의하지 않는 경우 회사는 개정 약관의 내용을 적용할 수 없으며, 이 경우 회원은 이용계약을 해지할 수 있습니다. 다만, 기존 약관을 적용할 수 없는 특별한 사정이 있는 경우에는 회사는 이용계약을 해지할 수 있습니다.
+							제 4 조 (약관의 해석)
+							①"회사"는 "유료서비스" 및 개별 서비스에 대해서는 별도의 이용약관 및 정책(이하 "유료서비스약관 등")을 둘 수 있으며, 해당 내용이 이 약관과 상충할 경우에는 "유료서비스약관 등"이 우선하여 적용됩니다.
+							②이 약관에서 정하지 아니한 사항이나 해석에 대해서는 "유료서비스약관 등" 및 관계법령 또는 상관례에 따릅니다.
+							제 5 조 (이용계약 체결)
+							①이용계약은 "회원"이 되고자 하는 자(이하 "가입신청자")가 약관의 내용에 대하여 동의를 한 다음 회원가입신청을 하고 "회사"가 이러한 신청에 대하여 승낙함으로써 체결됩니다.
+						</div>
+					</div>
+				</div>
+				<div class="wrap_default_chk">
+					<div class="chk_comp">
+						<input type="checkbox" class="chk_terms" id="location_use_terms" name="location_use"/>
+						<label for="location_use_terms" class="txt_label">
+							<span class="ico_naver ico_chk_default"></span> <!--선택 했을 때 ico_chk_choice, 선택 안했을 때 ico_chk_default-->
+							<span class="txt_title">위치정보 이용약관 동의</span><span class="inner_txt">(선택)</span>
+						</label>
+					</div>
+					<div class="desc_terms">
+						<div class="desc_txt">
+							제 1 조 (목적)<br>
+							이 약관은 네이버 주식회사 ("회사" 또는 "네이버")가 제공하는 네이버 및 네이버 관련 제반 서비스의 이용과 관련하여 회사와 회원과의 권리, 의무 및 책임사항, 기타 필요한 사항을 규정함을 목적으로 합니다.<br/><br/>
+
+							제 2 조 (정의)<br/>
+							이 약관에서 사용하는 용어의 정의는 다음과 같습니다.
+
+							①"서비스"라 함은 구현되는 단말기(PC, TV, 휴대형단말기 등의 각종 유무선 장치를 포함)와 상관없이 "회원"이 이용할 수 있는 네이버 및 네이버 관련 제반 서비스를 의미합니다.
+							②"회원"이라 함은 회사의 "서비스"에 접속하여 이 약관에 따라 "회사"와 이용계약을 체결하고 "회사"가 제공하는 "서비스"를 이용하는 고객을 말합니다.
+							③"아이디(ID)"라 함은 "회원"의 식별과 "서비스" 이용을 위하여 "회원"이 정하고 "회사"가 승인하는 문자와 숫자의 조합을 의미합니다.
+							④"비밀번호"라 함은 "회원"이 부여 받은 "아이디와 일치되는 "회원"임을 확인하고 비밀보호를 위해 "회원" 자신이 정한 문자 또는 숫자의 조합을 의미합니다.
+							⑤"유료서비스"라 함은 "회사"가 유료로 제공하는 각종 온라인디지털콘텐츠(각종 정보콘텐츠, VOD, 아이템 기타 유료콘텐츠를 포함) 및 제반 서비스를 의미합니다.
+							⑥"포인트"라 함은 서비스의 효율적 이용을 위해 회사가 임의로 책정 또는 지급, 조정할 수 있는 재산적 가치가 없는 "서비스" 상의 가상 데이터를 의미합니다.
+							⑦"게시물"이라 함은 "회원"이 "서비스"를 이용함에 있어 "서비스상"에 게시한 부호ㆍ문자ㆍ음성ㆍ음향ㆍ화상ㆍ동영상 등의 정보 형태의 글, 사진, 동영상 및 각종 파일과 링크 등을 의미합니다.
+							제 3 조 (약관의 게시와 개정)
+							①"회사"는 이 약관의 내용을 "회원"이 쉽게 알 수 있도록 서비스 초기 화면에 게시합니다.
+							②"회사"는 "약관의규제에관한법률", "정보통신망이용촉진및정보보호등에관한법률(이하 "정보통신망법")" 등 관련법을 위배하지 않는 범위에서 이 약관을 개정할 수 있습니다.
+							③"회사"가 약관을 개정할 경우에는 적용일자 및 개정사유를 명시하여 현행약관과 함께 제1항의 방식에 따라 그 개정약관의 적용일자 30일 전부터 적용일자 전일까지 공지합니다. 다만, 회원에게 불리한 약관의 개정의 경우에는 공지 외에 일정기간 서비스내 전자우편, 전자쪽지, 로그인시 동의창 등의 전자적 수단을 통해 따로 명확히 통지하도록 합니다.
+							④회사가 전항에 따라 개정약관을 공지 또는 통지하면서 회원에게 30일 기간 내에 의사표시를 하지 않으면 의사표시가 표명된 것으로 본다는 뜻을 명확하게 공지 또는 통지하였음에도 회원이 명시적으로 거부의 의사표시를 하지 아니한 경우 회원이 개정약관에 동의한 것으로 봅니다.
+							⑤회원이 개정약관의 적용에 동의하지 않는 경우 회사는 개정 약관의 내용을 적용할 수 없으며, 이 경우 회원은 이용계약을 해지할 수 있습니다. 다만, 기존 약관을 적용할 수 없는 특별한 사정이 있는 경우에는 회사는 이용계약을 해지할 수 있습니다.
+							제 4 조 (약관의 해석)
+							①"회사"는 "유료서비스" 및 개별 서비스에 대해서는 별도의 이용약관 및 정책(이하 "유료서비스약관 등")을 둘 수 있으며, 해당 내용이 이 약관과 상충할 경우에는 "유료서비스약관 등"이 우선하여 적용됩니다.
+							②이 약관에서 정하지 아니한 사항이나 해석에 대해서는 "유료서비스약관 등" 및 관계법령 또는 상관례에 따릅니다.
+							제 5 조 (이용계약 체결)
+							①이용계약은 "회원"이 되고자 하는 자(이하 "가입신청자")가 약관의 내용에 대하여 동의를 한 다음 회원가입신청을 하고 "회사"가 이러한 신청에 대하여 승낙함으로써 체결됩니다.
+						</div>
+					</div>
+				</div>
+				<div class="wrap_default_chk">
+					<div class="chk_comp">
+						<input type="checkbox" class="chk_terms" id="event_use" name="event_use"/>
+						<label for="event_use" class="txt_label">
+							<span class="ico_naver ico_chk_default"></span>
+							<span class="txt_title">이벤트 등 프로모션 알림 메일 수신</span>
+							<span class="inner_txt">(선택)</span>
+						</label>
+					</div>
+				</div>
+			</form>
+		</div>
+		<div class="wrap_btn">
+			<span class="btn_box"><a href="javascript:;" class="link_btn">비동의</a></span>
+			<span class="btn_box diff"><a href="javascript:;" class="link_btn">동의</a></span>
+		</div>
+		<div class="wrap_etc">
+			<span class="desc_etc">회사, 동아리 등 단체에서 사용할 ID가 필요하세요? <a href="javascript:;" class="link_join">단체 회원 가입</a></span>
+		</div>
+	</div>
+	<div class="footer">
+		<copyright>© NAVER Corp.</copyright>
+	</div>
+</div>
+</body>
+</html>
