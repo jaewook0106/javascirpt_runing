@@ -13,8 +13,8 @@
 	<div class="view"></div>
 
 
-	<script src="https://code.jquery.com/jquery-2.2.1.js"></script>
-	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<!--<script src="https://code.jquery.com/jquery-2.2.1.js"></script>-->
+	<!--<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>-->
 	<script>
 
     const concat = (firstArr,nextArr,num)=>{
@@ -65,7 +65,7 @@
 
     };
 
-   console.log(concat([0, 2, [3, 4, 5], [[6, 7]]],['a','b','c',[10,20],[[30,40]]],100));
+   console.log('concat : ',concat([0, 2, [3, 4, 5], [[6, 7]]],['a','b','c',[10,20],[[30,40]]],100));
 
 
 
@@ -190,6 +190,14 @@
 
 
 
+
+
+
+
+
+
+
+
     const view = function(){
       const $view = $('.view');
       const $btn = $('.btn_test');
@@ -204,10 +212,6 @@
 			};
 
       $.extend(obj1,obj2);
-
-
-
-
       function clicker(target){
         let state = true;
         target.on('click',function(e){
@@ -225,7 +229,7 @@
 			}
       clicker($btn);
 		};
-    view();
+//    view();
 
 	</script>
 </body>
