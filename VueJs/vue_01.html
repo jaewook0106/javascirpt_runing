@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>vueJs</title>
+</head>
+<body>
+	<div id="app">
+		{{message}}
+	</div>
+	<script src="http://unpkg.com/vue@2.3.3"></script>
+	<script>
+		new Vue({
+			el : '#app',
+			data:{
+			  message:'hello vueJs'
+			},
+
+			beforeCreate: function(){
+			  console.log('before');
+			},
+			created: function(){
+			  console.log('create');
+			},
+			mounted: function(){
+			  console.log('mounted');
+			  this.message = 'edward';
+			},
+			updated: function(){
+			  console.log('updated');
+			}
+		})
+	</script>
+</body>
+</html>
