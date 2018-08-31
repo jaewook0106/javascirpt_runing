@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>공튀기기</title>
+	<style>
+		#ballContainer{width:800px;margin:0 auto}
+		#ballWrap{position:relative;height:500px;border:1px solid #333}
+		#ballWrap .box_ball{display:block;position:absolute;top:0;left:0;width:80px;height:80px;background-color:#aef;-webkit-transition:transform 0.3s;}
+		#ballWrap .box_ball:hover{-webkit-transform:rotate(180deg)}
+		#ballBtn{margin-top:10px;text-align:center}
+		#ballBtn .btn_replay{display:none}
+		#ballBtn button:hover{cursor:pointer}
+	</style>
+</head>
+<body>
+<div id="ballContainer">
+	<div id="ballWrap">
+		<span class="box_ball"></span>
+	</div>
+	<div id="ballBtn">
+		<button type="button" class="btn_start">시작</button>
+		<button type="button" class="btn_division">분할</button>
+		<button type="button" class="btn_stop">중지/재시작</button>
+		<button type="button" class="btn_replay">중지/재시작</button>
+		<button type="button" class="btn_delete">삭제</button>
+	</div>
+</div>
+
+<script>
+  (function(){
+
+    function BallMove(){
+      this.doc = document;
+      this.ballWrap = this.doc.getElementById('ballWrap');
+      this.btnWrap = this.doc.getElementById('ballBtn');
+      this.ball = this.doc.getElementsByClassName('box_ball');
+      // console.log(ball);
+
+      this.btnStart = this.btnWrap.getElementsByClassName('btn_start')[0];
+      this.btnDivision = this.btnWrap.getElementsByClassName('btn_division')[0];
+      this.btnStop = this.btnWrap.getElementsByClassName('btn_stop')[0];
+      this.btnReplay = this.btnWrap.getElementsByClassName('btn_replay')[0];
+      this.btnDelete = this.btnWrap.getElementsByClassName('btn_delete')[0];
+
+      this.wrapWidth = this.ballWrap.clientWidth;
+      this.ballWidth = this.ball[0].clientWidth;
+      this.wrapHeight = this.ballWrap.clientHeight;
+      this.ballHeight = this.ball[0].clientHeight;
+      this.x = this.wrapWidth - this.ballWidth;   // 오른쪽 벽 위치
+      this.y = this.wrapHeight - this.ballHeight; //하단 벽 위치
+      this.ball[0].style.top = 0;
+      this.ball[0].style.left = 0;
+
+      this.bindEvent();
+
+      this.time = 5;   //속도
+      this.xIndex = 0;  //기본시작값
+      this.yIndex = 0;   //기본시작값
+      // this.tf = true;
+
+      this.countNum = 1;
+      this.listNum = 0;
+    }
+
+		/* x축 */
+    BallMove.prototype.ballFrame = function(listNum){
+      if(this.xIndex !== this.x){
+        this.xIndex++;
+        this.ball[this.listNum].style.left = this.xIndex + 'px';
+        this.tfx = true;
+      }else{
+        clearInterval(this.move);
+        this.moveBack = setInterval(this.ballFrameBack.bind(this), this.time);
+      }
+    }
+
+    BallMove.prototype.ballFrameBack = function(listNum){
+      if(this.xIndex !== 0){
+        this.xIndex--;
+        this.ball[this.listNum].style.left = this.xIndex + 'px';
+        this.tfx = false;
+      }else{
+        // this.xIndex = 1;
+        clearInterval(this.moveBack);
+        this.move = setInterval(this.ballFrame.bind(this), this.time);
+      }
+    }
+
+		/* y축 */
+    BallMove.prototype.ballFrameTop = function(listNum){
+      if(this.yIndex !== this.y){
+        this.yIndex++;
+        this.ball[this.listNum].style.top = this.yIndex + 'px';
+        this.tfy = true;
+      }else{
+        clearInterval(this.moveTop);
+        this.moveBackTop = setInterval(this.ballFrameBackTop.bind(this), this.time);
+      }
+    }
+    BallMove.prototype.ballFrameBackTop = function(listNum){
+      if(this.yIndex !== 0){
+        this.yIndex--;
+        this.ball[this.listNum].style.top = this.yIndex + 'px';
+        this.tfy = false;
+      }else{
+        // this.xIndex = 1;
+        clearInterval(this.moveBackTop);
+        this.moveTop = setInterval(this.ballFrameTop.bind(this), this.time);
+
+      }
+    }
+
+		/* 버튼 이벤트 */
+    BallMove.prototype.bindEvent = function(){
+      this.btnStart.addEventListener('click', this.ballStart.bind(this));   //시작버튼
+      this.btnStop.addEventListener('click', this.ballStop.bind(this));  //스톱버튼
+      this.btnReplay.addEventListener('click', this.ballReplay.bind(this));  //재시작버튼
+      this.btnDelete.addEventListener('click', this.ballDelete.bind(this));  //삭제버튼
+      this.btnDivision.addEventListener('click', this.ballDivision.bind(this));  //분할 버튼
+    }
+
+		/* 버튼 스타트 */
+    BallMove.prototype.ballStart = function(){
+      this.ball[0].style.display = 'block';
+      this.btnReplay.style.display = 'none';
+      this.btnStop.style.display = 'inline-block';
+      clearInterval(this.move);
+      clearInterval(this.moveBack);
+      clearInterval(this.moveTop);
+      clearInterval(this.moveBackTop);
+      this.xIndex = 0;
+      this.yIndex = 0;
+      this.move = setInterval(this.ballFrame.bind(this), this.time);
+      this.moveTop = setInterval(this.ballFrameTop.bind(this), this.time);
+    }
+
+		/* 버튼 스톱 */
+    BallMove.prototype.ballStop = function(){
+      clearInterval(this.move);
+      clearInterval(this.moveBack);
+      clearInterval(this.moveTop);
+      clearInterval(this.moveBackTop);
+      this.btnStop.style.display = 'none';
+      this.btnReplay.style.display = 'inline-block';
+    }
+
+		/* 버튼 재시작 */
+    BallMove.prototype.ballReplay = function(){
+      if(this.tfx === true){
+        clearInterval(this.move);
+        this.move = setInterval(this.ballFrame.bind(this), this.time);
+      }else{
+        clearInterval(this.moveBack);
+        this.moveBack = setInterval(this.ballFrameBack.bind(this), this.time);
+      }
+      if(this.tfy === true){
+        clearInterval(this.moveTop);
+        this.moveTop = setInterval(this.ballFrameTop.bind(this), this.time);
+      }else{
+        clearInterval(this.moveBackTop);
+        this.moveBackTop = setInterval(this.ballFrameBackTop.bind(this), this.time);
+      }
+      this.btnReplay.style.display = 'none';
+      this.btnStop.style.display = 'inline-block';
+    }
+
+		/* 버튼삭제 */
+    BallMove.prototype.ballDelete = function(){
+
+      clearInterval(this.move);
+      clearInterval(this.moveBack);
+      clearInterval(this.moveTop);
+      clearInterval(this.moveBackTop);
+      this.ball[0].style.display = 'none';
+      this.ball[0].style.top = 0;
+      this.ball[0].style.left = 0;
+      this.xIndex = 0;
+      this.yIndex = 0;
+      this.btnReplay.style.display = 'none';
+      this.btnStop.style.display = 'inline-block';
+    }
+
+		/* 버튼분할 */
+    BallMove.prototype.ballDivision = function(){
+
+      this.ballX = parseInt(this.ball[0].style.left);
+      this.ballY = parseInt(this.ball[0].style.top);
+
+      clearInterval(this.move);
+      clearInterval(this.moveBack);
+      clearInterval(this.moveTop);
+      clearInterval(this.moveBackTop);
+
+      this.indexNum = this.countNum * 4;
+      this.countNum = this.indexNum;
+
+      this.ballArr = [];
+      for(var i = 0; 4 > i; i++){
+        this.ballArr.push('<span class="box_ball" style="width:'+this.ballWidth/2+'px; height:'+this.ballHeight/2+'px; top:'+this.ballY+'px; left:'+this.ballX+'px;"></span>');
+        this.ballWrap.innerHTML = this.ballArr.join('');
+      }
+      this.ball = this.ballWrap.getElementsByClassName('box_ball');
+
+      this.ball[1].style.left = this.ballWidth/2 + this.ballX + 'px';
+      this.ball[2].style.top = this.ballHeight/2 + this.ballY + 'px';
+      this.ball[3].style.left = this.ballWidth/2 + this.ballX + 'px';
+      this.ball[3].style.top = this.ballHeight/2 + this.ballY + 'px';
+      this.x = this.wrapWidth - this.ballWidth/2;   // 오른쪽 벽 위치
+      this.y = this.wrapHeight - this.ballHeight/2; //하단 벽 위치
+
+
+      // this.listNum = 0;
+      // clearInterval(this.moveBack);
+      // this.moveBack = setInterval(this.ballFrameBack.bind(this), this.time);
+      // clearInterval(this.moveTop);
+      // this.moveBackTop = setInterval(this.ballFrameBackTop.bind(this), this.time);
+
+
+      // this.listNum = 1;
+      // this.xIndex = this.ballWidth/2 + this.ballX;
+      // clearInterval(this.move);
+      // this.move = setInterval(this.ballFrame.bind(this), this.time);
+      // clearInterval(this.moveTop);
+      // this.moveBackTop = setInterval(this.ballFrameBackTop.bind(this), this.time);
+
+      this.listNum = 2;
+      this.yIndex = this.ballHeight/2 + this.ballY;
+      clearInterval(this.moveBack);
+      this.moveBack = setInterval(this.ballFrameBack.bind(this), this.time);
+      clearInterval(this.moveBackTop);
+      this.moveTop = setInterval(this.ballFrameTop.bind(this), this.time);
+
+      // this.listNum = 3;
+      // this.xIndex = this.ballWidth/2 + this.ballX;
+      // this.yIndex = this.ballHeight/2 + this.ballY;
+      // clearInterval(this.move);
+      // this.move = setInterval(this.ballFrame.bind(this), this.time);
+      // clearInterval(this.moveTop);
+      // this.moveTop = setInterval(this.ballFrameTop.bind(this), this.time);
+
+
+
+
+      // if(this.tfx === true){
+      // 	clearInterval(this.move);
+      // 	this.move = setInterval(this.ballFrame.bind(this), this.time);
+      // }else{
+      // 	clearInterval(this.moveBack);
+      // 	this.moveBack = setInterval(this.ballFrameBack.bind(this), this.time);
+      // }
+      // if(this.tfy === true){
+      // 	clearInterval(this.moveTop);
+      // 	this.moveTop = setInterval(this.ballFrameTop.bind(this), this.time);
+      // }else{
+      // 	clearInterval(this.moveBackTop);
+      // 	this.moveBackTop = setInterval(this.ballFrameBackTop.bind(this), this.time);
+      // }
+
+    }
+
+
+		/* ball시작 */
+    var ballShow = new BallMove();
+
+    console.log(ballShow);
+
+    // var ball = {
+    // 	x: 0,
+    // 	y: 0
+    // };
+    // ball.prototype.move = function(xx, yy) {
+    // 	this.x ++;
+    // };
+
+    // ball.prototype.make = function(xx, yy) {
+    // 	this.x ++;
+    // };
+
+
+  })(window);
+</script>
+
+</body>
+</html>

@@ -7,8 +7,9 @@
 		.btn_test{display:block;width:100px;height:25px;background-color:#007aff;color:#fff;text-align:center}
 		.view{margin-top:30px;height:200px;background-color:#fff}
 	</style>
-	<link rel="stylesheet" href="../../../../git/search-2015/src/main/webapp/mo/_style/css/m_common_dev.css">
-	<link rel="stylesheet" href="../../../../git/search-2015/src/main/webapp/mo/_style/css/m_common.css">
+	<!--<link rel="stylesheet" href="../../../../git/search-2015/src/main/webapp/mo/_style/css/m_common_dev.css">-->
+	<!--<link rel="stylesheet" href="../../../../git/search-2015/src/main/webapp/mo/_style/css/m_common.css">-->
+	<!--<script src="../../../../javascript_test/javascript01/js/answer.js"></script>-->
 </head>
 <body>
 	<a href="javascript:;" class="btn_test">버튼</a>
@@ -194,10 +195,17 @@
 
 
 
-
-
-
-
+//    function Test(){
+//      this.arr = [];
+//		}
+//
+//		Test.prototype.arrTest = function(){
+//      this.arr.push(a);
+//		};
+//
+//    const v = new Test();
+//
+//		console.log(v.arr);
 
 
 
@@ -238,8 +246,14 @@
 
 
 
-
-
+	const arr = [];
+	for(let i=0; i < 5; i++){
+	  arr.push(function(){
+	    return i;
+	  });
+	}
+	console.log(arr[0]());
+	console.log(arr[3]());
 
 
 

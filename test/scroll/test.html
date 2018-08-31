@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>html 태그 테스트</title>
+	<style>
+		body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,textarea,p,blockquote,th,td,input,select,button{margin:0;padding:0}
+		fieldset,img{border:0 none}
+		dl,ul,ol,menu,li{list-style:none}
+		blockquote,q{quotes:none}
+		blockquote:before,blockquote:after{content:'';content:none}
+		q:before,q:after{content:'';content:none}
+		input,select,textarea,button{vertical-align:middle;font-size:100%}
+		table{border-collapse:collapse;border-spacing:0}
+		body{-webkit-text-size-adjust:none}
+		input[type='button'],input[type='email'],input[type='password'],input[type='reset'],input[type='search'],input[type='submit'],input[type='tel'],input[type='text']{-webkit-appearance:none;border-radius:0}
+		input[type='search']::-webkit-search-cancel-button,input[type='search']::-webkit-search-decoration{-webkit-appearance:none}
+		input:checked[type='checkbox']{background-color:#666;-webkit-appearance:checkbox}
+		button{border:0 none;border-radius:0;background:transparent;cursor:pointer;-webkit-appearance:button}
+		button::-moz-focus-inner{border:0;padding:0}
+		hr{display:none}
+		html,body{background:#fff}
+		a{color:#007aff;text-decoration:none}
+		address,caption,cite,code,dfn,em,var{font-style:normal;font-weight:normal}
+		body,th,td,input,select,textarea,button{font-size:14px;line-height:1.5;font-family:'Malgun Gothic','맑은 고딕',sans-serif;color:#000}
+		main{display:block}.iphone{font-family:helvetica,AppleSDGothicNeo,sans-serif}
+		.iphone b{font-family:AppleSDGothicNeo-Bold;font-weight:normal}
+		.iphone th,.iphone td,.iphone input,.iphone select,.iphone textarea,.iphone button{font-family:helvetica,AppleSDGothicNeo,sans-serif}
+		.android b{font-weight:bold}
+		.firefox button,input{background-image:none}
+		img[data-original-src]{background-color:#fff}
+		.ir_pm{display:block;overflow:hidden;font-size:0;line-height:0;text-indent:-9999px}
+		.ir_wa{display:block;overflow:hidden;position:relative;width:100%;height:100%;z-index:-1}
+		.screen_out{display:block;overflow:hidden;position:absolute;left:-9999px;width:1px;height:1px;font-size:0;line-height:0;text-indent:-9999px}
+		.screen_hide{height:0;font-size:0;line-height:0;visibility:hidden}
+
+		.list_move{position:fixed;top:40px;right:14px;z-index:10}
+		.list_move .link_move{display:block;width:100px;padding:14px 0;text-align:center;color:#fff;background-color:#333}
+
+		.wrap_content{position:relative;height:100%;color:#fff}
+		#section01{background-color:#007aff}
+		#section02{background-color:#1fbc02}
+		#section03{background-color:#333333}
+		#section04{background-color:#fbe900;color:#333}
+		.txt_inner{font-size:30px;font-weight:bold}
+
+
+		#section01 .txt_inner{position:absolute;top:45%;left:0;width:100%;text-align:center;opacity:0}
+		#section02 .txt_inner{position:absolute;top:70%;left:20%;opacity:0}
+		#section03 .txt_inner{position:absolute;top:70%;right:20%;opacity:0}
+		#section04 .txt_inner{position:absolute;top:55%;left:0;width:100%;text-align:center;opacity:0}
+	</style>
+
+	<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+</head>
+<body>
+	<ul class="list_move">
+		<li>
+			<a href="#section01" class="link_move">section01</a>
+		</li>
+		<li>
+			<a href="#section02" class="link_move">section02</a>
+		</li>
+		<li>
+			<a href="#section03" class="link_move">section03</a>
+		</li>
+		<li>
+			<a href="#section04" class="link_move">section04</a>
+		</li>
+	</ul>
+	<div id="section01" class="wrap_content">
+		<span class="txt_inner _effect _up">Henrik-Larsson</span>
+	</div>
+	<div id="section02" class="wrap_content">
+		<span class="txt_inner _effect _left">Edward</span>
+	</div>
+	<div id="section03" class="wrap_content">
+		<span class="txt_inner _effect _right">Soccer Good</span>
+	</div>
+	<div id="section04" class="wrap_content">
+		<span class="txt_inner _effect _bottom">Hello</span>
+	</div>
+
+	<script>
+		(function(){
+		  const $window = $(window);
+		  const contentHeight = $window.height();
+			const $section = $('.wrap_content');
+			const targetNum = 500;
+			const targetClass = $('.wrap_content ._effect');
+
+      console.log(contentHeight);
+      $section.css({'height':contentHeight +'px'});
+
+      console.log($('#section03').offset());
+      console.log($('#section03 ._effect').offset());
+
+      console.log($window.scrollTop());
+
+
+
+
+
+
+      $window.scroll(function(){
+        console.log($window.scrollTop());
+
+        if($window.scrollTop() >= 120){
+          targetClass.css({'opacity':1})
+        }
+			});
+
+
+			function txtLocation(targetNum, targetClass){
+				const locationNum = targetNum;
+				const locationClass = targetClass;
+				console.log(locationNum);
+
+        locationClass.each(function(index){
+					const locationClassOffset = $(this).offset();
+
+          console.log(locationClassOffset.top - locationNum);
+
+
+
+//					console.log(locationClassOffset);
+				});
+			}
+
+
+
+
+//      txtLocation(targetNum,targetClass);
+
+
+
+		})();
+	</script>
+</body>
+</html>

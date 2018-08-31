@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<style>
+		.wrap_btn{margin-bottom:20px;}
+		#btn_blank{margin-left:50px;}
+	</style>
+</head>
+<body>
+	<div class="wrap_btn">
+		<a href="javascript:;" id="btn_self">버튼</a>
+		<a href="http://localhost:63342/javascirpt_runing/javascirpt_runing/JavaScript/ajax/index.html?_ijt=3vhbfmdfmrtngiphgq8kh9i01j&web=location" id="btn_blank">새창버튼</a>
+	</div>
+	<div id="wrap">
+	</div>
+	<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script>
+		(function(){
+
+
+//      const wrapContent = $('#wrap');
+      const wrapContent = $('#wrap');
+      const btnSelf = $('#btn_self');
+			const url = $(location).attr('href').split('&');
+			const realUrl = url[url.length - 1];
+
+
+			if(realUrl === 'web=location'){
+        ajaxStart();
+        console.log('몽미');
+			}
+
+
+      btnSelf.on('click', ajaxStart);
+
+			function ajaxStart(){
+			  const paramObj = {};
+        paramObj.web = 'location';
+
+        $.ajax({
+          url: "html/test1.html",
+          dataType : 'html',
+          success: function(result){
+            wrapContent.html(result);
+          }
+        });
+        $.param(paramObj);
+			}
+      console.log(realUrl);
+
+
+		})();
+	</script>
+</body>
+</html>
