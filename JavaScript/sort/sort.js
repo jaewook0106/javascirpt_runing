@@ -185,3 +185,122 @@ console.log('패스 성공률 순위',dataSort('passSuccessRateNumber',data));
 
 
 console.log('원본 데이터', data);
+
+
+
+// function bubbleSort(arr){
+//   const len = arr.length;
+//
+//   for(let i = len-1; i >= 0; i--){
+//     for(let j = 1; j <= i; j++){
+//       if(arr[j-1] > arr[j]){
+//         let temp = arr[j-1];
+//         arr[j-1]= arr[j];
+//         arr[j] = temp;
+//       }
+//     }
+//   }
+//   return arr;
+//
+// }
+
+
+
+function bubbleSort(arr){
+  const len = arr.length;
+  for(let i = 0; i < len; i++){
+
+    for(let j = i+1;j < len; j++){
+
+      if(arr[i] > arr[j]){
+        // console.log('x',arr[i]);
+        // console.log('y',arr[j]);
+        let item = arr[i];
+        arr[i] = arr[j];
+        arr[j] = item;
+      }
+    }
+  }
+  return arr;
+}
+
+console.log(bubbleSort([5,2,7,1,3,5,9]));
+
+
+
+const fade = function(){
+  let level = 1;
+  const step = function(){
+    const hex = level.toString(16);
+    // console.log(hex);
+    document.body.style.backgroundColor = '#FFFF' + hex + hex;
+    if(level < 15){
+      // console.log(level);
+        level +=1;
+        // console.log(level);
+        setTimeout(step, 100);
+    }
+  };
+  setTimeout(step, 100);
+
+};
+
+fade();
+
+
+
+function test(){
+  const arr = 'ㅎ';
+  const arr2 = 'ㅎ';
+  // if(arr < arr2){
+  //   console.log('vvv');
+  // }
+  return arr < arr2 ? -1 : arr > arr2 ? 1 : 0;
+
+  // return arr.toLowerCase();
+}
+// test();
+console.log('test',test());
+
+
+
+
+var Person = function(a,b){
+  this.a = a;
+  this.b = b;
+
+  // console.log('this',this);
+
+
+};
+
+var add = new Person(1,3);
+// var add2 = new Person(1,7);
+
+Person.prototype.test2 = function(){
+  if(typeof this.a === 'number' && typeof this.b === 'number'){
+    return this.a + this.b;
+  }
+  return '숫자가아님';
+};
+
+console.log(add.test2());
+// console.log(add2.test());
+
+
+// function Person(a,b){
+//   this.a = a;
+//   this.b = b;
+//
+//   console.log('this',this);
+//
+//   this.test = function(){
+//     console.log(this);
+//     if(typeof this.a === 'number' && typeof this.b === 'number'){
+//       return this.a + this.b;
+//     }
+//     return '숫자가아님';
+//   }
+//
+// }
+
