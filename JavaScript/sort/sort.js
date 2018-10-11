@@ -304,3 +304,18 @@ console.log(add.test2());
 //
 // }
 
+
+function abc(){
+  var alpha = function(x,y){
+    return x + y;
+  };
+
+  var beta = function(a,b){
+    var b = b(3,4);
+    return a * b;
+  };
+
+  return beta(2,alpha);  // 14
+}
+
+console.log(abc());
