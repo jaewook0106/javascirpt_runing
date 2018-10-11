@@ -304,18 +304,39 @@ console.log(add.test2());
 //
 // }
 
+var arrTest = [1,2,3,4,5,6,7,8,9,10];
 
-function abc(){
-  var alpha = function(x,y){
-    return x + y;
-  };
-
-  var beta = function(a,b){
-    var b = b(3,4);
-    return a * b;
-  };
-
-  return beta(2,alpha);  // 14
+function resultArr(arr, num){
+  var arrLen = arr.length;
+  var realArr = [];
+  for(var i=0; i < arrLen; i+=1){
+    if(arr[i] <= num){
+      realArr.push(arr[i]);
+    }
+  }
+  return realArr;
 }
+console.log('o',arrTest);
+console.log('aa',resultArr(arrTest, 5));
 
-console.log(abc());
+
+
+var people = {'seoulPeople':20,'daejeonPeople':15,'daeghuPeople':5}
+
+  function train(people){
+    var seoul = function(){
+      return people.seoulPeople;
+    };
+
+    var daejeon = function(){
+      return people.daejeonPeople;
+    };
+
+    var daegu = function(){
+      return people.daeghuPeople;
+    };
+
+    return seoul() + daejeon() + daegu();
+
+}
+console.log(train(people)); // 총 기차 탄 인원수

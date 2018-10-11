@@ -9,7 +9,8 @@
 ***
 
 ```
-반환값을 지정할 경우 return문이 있어야된다
+반환값을 지정할 경우 return문이 있어야된다.
+함수의 this는 window 이다.
 new 생성자의 경우 기본값은 자신의 this 매개변수 값이다.
 ```
 
@@ -212,24 +213,38 @@ console.log(abc());
 ### 함수 예제들
 
 1. 서울에서 부산까지 기차를 타고 가는데 역마다 사람들이 탄다. 총 타는 사람을 구하여라! (각 역마다 함수를 짜서 구하십시오, return을 활용하여 각각 덧셈을 하십시오)
-서울 : 20명, 대전 : 15명, 대구 : 5명
 
 ```
-function train(){
-	var seoul = function()}{
+var people = {'seoulPeople':20,'daejeonPeople':15,'daeghuPeople':5}
 
-	}
+  function train(){
+    var seoul = function(){
 
-	var daejeon = function(){
+    };
 
-	}
+    var daejeon = function(){
 
-	var daegu = function(){
+    };
 
-	}
+    var daegu = function(){
+
+    };
 
 }
-
-train(); // 총 기차 탄 인원수
+console.log(train()); // 총 기차 탄 인원수
 ```
 
+
+2. 현재 arrTest 라는 변수에 담긴 배열이 존재를 한다. 배열을 가지고 숫자를 지정하여 지정된 숫자보다 작은 숫자만 새로운 배열로 return 시켜라
+( for, if문 사용)
+```
+var arrTest = [1,2,3,4,5,6,7,8,9,10];
+function resultArr(arr, num){
+  
+
+}
+console.log('변경된데이터',resultArr(arrTest, 지정된 숫자넣을 자리));
+
+```
+
+3.  
