@@ -187,6 +187,55 @@ console.log('패스 성공률 순위',dataSort('passSuccessRateNumber',data));
 console.log('원본 데이터', data);
 
 
+/* 색상 바꾸기  */
+
+
+const fade = function(){
+  let level = 1;
+  const step = function(){
+    const hex = level.toString(16);
+    // console.log(hex);
+    document.body.style.backgroundColor = '#FFFF' + hex + hex;
+    if(level < 15){
+      // console.log(level);
+      level +=1;
+      // console.log(level);
+      setTimeout(step, 100);
+    }
+  };
+  setTimeout(step, 100);
+
+};
+
+fade();
+
+
+
+/* 자바스크립트 prototype */
+var Person = function(a,b){
+  this.a = a;
+  this.b = b;
+
+  // console.log('this',this);
+
+
+};
+
+var add = new Person(1,3);
+// var add2 = new Person(1,7);
+
+Person.prototype.test2 = function(){
+  if(typeof this.a === 'number' && typeof this.b === 'number'){
+    return this.a + this.b;
+  }
+  return '숫자가아님';
+};
+
+console.log(add.test2());
+// console.log(add2.test());
+
+
+/* sort */
 
 // function bubbleSort(arr){
 //   const len = arr.length;
@@ -224,68 +273,10 @@ function bubbleSort(arr){
   return arr;
 }
 
-console.log(bubbleSort([5,2,7,1,3,5,9]));
+// console.log(bubbleSort([5,2,7,1,3,5,9]));
+console.log('nnn',bubbleSort(['b','a','z','y','d']));
 
 
-
-const fade = function(){
-  let level = 1;
-  const step = function(){
-    const hex = level.toString(16);
-    // console.log(hex);
-    document.body.style.backgroundColor = '#FFFF' + hex + hex;
-    if(level < 15){
-      // console.log(level);
-        level +=1;
-        // console.log(level);
-        setTimeout(step, 100);
-    }
-  };
-  setTimeout(step, 100);
-
-};
-
-fade();
-
-
-
-function test(){
-  const arr = 'ㅎ';
-  const arr2 = 'ㅎ';
-  // if(arr < arr2){
-  //   console.log('vvv');
-  // }
-  return arr < arr2 ? -1 : arr > arr2 ? 1 : 0;
-
-  // return arr.toLowerCase();
-}
-// test();
-console.log('test',test());
-
-
-
-
-var Person = function(a,b){
-  this.a = a;
-  this.b = b;
-
-  // console.log('this',this);
-
-
-};
-
-var add = new Person(1,3);
-// var add2 = new Person(1,7);
-
-Person.prototype.test2 = function(){
-  if(typeof this.a === 'number' && typeof this.b === 'number'){
-    return this.a + this.b;
-  }
-  return '숫자가아님';
-};
-
-console.log(add.test2());
-// console.log(add2.test());
 
 
 // function Person(a,b){
@@ -340,3 +331,99 @@ var people = {'seoulPeople':20,'daejeonPeople':15,'daeghuPeople':5}
 
 }
 console.log(train(people)); // 총 기차 탄 인원수
+
+
+var arrString = ['ㅎ','ㄱ','ㄷ'];
+var arrEng = ['a','z','b','f'];
+var arrNum = [1,2,8,4,3];
+
+console.log('sort',arrString.sort(function(a,b){
+  var x = a.toLowerCase();
+  var y = b.toLowerCase();
+  return x < y? -1 : x > y? 1: 0;
+}));
+
+
+
+var arrA = [
+  [5,'a'],
+  [3,'z'],
+  [3,'h'],
+  [9,'b']
+];
+
+console.log('sort2',arrA.sort(function(a,b){
+  if(a[0] === b[0]){
+    var x = a[1].toLowerCase();
+    var y = b[1].toLowerCase();
+
+    return x < y? -1 : x > y? 1: 0;
+  }
+  return a[0] - b[0];
+}));
+
+
+
+var objAge = [
+  {
+    'age':17,
+    'name':'edward'
+  },
+  {
+    'age':12,
+    'name':'zero'
+  },
+  {
+    'age':10,
+    'name':'apple'
+  },
+
+];
+
+function objFun(data,type){
+  data.sort(function(a,b){
+    return a[type] - b[type];
+  });
+
+  return data;
+}
+
+console.log('sortObj',objFun(objAge,'age'));
+
+
+// function bubbleSort(arr){
+//   const len = arr.length;
+//
+//   for(let i = len-1; i >= 0; i--){
+//     for(let j = 1; j <= i; j++){
+//       if(arr[j-1] > arr[j]){
+//         let temp = arr[j-1];
+//         arr[j-1]= arr[j];
+//         arr[j] = temp;
+//       }
+//     }
+//   }
+//   return arr;
+//
+// }
+
+var arrData = [1,9,6,3,5,10,7];
+var resultArr = arrData.slice();
+
+function bubbleArr(data){
+  var arrLen = data.length;
+  for(var i = 1; i < arrLen; i++){
+    for(var j = arrLen - 1; j >= i; j--){
+      if(data[j-1] > data[j]){
+        var value = data[j-1];
+        data[j-1] = data[j];
+        data[j] = value;
+      }
+    }
+  }
+
+  return data;
+}
+
+console.log('sort',bubbleArr(resultArr));
+
