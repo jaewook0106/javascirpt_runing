@@ -148,7 +148,7 @@ var realData = data.slice();  // data 복사
 
 function sortData(data){
   var len = data.length;
-  for(var i = len-1; i >= 0; i-=1){
+  for(var i = len-1; i > 0; i-=1){
     for(var j = 1; j <= i; j+=1){
       if(data[j-1] > data[j]){
         var arrTemp = data[j-1]; 

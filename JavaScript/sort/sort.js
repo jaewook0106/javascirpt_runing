@@ -427,3 +427,7 @@ function bubbleArr(data){
 
 console.log('sort',bubbleArr(resultArr));
 
+
+
+
+
