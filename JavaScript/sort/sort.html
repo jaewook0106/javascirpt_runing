@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+	<script>
+		'use strict';
+
+    var arr = [2,7,1,6,5,3];
+    var resultArr = arr.slice();
+
+    function sortData(data){
+			var len = data.length;
+			for(var i = 1; i < len; i+=1){
+			  for(var j = len-1; j >= i; j-=1){
+			    if(data[j-1] > data[j]){
+			      var temp = data[j-1];
+            data[j-1] = data[j];
+			      data[j] = temp;
+					}
+				}
+			}
+			return data;
+    }
+		console.log(sortData(resultArr));
+//    sortData(resultArr);
+
+
+
+
+
+	</script>
+</body>
+</html>

@@ -51,7 +51,7 @@ arrString.sort(function(a,b){
 ```javascript
 var arrA = [
   [5,'a'],
-  [3,'z'],
+  [3,'F'],
   [3,'h'],
   [9,'b']
 ];
