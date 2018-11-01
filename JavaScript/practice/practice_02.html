@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<title>카카오 페이 KB 국민 체크카드</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<style>
+		/* reset */
+		body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, textarea, p, blockquote, th, td, input, select, button{margin:0;padding:0}
+		fieldset, img{border:0 none}
+		dl, ul, ol, menu, li{list-style:none}
+		blockquote, q{quotes:none}
+		blockquote:before, blockquote:after, q:before, q:after{content:'';content:none}
+		input, select, textarea, button{font-size:100%;vertical-align:middle}
+		button{border:0 none;background-color:transparent;cursor:pointer}
+		table{border-spacing:0;border-collapse:collapse}
+		body{-webkit-text-size-adjust:none}
+		/* 뷰포트 변환시 폰트크기 자동확대 방지. */
+		input:checked[type='checkbox']{background-color:#666;-webkit-appearance:checkbox}
+		input[type='text'], input[type='password'], input[type='submit'], input[type='search'], input[type='tel'], input[type='email'], html input[type='button'], input[type='reset']{border-radius:0;-webkit-appearance:none}
+		input[type='search']::-webkit-search-cancel-button{-webkit-appearance:none}
+		body{background:#fff}
+		body, th, td, input, select, textarea, button{font-size:14px;line-height:1.5;font-family:'Malgun Gothic', '맑은 고딕', sans-serif;color:#333}
+		/* color값은 디자인가이드에 맞게사용 */
+		a{color:#333;text-decoration:none}
+		a:active, a:hover{text-decoration:none}
+		address, caption, cite, code, dfn, em, var{font-weight:normal;font-style:normal}
+		#kakaoIndex{overflow:hidden;position:absolute;left:-9999px;width:0;height:1px;margin:0;padding:0}
+		/* 스킵네비게이션 */
+		.ir_pm{display:block;overflow:hidden;font-size:1px;line-height:0;color:transparent}
+		/* Mobile용 사용된 이미지내 의미있는 텍스트의 대체텍스트를 제공할때 */
+		.hide{display:none}
+		.thumb_img{display:block;width:100%}
+		.link_item{display:block}
+		/*탑버튼*/
+		.prm_paycard .btn_top{position:fixed;bottom:-80px;right:-22.4%;z-index:1000;outline:none;transition-property:bottom;transition-duration:0.3s;transition-timing-function:linear;-webkit-transition-property:bottom;-webkit-transition-duration:0.3s;-webkit-transition-timing-function:linear}/* 2018-09-12 v2 수정 */
+		.prm_paycard .btn_top.show{bottom:0;-webkit-transition-timing-function:linear;transition-timing-function:linear;-webkit-transition-duration:0.3s;transition-duration:0.3s;transition-property:bottom}
+		/* 2018-09-12 v2 수정 */
+		.prm_paycard .btn_top .thumb_img{width:50%}
+		/* 카드발급은행 목록 */
+		.wrap_issue{position:relative}
+		.wrap_issue .ir_pm{display:block;position:absolute;right:5%;left:5%;height:24%}
+		.wrap_issue .link_kb{top:0}
+		.wrap_issue .link_sh{top:28%}
+		.wrap_issue .link_nh{top:55%;height:25%}
+		/* 친구랑 비장해지기 */
+		.wrap_share{position:relative}
+		.wrap_share .list_share{position:absolute;top:0;right:0;left:37%;width:63%;height:100%}
+		.wrap_share .ir_pm{display:block;position:absolute;width:33%;height:100%}
+		.wrap_share .ir_pm:first-child{width:34%}
+		.wrap_share .link_kt{left:0}
+		.wrap_share .link_fb{left:33%}
+		.wrap_share .link_url{left:66%}
+		/*이벤트 유의 사항*/
+		.btn_notice{width:100%}
+		.fold_expend .cont_fold{display:block}
+		.prm_notice [data-show=true]{display:block}
+		.prm_notice [data-show=false]{display:none}
+	</style>
+	<!--<script src="js/jquery.js"></script>-->
+</head>
+
+<body>
+<div id="kakaoPromotion" class="prm_paycard">
+	<div id="kakaoHead" class="ir_pm">
+		<img src="images/img_head1.png" class="thumb_img" alt="">
+		<h1>카카오페이 x KB국민카드 어피치 체크카드</h1>
+		<img src="images/apeach.gif" class="thumb_img" alt="어피치 움직이는 이미지">
+		<div class="wrap_issue">
+			<img src="images/img_head2.png" class="thumb_img" alt="">
+			<a href="#none" class="ir_pm link_kb"><strong>KB국민은행</strong>을 사용중 이라면<strong>발급하기</strong></a>
+			<a href="#none" class="ir_pm link_sh"><strong>신한은행</strong>을 사용중 이라면<strong>발급하기</strong></a>
+			<a href="#none" class="ir_pm link_nh"><strong>NH농협은행</strong>을 사용중 이라면<strong>발급하기</strong></a>
+		</div>
+	</div>
+
+	<hr class="hide">
+	<div id="kakaoContent">
+		<div class="ir_pm">
+			<img src="images/img_apeach.png" class="thumb_img" alt="">
+			<h2>발급만해도</h2>
+			<h3>한.정.판 어피치 스티커 드려요</h3>
+		</div>
+		<div class="ir_pm">
+			<img src="images/img_payment1.png" class="thumb_img" alt="">
+			<h2>카카오페이로 결제만 해도</h2>
+			<span>※ 2만원 이상 결제시</span>
+			<h3>추첨을 통해 최대 100만원 드려요</h3>
+			<strong>총 1,600만원</strong>
+			<span>추첨 내역</span>
+			<ol>
+				<li>1명 1,000,000원</li>
+				<li>5명 500,000원</li>
+				<li>250명 50,000원</li>
+			</ol>
+		</div>
+		<div class="ir_pm">
+			<img src="images/img_payment2.png" class="thumb_img" alt="">
+			<h3>그리고 1,500명 카카오프렌즈 탁상 캘린더까지</h3>
+		</div>
+		<div class="ir_pm">
+			<img src="images/img_payment3.png" class="thumb_img" alt="">
+			<h3>이 페이지를 통해 모두에게 삼천원 더</h3>
+			<strong>+3,000원</strong>
+			<ul>
+				<li>이벤트 기간 : 11월 5일(월) ~ 12월 4일(화)</li>
+				<li>카드발급 후, 카카오페이 등록 + 결제자에 한합니다.</li>
+				<li>당첨금은 카카오페이머니로 지급됩니다.</li>
+			</ul>
+		</div>
+		<div class="ir_pm">
+			<h2>친구랑 같이 비장해지기</h2>
+			<div class="ir_pm wrap_share">
+				<img src="images/img_payment4.png" class="thumb_img" alt="">
+				<strong>링크 공유 목록</strong>
+				<ul class="list_share">
+					<li><a href="#none" class="ir_pm link_kt">카카오톡 공유</a></li>
+					<li><a href="#none" class="ir_pm link_fb">페이스북 공유</a></li>
+					<li><a href="#none" class="ir_pm link_url">url 공유</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="ir_pm prm_notice">
+			<!-- data-show가 false면 none , data-show가 true이면 block -->
+			<h2 class="tit_notice">
+				<button type="button" class="btn_notice" data-un="true">
+					<img src="images/img_essential_on.png" data-show="false" class="thumb_img" alt="이벤트 유의사항">
+					<img src="images/img_essential_off.png" data-show="true" class="thumb_img" alt="이벤트 유의사항">
+				</button>
+			</h2>
+			<div class="wrap_notice" data-show="false">
+				<img src="images/img_essential.png" class="thumb_img" alt="">
+				<ul>
+					<li>본 이벤트의 행사 기간은 11월 5일(월) ~ 12월 4일(화)입니다. 발급 혜택은 이벤트 기간 동안 ‘카카오페이 KB국민 체크카드’를 신규 발급한 고객에 한하여
+						제공되며 결제 혜택은 기존 발급 고객 포함 해당 제휴카드를 카카오페이에 등록한 후 카카오페이로 2만원 이상 결제한 고객에게 제공됩니다.</li>
+					<li>어피치 스티커 : 카드 배송 봉투에 삽입하여 배송 됩니다. 단, 선착순으로 지급 되어 수량 소진 시 제공이 불가한 점 양해 바랍니다.</li>
+					<li>추첨 지급 : 대상카드 등록 후 카카오페이로 2만원 이상 결제한 고객에 한하여 추첨을 통해 드리는 카카오페이머니는 KB국민카드에서 12월 17일(월) 일괄 지급
+						하며, 제세공과금은 KB국민카드에서 부담 합니다. 카카오프렌즈 2019년 탁상 캘린더는 카카오페이에서 12월 17(월)~21일(금) 순차 배송하며 배송비는
+						카카오페이에서 부담합니다. 추첨 대상은 아래와 같습니다. 1등 100만원(1명), 2등 50만원(5명), 3등 5만원(250명), 4등 카카오프렌즈 2019년 탁상
+						캘린더(1,500명)</li>
+					<li>3,000원 지급 : 본 페이지를 통해 신규 발급하고 대상카드 등록 후 카카오페이로 결제한 고객에 한하여 카카오페이에서 12월 17일(월) 일괄 지급 합니다.</li>
+					<li>모든 이벤트는 기간 중 1인 1회에 한하여 제공되며, 지급 시점에 정상카드 보유 및 이벤트 제공조건 유지 시 제공됩니다.</li>
+					<li>카카오페이머니는 만 14세 이상, 휴대폰 본인인증이 가능한 고객에 한 하여 사용 가능합니다.</li>
+					<li>본 이벤트는 KB국민카드 영업정책 및 제휴업체 사정으로 변경 또는 중단될 수 있습니다.</li>
+				</ul>
+			</div>
+		</div>
+		<div class="ir_pm">
+			<img src="./images/img_essential2.png" class="thumb_img" alt="">
+			<h2>꼭 읽어보세요!</h2>
+			<h3>카드 혜택</h3>
+			<ul>
+				<li>카카오페이 결제 시 2% 카카오페이머니 적립 (월1만점한도)</li>
+				<li>커피전문점, 제과 · 아이스크림, 대중교통(버스, 지하철), CU편의점이용시 1% 카카오페이머니 적립(월1만점한도)</li>
+				<li>전월 30만원이상 이용 시 적립</li>
+			</ul>
+			<h3>카드 유의사항</h3>
+			<ul>
+				<li>문의처 : KB국민카드 홈페이지(www.kbcard.com) 또는 고객센터(☎1588-1688</li>
+				<li><strong>상품상세 혜택 및 이용조건에 관한 세부사항은 카드신청전 상품설명서 및 약관을 반드시 확인하여 주시기 바랍니다.</strong></li>
+				<li><strong>신용카드 남용은 가계경제에 위협이 됩니다. 여신금융상품 이용시 귀하의 신용등급이 하락할 수 있습니다.</strong></li>
+			</ul>
+			<strong>연체료율:회원별, 이용상품별 정상이자율 +3%p, 최고 연 24%</strong>
+			<span>단, 연체발생시점에 정상이자율이 없는 경우 아래와 같이 적용함.</span>
+			<ul>
+				<li>상품상세 혜택 및 이용조건에 관한 세부사항은 카드신청전 상품설명서 및 약관을 반드시 확인하여 주시기 바랍니다.</li>
+				<li>무이자할부 거래 연체시 : 거래발생시점의 동일한 할부계약 기간의 유이자 할부수수료율 적용</li>
+				<li>체크카드 후불교통대금, 소액신용결제대금 등 연체시 정상이자율은 다음 중 가장 높은 금리적용</li>
+				<li>상법에 따른 상사법정이율</li>
+				<li>한국은행법에 따라 한국은행에서 매월 발표하는 가장 최근의 비은행금융기관 가중평균대출금리 중 상호금융 가계자금 대출 금리</li>
+			</ul>
+			<img src="images/img_essential3.png" class="thumb_img" alt="">
+			<span>KB국민카드 준법감시인 심의필 제 180911-02878-HPM호 (유효기간, 2018.9.11~2018.10.31) KB국민카드 체크카드사업부
+                    kkgc20052@kbfg.com</span>
+			<button type="button" class="btn_top">
+				<img src="./images/btn_scope_top.png" class="thumb_img" alt="맨위로">
+			</button>
+		</div>
+	</div>
+	<hr class="hide">
+	<div id="kakaoFoot" class="ir_pm">
+		<img src="images/img_logo.png" class="thumb_img" alt="">
+		<h2>카카오페이 x KB국민카드</h2>
+		<img src="images/img_foot.png" class="thumb_img" alt="">
+		<span>LICENSED BY KAKAO IX 본 제품은 카카오아이엑스 주식회사와 라이선스 정식계약에 의해 카카오페이에서 제작 판매하는 것으로 무단 복제 및 판매를 금합니다.</span>
+	</div>
+</div>
+<script type="text/javascript">
+
+	'use strict';
+
+
+	// util
+	(function(KAKAOPAY_UI){
+
+    function Util(opts){
+
+		}
+
+    Util.prototype.selectAll = (target, parentDOM) =>{
+      return Array.prototype.slice.call(parentDOM.querySelectorAll(target));
+		};
+    Util.prototype.selectOne = (target, parentDOM) =>{
+      return Array.prototype.slice.call(parentDOM.querySelectorAll(target))[0];
+    };
+//    Util.prototype.hasClass = (target, className) =>{
+//      const regex = new RegExp('(\\s|^)' + className + '(\\s|$)');
+//      return regex.test(target.getAttribute('class'));
+//    };
+
+    Util.prototype.addClass = (targetElem, elemClassName) => {
+			const classNames = targetElem.className.split(' ');
+			if(classNames.indexOf(elemClassName) < 0){
+        classNames.push(elemClassName);
+        targetElem.className = classNames.join(' ');
+			}
+    };
+    Util.prototype.removeClass = (targetElem, elemClassName) => {
+      const classNames = targetElem.className.split(' ');
+      if(classNames.indexOf(elemClassName) > 0){
+        classNames.splice(classNames.indexOf(elemClassName), 1);
+			}
+      targetElem.className = classNames.join(' ');
+		};
+
+    KAKAOPAY_UI.util = new Util;
+
+	})(window.KAKAOPAY_UI = window.KAKAOPAY_UI || {});
+
+	// view
+
+	(function(KAKAOPAY_UI){
+    const KU = KAKAOPAY_UI;
+    const _ = KU.util || {};
+
+
+    function View(){
+			this.that = this;
+
+		}
+//
+//		class View {
+//      constructor(){
+//
+//			}
+//      btnEvent(){
+//
+// 			}
+//		}
+
+    View.prototype.btnEvent = function(opts){
+      const eventBtn = _.selectOne(opts.btnClass,opts.ctx);
+      const eventImg = _.selectAll(opts.btnChangeClass,eventBtn);
+      const attributeDataName = opts.attributeDataName;
+      const eventWrap = _.selectOne(opts.targetClass,opts.ctx);
+      let eventBool = true;
+      eventBtn.addEventListener('click',function(e){
+        eventImg.forEach(function(val, idx){
+          eventImg[idx].dataset[attributeDataName] === 'true' ? eventImg[idx].dataset[attributeDataName] = 'false' : eventImg[idx].dataset[attributeDataName] = 'true';
+        });
+        eventBool ? eventWrap.dataset[attributeDataName] = 'true' : eventWrap.dataset[attributeDataName] = 'false';
+        eventBool = !eventBool;
+      })
+		};
+
+
+    View.prototype.eventTop = function(opts){
+      const win = window;
+			const topBtn = _.selectOne(opts.btnClass,opts.ctx);
+			const contentHeight = opts.ctx.scrollHeight;
+
+      win.addEventListener('scroll',function(){
+        console.log(win.scrollY);
+        win.scrollY >= opts.scrollNumber ? _.addClass(topBtn, opts.openClassName) : _.removeClass(topBtn, opts.openClassName);
+			});
+
+		};
+
+
+
+    KAKAOPAY_UI.view = new View;
+
+	})(window.KAKAOPAY_UI = window.KAKAOPAY_UI || {});
+
+
+	// 실행쪽
+	window.onload = function(){
+    (function(KAKAOPAY_UI) {
+      const KU = KAKAOPAY_UI;
+      const _ = KU.util || {};
+      const _view = KU.view || {};
+      const doc = document;
+      const ctx = _.selectOne('#kakaoPromotion',doc);
+
+      console.log(KAKAOPAY_UI);
+
+      _view.btnEvent(
+        {
+          ctx:ctx,
+          btnClass:'.btn_notice',
+          btnChangeClass : '.thumb_img',
+          attributeDataName : 'show',
+          targetClass : '.wrap_notice'
+        }
+      );
+      _view.eventTop(
+        {
+          ctx:ctx,
+					btnClass:'.btn_top',
+					openClassName:'show',
+					scrollNumber: 1000
+        }
+      );
+    })(window.KAKAOPAY_UI = window.KAKAOPAY_UI || {});
+	};
+
+
+</script>
+</body>
+
+</html>

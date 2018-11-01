@@ -16,10 +16,35 @@
 	<div class="view"></div>
 
 
-	<!--<script src="https://code.jquery.com/jquery-2.2.1.js"></script>-->
-	<!--<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>-->
+	<script src="https://code.jquery.com/jquery-2.2.1.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script>
 		'use strict';
+
+
+    const chunk = (arr,chunkNum)=>{
+      const chunkArr = [];
+      let i;
+      for(i = 0; i < arr.length; i += chunkNum){
+        chunkArr.push(arr.slice(i,i + chunkNum));
+      }
+      return chunkArr;
+    };
+
+    console.log(chunk([1,3,5,6,7,2,4],5));
+
+    const compact = (arr)=>{
+      const newArr = [];
+      let i;
+      for(i = 0;i < arr.length; i+=1){
+        if(!arr[i] === false){
+          newArr.push(arr[i]);
+        }
+      }
+      return newArr;
+    };
+
+    console.log(compact([false, 1, '' , 2, '', 3]));
 
 
     const concat = (firstArr,nextArr,num)=>{
@@ -191,7 +216,7 @@
       return dropArr;
     };
 
-    console.log('dropRight : ',dropRight([1,2,3,4,5],7));
+    console.log('dropRight : ',dropRight([1,2,3,4,5],3));
 
 
 
@@ -224,6 +249,7 @@
 			};
 
       $.extend(obj1,obj2);
+
       function clicker(target){
         let state = true;
         target.on('click',function(e){
@@ -241,7 +267,7 @@
 			}
       clicker($btn);
 		};
-//    view();
+    view();
 
 
 

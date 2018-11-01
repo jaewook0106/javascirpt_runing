@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+<div class="world">
+	<a href="javascript:;" class="linkTime">시간보기</a>
+</div>
+<script>
+  'use strict';
+  (function(doc,exports){
+
+    const ctx = selectOne('.world',doc);
+    const btnTime = selectOne('.linkTime',ctx);
+
+    function selectAll(target, parentDOM){
+      return Array.prototype.slice.call(parentDOM.querySelectorAll(target));
+    }
+    function selectOne(target, parentDOM){
+      return Array.prototype.slice.call(parentDOM.querySelectorAll(target))[0];
+    }
+    function hasClass(target, className){
+      const regex = new RegExp('(\\s|^)' + className + '(\\s|$)');
+      return regex.test(target.getAttribute('class'));
+    }
+
+    function Simple(){
+
+    }
+
+    Simple.prototype.clickEvn = function(){
+      const that = this;
+      btnTime.addEventListener('click',function(){
+        console.log(that);
+        console.log(this);
+      });
+    };
+
+    const time = new Simple;
+    time.clickEvn({
+			option:'click',
+			speed:10
+
+		});
+
+  })(document,window);
+</script>
+</body>
+</html>
