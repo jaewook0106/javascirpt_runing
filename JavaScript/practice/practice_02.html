@@ -190,12 +190,10 @@
 
 	'use strict';
 
-
 	// util
 	(function(KAKAOPAY_UI){
 
     function Util(opts){
-
 		}
 
     Util.prototype.selectAll = (target, parentDOM) =>{
@@ -234,20 +232,11 @@
     const KU = KAKAOPAY_UI;
     const _ = KU.util || {};
 
-
     function View(){
 			this.that = this;
 
 		}
-//
-//		class View {
-//      constructor(){
-//
-//			}
-//      btnEvent(){
-//
-// 			}
-//		}
+
 
     View.prototype.btnEvent = function(opts){
       const eventBtn = _.selectOne(opts.btnClass,opts.ctx);
@@ -268,16 +257,27 @@
     View.prototype.eventTop = function(opts){
       const win = window;
 			const topBtn = _.selectOne(opts.btnClass,opts.ctx);
-			const contentHeight = opts.ctx.scrollHeight;
+//			const contentHeight = opts.ctx.scrollHeight;
 
       win.addEventListener('scroll',function(){
         console.log(win.scrollY);
         win.scrollY >= opts.scrollNumber ? _.addClass(topBtn, opts.openClassName) : _.removeClass(topBtn, opts.openClassName);
 			});
 
+      topBtn.addEventListener('click',function(){
+        let scrollPos = win.scrollY;
+        const scrollAnimate = setInterval(function(){
+					if(scrollPos <= 0){
+					  clearInterval(scrollAnimate);
+					}else{
+            scrollPos -= opts.speed;
+            win.scrollTo(0,scrollPos);
+					}
+				},1);
+			});
+
+
 		};
-
-
 
     KAKAOPAY_UI.view = new View;
 
@@ -309,7 +309,8 @@
           ctx:ctx,
 					btnClass:'.btn_top',
 					openClassName:'show',
-					scrollNumber: 1000
+					scrollNumber: 700,
+					speed:26
         }
       );
     })(window.KAKAOPAY_UI = window.KAKAOPAY_UI || {});
