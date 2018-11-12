@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+	<title>vueJs</title>
+	<style>
+		/* reset */
+		body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, textarea, p, blockquote, th, td, input, select, button{margin:0;padding:0}
+		fieldset, img{border:0 none}
+		dl, ul, ol, menu, li{list-style:none}
+		blockquote, q{quotes:none}
+		blockquote:before, blockquote:after, q:before, q:after{content:'';content:none}
+		input, select, textarea, button{font-size:100%;vertical-align:middle}
+		button{border:0 none;background-color:transparent;cursor:pointer}
+		table{border-spacing:0;border-collapse:collapse}
+		body{-webkit-text-size-adjust:none}
+		/* 뷰포트 변환시 폰트크기 자동확대 방지. */
+		input:checked[type='checkbox']{background-color:#666;-webkit-appearance:checkbox}
+		input[type='text'], input[type='password'], input[type='submit'], input[type='search'], input[type='tel'], input[type='email'], html input[type='button'], input[type='reset']{border-radius:0;-webkit-appearance:none}
+		input[type='search']::-webkit-search-cancel-button{-webkit-appearance:none}
+		body{background:#fff}
+		body, th, td, input, select, textarea, button{font-size:14px;line-height:1.5;font-family:'Malgun Gothic', '맑은 고딕', sans-serif;color:#333}
+		/* color값은 디자인가이드에 맞게사용 */
+		a{color:#333;text-decoration:none}
+		a:active, a:hover{text-decoration:none}
+		address, caption, cite, code, dfn, em, var{font-weight:normal;font-style:normal}
+		#kakaoIndex{overflow:hidden;position:absolute;left:-9999px;width:0;height:1px;margin:0;padding:0}
+		/* 스킵네비게이션 */
+		.ir_pm{display:block;overflow:hidden;font-size:1px;line-height:0;color:transparent}
+		/* Mobile용 사용된 이미지내 의미있는 텍스트의 대체텍스트를 제공할때 */
+		.hide{display:none}
+		.thumb_img{display:block;width:100%}
+		.link_item{display:block}
+
+		/* 공통영역 */
+		.pyeongchang_olympic .group_thummb{display:block;position:relative}
+		.pyeongchang_olympic .group_thummb .img_thumb{width:100%;vertical-align:top}
+		.pyeongchang_olympic .group_thummb .thumb_frame{position:absolute;top:0;left:0;width:100%;height:100%;background-color:#000;opacity:0.08}
+		.pyeongchang_olympic .group_info{font-size:15px}
+		.pyeongchang_olympic .group_tit{overflow:hidden;position:relative;padding:13px 0 8px}
+		.pyeongchang_olympic .group_tit .tit_item{float:left;font-size:17px;font-weight:normal}
+		.pyeongchang_olympic .group_tit .link_logo{width:100px;height:28px;background-position:0 0}
+		.pyeongchang_olympic .group_tit.screen_out{padding:0}
+		.pyeongchang_olympic .info_cont{position:relative}
+		.pyeongchang_olympic .link_more{float:right;color:#888}
+		.pyeongchang_olympic .link_more .ico_more{width:7px;height:12px;margin:4px 0 0 6px;background-position:-90px -30px}
+		.pyeongchang_olympic .group_expend{overflow:hidden;padding:8px 0 11px}
+		.pyeongchang_olympic .list_thumb{overflow:hidden;margin:0 -4px}
+		.pyeongchang_olympic .list_thumb li{float:left;width:50%;margin-bottom:11px;padding:0 4px;box-sizing:border-box}
+		.pyeongchang_olympic .list_thumb .link_item{display:block}
+		.pyeongchang_olympic .list_thumb .group_info{margin-top:6px}
+		.pyeongchang_olympic .list_thumb .group_info .txt_info{display:block;display:-webkit-box;overflow:hidden;max-height:3em;-webkit-line-clamp:2;-webkit-box-orient:vertical;line-height:1.5em;word-break:break-all}
+		.pyeongchang_olympic .list_thumb .txt_lighting{color:#12aab5}
+		.pyeongchang_olympic .section_item{position:relative;padding-bottom:10px}
+		.pyeongchang_olympic .section_item::after{position:absolute;bottom:0;left:0;width:100%;height:9px;border-top:1px solid #e4e6e7;background-color:#f2f2f2;content:''}
+
+		/* 라이브 */
+		.pyeongchang_olympic .olympic_live{position:relative;padding:0 12px 68px;background:url(../images/news_bg.jpg) no-repeat 0 0;background-size:cover}
+		.pyeongchang_olympic .olympic_live .group_tit{padding-top:13px}
+		.pyeongchang_olympic .olympic_live .group_tit .list_game{float:right}
+		.pyeongchang_olympic .olympic_live .group_tit .list_game li{float:left;margin-left:6px}
+		.pyeongchang_olympic .olympic_live .group_tit .list_game .ico_olympic{width:25px;height:25px}
+		.pyeongchang_olympic .olympic_live .group_tit .link_game{display:block}
+		.pyeongchang_olympic .olympic_live .on .ico_biathlon{background-position:0 -30px}
+		.pyeongchang_olympic .olympic_live .ico_bobsled{background-position:-30px -30px}
+		.pyeongchang_olympic .olympic_live .ico_cross{background-position:-60px -30px}
+		.pyeongchang_olympic .olympic_live .pictogram_skating{position:absolute;bottom:12px;right:24px}
+		.pyeongchang_olympic .olympic_live .info_cont{margin-top:8px}
+		.pyeongchang_olympic .olympic_live .link_live{display:block}
+		.pyeongchang_olympic .olympic_live .list_live{overflow:hidden}
+		.pyeongchang_olympic .olympic_live .group_info{display:inline-block;overflow:hidden;position:absolute;bottom:14px;left:0;max-width:100%;padding:0 36px 0 12px;font-size:17px;color:#fff;white-space:nowrap;text-overflow:ellipsis;word-break:break-all;box-sizing:border-box}
+		.pyeongchang_olympic .olympic_live .group_info .tag_live{display:inline-block;width:41px;height:17px;margin:2px 5px 0 0;padding-top:2px;border-radius:50px;font-size:11px;background-color:#e69900;color:#fff;text-align:center;vertical-align:top;box-sizing:border-box}
+		.pyeongchang_olympic .olympic_live .group_info .ico_play{position:absolute;top:3px;right:12px;width:16px;height:16px;background-position:-100px -15px}
+		.pyeongchang_olympic .olympic_live .link_item{position:absolute;top:50%;width:30px;height:30px;margin-top:-15px;border:1px solid #1a1a1a;background-color:#303030;text-align:center;box-sizing:border-box;opacity:0.9}
+		.pyeongchang_olympic .olympic_live .link_prev{left:0;border-radius:0 50% 50% 0}
+		.pyeongchang_olympic .olympic_live .link_next{right:0;border-radius:50% 0 0 50%}
+		.pyeongchang_olympic .olympic_live .link_item .ico_olympic{width:6px;height:11px;margin-top:8px}
+		.pyeongchang_olympic .olympic_live .link_prev .ico_olympic{background-position:-105px 0}
+		.pyeongchang_olympic .olympic_live .link_next .ico_olympic{background-position:-115px 0}
+		.pyeongchang_olympic .olympic_live .link_item.off{opacity:0.5;cursor:default}
+
+		/* 하이라이트 */
+		.pyeongchang_olympic .olympic_highlight{padding-left:12px;padding-right:12px}
+		.pyeongchang_olympic .olympic_highlight .txt_confirm{position:absolute;top:0;left:0;width:65px;height:20px;padding-top:4px;font-size:12px;background-color:#1cadce;text-align:center;color:#fff}
+
+
+		/* 랭킹 */
+		.pyeongchang_olympic .olympic_ranking{padding-left:12px;padding-right:12px}
+		.pyeongchang_olympic .olympic_ranking .korea_rank{overflow:hidden;padding-bottom:12px;border-bottom:1px solid #ebebeb}
+		.pyeongchang_olympic .olympic_ranking .ico_kor{width:29px;height:21px;background-position:0 -125px}
+		.pyeongchang_olympic .olympic_ranking .tit_korea{float:left;padding-top:13px;font-size:20px;font-weight:normal}
+		.pyeongchang_olympic .olympic_ranking .korea_rank .ico_kor{margin:3px 5px 0 0}
+		.pyeongchang_olympic .olympic_ranking .list_medal{float:right}
+		.pyeongchang_olympic .olympic_ranking .list_medal li{float:left;position:relative;margin-left:8px}
+		.pyeongchang_olympic .olympic_ranking .list_medal .ico_olympic{width:32px;height:43px}
+		.pyeongchang_olympic .olympic_ranking .list_medal .ico_gold{background-position:0 -80px}
+		.pyeongchang_olympic .olympic_ranking .list_medal .ico_silver{background-position:-35px -80px}
+		.pyeongchang_olympic .olympic_ranking .list_medal .ico_bronze{background-position:-70px -80px}
+		.pyeongchang_olympic .olympic_ranking .list_medal .txt_num{position:absolute;top:16px;left:0;width:100%;font-size:15px;font-weight:bold;font-family:helvetica, 'Apple SD Gothic Neo', '돋움', dotum, sans-serif;text-align:center}
+		.pyeongchang_olympic .tbl_ranking{width:100%}
+		.pyeongchang_olympic .tbl_ranking th, .pyeongchang_olympic .tbl_ranking td{padding:12px 0;border-bottom:1px solid #f2f2f2;text-align:center}
+		.pyeongchang_olympic .tbl_ranking thead th:first-child, .pyeongchang_olympic .tbl_ranking tbody td:first-child{padding-left:13px;text-align:left}
+		.pyeongchang_olympic .tbl_ranking tbody tr:nth-child(odd){background-color:#fafafa}
+		.pyeongchang_olympic .tbl_ranking th{font-weight:normal;color:#6e6e6e}
+		.pyeongchang_olympic .tbl_ranking td{font-size:13px;font-family:helvetica, 'Apple SD Gothic Neo', '돋움', dotum, sans-serif}
+		.pyeongchang_olympic .tbl_ranking .txt_num{margin-right:13px;font-size:13px}
+		.pyeongchang_olympic .tbl_ranking .txt_country{margin-left:5px;font-size:15px;font-family:'Apple SD Gothic Neo', 'dotum', '돋움', sans-serif}
+		.pyeongchang_olympic .tbl_ranking .txt_gold{color:#a38600}
+		.pyeongchang_olympic .tbl_ranking .txt_silver{color:#606e74}
+		.pyeongchang_olympic .tbl_ranking .txt_bronze{color:#715239}
+		.pyeongchang_olympic .tbl_ranking .txt_all{font-size:14px}
+
+	</style>
+</head>
+<body>
+	<div id="app">
+		<div class="pyeongchang_olympic">
+			<div class="olympic_highlight section_item">
+				<div class="group_tit">
+					<h3 class="tit_item">하이라이트 영상</h3>
+					<a href="#" class="link_more">더보기<span class="ico_olympic ico_more"></span></a>
+				</div>
+				<div class="info_cont">
+					<ul class="list_thumb">
+						<todo-video v-for="(item, idx) in video" v-bind:video-vue="item"></todo-video>
+					</ul>
+				</div>
+			</div>
+			<div class="olympic_ranking section_item">
+				<h3 class="screen_out">올림픽 메달 순위</h3>
+				<div class="info_cont">
+					<div class="korea_rank">
+						<strong class="tit_korea"><span class="ico_olympic ico_kor"></span>대한민국 5위</strong>
+						<ul class="list_medal">
+							<li><span class="ico_gold ico_olympic">금메달</span><span class="txt_num">{{ranking[3].gold}}</span><span class="screen_out">개</span></li>
+							<li><span class="ico_silver ico_olympic">은메달</span><span class="txt_num">18</span><span class="screen_out">개</span></li>
+							<li><span class="ico_bronze ico_olympic">동메달</span><span class="txt_num">28</span><span class="screen_out">개</span></li>
+						</ul>
+					</div>
+
+					<table class="tbl_ranking">
+						<caption class="ir_caption">올림픽 랭킹순서</caption>
+						<thead>
+						<tr>
+							<th scope="col">메달순위</th>
+							<th scope="col">금</th>
+							<th scope="col">은</th>
+							<th scope="col">동</th>
+							<th scope="col">합계</th>
+						</tr>
+						</thead>
+						<tbody>
+							<todo-ranking v-for="(item, idx) in ranking" v-bind:ranking-vue="item"></todo-ranking>
+						</tbody>
+					</table>
+					<div class="group_expend">
+						<a href="#" class="link_more">순위 더보기<span class="ico_olympic ico_more"></span></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="../vendor/vue.js"></script>
+	<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+	<script>
+		'use strict';
+		(function(){
+
+		  const videoData = [
+				{
+					newsText:'이상화, 차민규, 빙속 3차 월드컵 500m 은메달 이상화, 차민규, 빙속 3차 월드컵 500m 은메달',
+				},
+        {
+          newsText:'에드워드 결승전 골 득점 성공',
+        },
+        {
+          newsText:'스웨덴 중거리포 골',
+        },
+        {
+          newsText:'멀린, 쩐더꿀, 빵야 빙속 3차 월드컵 500m 은메달 이상화, 차민규, 빙속 3차 월드컵 500m 은메달',
+        }
+			];
+
+		  const rankingData = [
+				{
+				  ranking:1,
+          country:'스웨덴',
+					gold:17,
+					silver:14,
+					bronze:9
+				},
+        {
+          ranking:2,
+          country:'대한민국',
+          gold:15,
+          silver:12,
+          bronze:3
+        },
+        {
+          ranking:3,
+          country:'일본',
+          gold:11,
+          silver:9,
+          bronze:3
+        },
+        {
+          ranking:4,
+          country:'핀란드',
+          gold:10,
+          silver:14,
+          bronze:5
+        },
+        {
+          ranking:5,
+          country:'노르웨이',
+          gold:7,
+          silver:8,
+          bronze:13
+        }
+			];
+
+      const app = new Vue({
+        el:'#app',
+        data:{
+          video : videoData,
+          ranking: rankingData
+				},
+        components:{
+					'todo-video':{
+					  props:['videoVue'],
+					  template:'<li><a href="#" class="link_item"><div class="group_thummb"><img src="https://dummyimage.com/332x214/666/fff.jpg" class="img_thumb" alt=""><span class="thumb_frame"></span></div><div class="group_info"><span class="txt_info">{{videoVue.newsText}}</span></div></a></li>'
+					},
+					'todo-ranking':{
+					  props:['rankingVue'],
+						template:'<tr><td><span class="txt_num">{{rankingVue.ranking}}<span class="screen_out">위</span></span><span class="txt_country">{{rankingVue.country}}</span></td><td><span class="txt_gold">{{rankingVue.gold}}</span><span class="screen_out">개</span></td><td><span class="txt_silver">{{rankingVue.silver}}</span><span class="screen_out">개</span></td><td><span class="txt_bronze">{{rankingVue.bronze}}</span><span class="screen_out">개</span></td><td><span class="txt_all">40</span><span class="screen_out">개</span></td></tr>'
+					}
+        }
+      });
+
+		})();
+
+	</script>
+</body>
+</html>

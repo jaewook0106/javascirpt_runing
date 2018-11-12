@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<title>카카오 페이 KB 국민 체크카드</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<style>
+		body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,textarea,p,blockquote,th,td,input,select,button{margin:0;padding:0}
+		fieldset,img{border:0 none}
+		dl,ul,ol,menu,li{list-style:none}
+		blockquote,q{quotes:none}
+		blockquote:before,blockquote:after{content:'';content:none}
+		q:before,q:after{content:'';content:none}
+		input,select,textarea,button{vertical-align:middle;font-size:100%}
+		table{border-collapse:collapse;border-spacing:0}
+		body{-webkit-text-size-adjust:none}
+		input[type='button'],input[type='email'],input[type='password'],input[type='reset'],input[type='search'],input[type='submit'],input[type='tel'],input[type='text']{-webkit-appearance:none;border-radius:0}
+		input[type='search']::-webkit-search-cancel-button,input[type='search']::-webkit-search-decoration{-webkit-appearance:none}
+		input:checked[type='checkbox']{background-color:#666;-webkit-appearance:checkbox}
+		button{border:0 none;border-radius:0;background:transparent;cursor:pointer;-webkit-appearance:button}
+		button::-moz-focus-inner{border:0;padding:0}
+		hr{display:none}
+		html,body{background:#fff}
+		a{color:#007aff;text-decoration:none}
+		address,caption,cite,code,dfn,em,var{font-style:normal;font-weight:normal}
+		body,th,td,input,select,textarea,button{font-size:14px;line-height:1.5;font-family:'Malgun Gothic','맑은 고딕',sans-serif;color:#000}
+		main{display:block}.iphone{font-family:helvetica,AppleSDGothicNeo,sans-serif}
+		.iphone b{font-family:AppleSDGothicNeo-Bold;font-weight:normal}
+		.iphone th,.iphone td,.iphone input,.iphone select,.iphone textarea,.iphone button{font-family:helvetica,AppleSDGothicNeo,sans-serif}
+		.android b{font-weight:bold}
+		.firefox button,input{background-image:none}
+		img[data-original-src]{background-color:#fff}
+		.ir_pm{display:block;overflow:hidden;font-size:0;line-height:0;text-indent:-9999px}
+		.ir_wa{display:block;overflow:hidden;position:relative;width:100%;height:100%;z-index:-1}
+		.screen_out{display:block;overflow:hidden;position:absolute;left:-9999px;width:1px;height:1px;font-size:0;line-height:0;text-indent:-9999px}
+		.screen_hide{height:0;font-size:0;line-height:0;visibility:hidden}
+
+
+
+		#tblContent{width:500px;margin:30px auto 0}
+		.tbl_practice{width:100%;text-align:center}
+		.tbl_practice th{background-color:#f2dcce}
+		.tbl_practice th, .tbl_practice td{padding:10px 0;border:1px solid #fff;color:#8b6755}
+
+		.tbl_practice td{background-color:#f5e4dc}
+
+	</style>
+	<!--<script src="js/jquery.js"></script>-->
+</head>
+
+<body>
+<div id="tblContent">
+	<table class="tbl_practice">
+		<caption class="screen_out">연습입니다.</caption>
+		<colgroup>
+			<col>
+			<col>
+			<col>
+		</colgroup>
+		<thead>
+			<tr>
+				<th>i</th>
+				<th>j</th>
+				<th>j-i</th>
+			</tr>
+		</thead>
+		<tbody>
+
+		</tbody>
+	</table>
+</div>
+<script type="text/javascript">
+
+	'use strict';
+
+	// util
+	(function(UTIL){
+
+    function Util(opts){
+		}
+
+    Util.prototype.selectAll = (target, parentDOM) =>{
+      return Array.prototype.slice.call(parentDOM.querySelectorAll(target));
+		};
+    Util.prototype.selectOne = (target, parentDOM) =>{
+      return Array.prototype.slice.call(parentDOM.querySelectorAll(target))[0];
+    };
+    Util.prototype.hasClass = (target, className) =>{
+      const regex = new RegExp('(\\s|^)' + className + '(\\s|$)');
+      return regex.test(target.getAttribute('class'));
+    };
+
+    Util.prototype.addClass = (targetElem, elemClassName) => {
+			const classNames = targetElem.className.split(' ');
+			if(classNames.indexOf(elemClassName) < 0){
+        classNames.push(elemClassName);
+        targetElem.className = classNames.join(' ');
+			}
+    };
+    Util.prototype.removeClass = (targetElem, elemClassName) => {
+      const classNames = targetElem.className.split(' ');
+      if(classNames.indexOf(elemClassName) > 0){
+        classNames.splice(classNames.indexOf(elemClassName), 1);
+			}
+      targetElem.className = classNames.join(' ');
+		};
+
+    Util.prototype.htmlAdd = (targetElem, addElem) => {
+      targetElem.innerHTML = addElem;
+		};
+
+    Util.prototype.chunk = (arr,chunkNum)=> {
+      const chunkArr = [];
+      let i;
+      for (i = 0; i < arr.length; i += chunkNum) {
+        chunkArr.push(arr.slice(i, i + chunkNum));
+      }
+      return chunkArr;
+    };
+
+
+    UTIL.util = new Util;
+
+	})(window.UTIL = window.UTIL || {});
+
+
+	(function(UTIL){
+	  const _ = UTIL.util;
+    const doc = document;
+    const ctx = _.selectOne('#tblContent',doc);
+
+    const tblContent = _.selectOne('.tbl_practice',ctx);
+		const tblContentBody = _.selectOne('tbody',tblContent);
+
+
+		function numMinus(combineNum,lineNum,rowNum){
+
+		  function trContentDraw(){
+        const arrContent = [];
+        const trContent = '<tr></tr>';
+        for(let i=0; i < combineNum; i+=1){
+//          console.log(i);
+          for(let j=0; j < lineNum; j+=1) {
+            arrContent.push(trContent);
+//            console.log(arrContent);
+          }
+//        _.htmlAdd(tblContentBody, arrContent.join(''));
+
+        }
+        _.htmlAdd(tblContentBody, arrContent.join(''));
+			}
+
+			function tdContentDraw(){
+				const trSelect = _.selectAll('tr',tblContentBody);
+				const trArr = _.chunk(trSelect,lineNum);
+
+//				console.log(trArr[0].length);
+
+        for(let i=0; i < combineNum; i+=1){
+          for(let j=0; j < lineNum; j+=1) {
+            const arrRowContent = [];
+           	for(let k=0; k <rowNum; k+=1){
+              if(((j+1) % trArr[i].length) === 1){
+                if(k === 0) {
+                  arrRowContent.push('<td'+ ' rowspan="' + lineNum + '">' + (i+1) + '</td>'  );
+                }else if(k < (rowNum - 1)){
+                  arrRowContent.push('<td>' + (j+1) + '</td>');
+								}else if(k === (rowNum - 1)){
+                  arrRowContent.push('<td>' + (j-i) + '</td>');
+								}
+              }else{
+                if(k !== 0){
+                  if(k < (rowNum - 1)) {
+                    arrRowContent.push('<td>' + (j+1) + '</td>');
+                  }else if(k === (rowNum - 1)){
+                    arrRowContent.push('<td>' + (j-i) + '</td>');
+                  }
+//                console.log('test');
+								}
+							}
+						}
+            _.htmlAdd(trArr[i][j], arrRowContent.join(''));
+          }
+        }
+
+			}
+
+      trContentDraw();  // tr생성
+      tdContentDraw();  // td생성
+		}
+
+		numMinus(2,5,3);  // 묶음수, 행수, 열수
+
+	})(window.UTIL = window.UTIL || {});
+
+
+
+</script>
+</body>
+
+</html>

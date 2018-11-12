@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>vueJs</title>
+</head>
+<body>
+	<div id="app">
+		{{message}}
+	</div>
+	<div id="app2">
+		<span v-bind:title="message">
+			{{message2}}
+		</span>
+	</div>
+
+	<script src="../vendor/vue.js"></script>
+	<script>
+		'use strict';
+
+		const app = new Vue({
+			el:'#app',
+			data:{
+			  message:'안녕하세요 Vue'
+			}
+		});
+
+		const app2 = new Vue({
+			el:'#app2',
+			data:{
+			  message:'이 페이지는' + new Date() + '로드',
+				message2:'무슨말이냐'
+			}
+		});
+	</script>
+</body>
+</html>

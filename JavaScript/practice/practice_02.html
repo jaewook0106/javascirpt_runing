@@ -202,10 +202,10 @@
     Util.prototype.selectOne = (target, parentDOM) =>{
       return Array.prototype.slice.call(parentDOM.querySelectorAll(target))[0];
     };
-//    Util.prototype.hasClass = (target, className) =>{
-//      const regex = new RegExp('(\\s|^)' + className + '(\\s|$)');
-//      return regex.test(target.getAttribute('class'));
-//    };
+    Util.prototype.hasClass = (target, className) =>{
+      const regex = new RegExp('(\\s|^)' + className + '(\\s|$)');
+      return regex.test(target.getAttribute('class'));
+    };
 
     Util.prototype.addClass = (targetElem, elemClassName) => {
 			const classNames = targetElem.className.split(' ');
@@ -234,9 +234,7 @@
 
     function View(){
 			this.that = this;
-
 		}
-
 
     View.prototype.btnEvent = function(opts){
       const eventBtn = _.selectOne(opts.btnClass,opts.ctx);
@@ -252,7 +250,6 @@
         eventBool = !eventBool;
       })
 		};
-
 
     View.prototype.eventTop = function(opts){
       const win = window;
@@ -275,17 +272,14 @@
 					}
 				},1);
 			});
-
-
 		};
 
     KAKAOPAY_UI.view = new View;
 
 	})(window.KAKAOPAY_UI = window.KAKAOPAY_UI || {});
 
-
 	// 실행쪽
-	window.onload = function(){
+  window.onload = function(){
     (function(KAKAOPAY_UI) {
       const KU = KAKAOPAY_UI;
       const _ = KU.util || {};
@@ -294,6 +288,7 @@
       const ctx = _.selectOne('#kakaoPromotion',doc);
 
       console.log(KAKAOPAY_UI);
+//      console.log(_.hasClass(ctx,'prm_paycard'));
 
       _view.btnEvent(
         {
@@ -310,7 +305,7 @@
 					btnClass:'.btn_top',
 					openClassName:'show',
 					scrollNumber: 700,
-					speed:26
+					speed:30
         }
       );
     })(window.KAKAOPAY_UI = window.KAKAOPAY_UI || {});
