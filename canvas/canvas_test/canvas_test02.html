@@ -49,73 +49,21 @@
       const canvas = doc.getElementById('canvas');
       const ctx = canvas.getContext('2d');
       const objectScale = 50;
-      const roadColor = '#1768ac';
+      const roadColor = 'rgb(255,165,0)';
       const DangerRoadColor = '#fd495f';
 
-			drawRoad(100, 100, roadColor, 450, 50);
-      drawRoad(500, 150, roadColor, 50, 50);
-      drawRoad(100, 200, roadColor, 450, 50);
-      drawRoad(100, 250, roadColor, 50, 50);
-      drawRoad(100, 300, roadColor, 450, 50);
-      drawRoad(500, 350, roadColor, 50, 50);
-      drawRoad(100, 400, roadColor, 450, 50);
-      drawRoad(100, 450, roadColor, 50, 50);
-      drawRoad(100, 500, roadColor, 250, 50);
-      drawRoad(300, 550, roadColor, 50, 50);
-
-      drawRoad(0, 600, DangerRoadColor, 350, 50);
-      drawRoad(0, 0, DangerRoadColor, 50, 600);
-      drawRoad(50, 0, DangerRoadColor, 600, 50);
-      drawRoad(600, 0, DangerRoadColor, 50, 750);
-      drawRoad(300, 700, DangerRoadColor, 300, 50);
-      drawRoad(300, 750, DangerRoadColor, 50, 100);
-
-      draw(100, 100, '#6ec213');
-      draw(300, 800, '#6ec213');
-
-
-			function drawRoad(x, y, c, w, h){
-        ctx.fillStyle = c;
-        ctx.fillRect(x, y, w, h);
-			}
-      function draw(x, y, c) {
-        ctx.fillStyle = c;
-        ctx.fillRect(x, y, objectScale, objectScale);
-      }
-      function arcDraw(x, y, r, start, end, a, c){
-        ctx.fillStyle = c;
+      function arcDraw(c, x, y, r, start, end, a){
+        ctx.beginPath();
         ctx.arc(x, y, r, start, end, a);
+//        ctx.lineWidth = 10;
+//        ctx.strokeStyle = "#00f";
+//        ctx.stroke();
+        ctx.fillStyle = c;
+        ctx.fill();
 			}
 
+			arcDraw(roadColor,25, 25, 20, 0, Math.PI * 2, true);
 
-//      function draw() {
-//        var canvas = document.getElementById('canvas');
-//        if (canvas.getContext) {
-//          var ctx = canvas.getContext('2d');
-//
-//          ctx.beginPath();
-//          var x = 100; // x coordinate
-//          var y = 100; // y coordinate
-//          var radius = 25; // Arc radius
-//          var startAngle = 0; // Starting point on circle
-//          var endAngle = Math.PI + (Math.PI * 1) / 2; // End point on circle
-//          var anticlockwise = true; // clockwise or anticlockwise
-//
-//          ctx.arc(x, y, radius, startAngle, endAngle, anticlockwise);
-//          ctx.fillStyle = 'red';
-//          ctx.fill();
-//
-//
-//          ctx.beginPath();
-//          ctx.moveTo(100, 75);
-//          ctx.lineTo(125, 100);
-//          ctx.lineTo(100, 100);
-//          ctx.fillStyle = 'green';
-//          ctx.fill();
-//        }
-//      }
-//
-//      draw();
 
 
 

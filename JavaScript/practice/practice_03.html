@@ -161,7 +161,7 @@
           for(let j=0; j < lineNum; j+=1) {
             const arrRowContent = [];
            	for(let k=0; k <rowNum; k+=1){
-              if(((j+1) % trArr[i].length) === 1){
+              if(((j+1) % trArr[i].length) === 1 || lineNum === 1){
                 if(k === 0) {
                   arrRowContent.push('<td'+ ' rowspan="' + lineNum + '">' + (i+1) + '</td>'  );
                 }else if(k < (rowNum - 1)){
@@ -190,7 +190,9 @@
       tdContentDraw();  // td생성
 		}
 
-		numMinus(2,5,3);  // 묶음수, 행수, 열수
+		numMinus(2,3,3);  // 묶음수, 행수, 열수
+
+
 
 	})(window.UTIL = window.UTIL || {});
 
