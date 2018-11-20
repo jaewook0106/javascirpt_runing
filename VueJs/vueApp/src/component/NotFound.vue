@@ -1,9 +1,9 @@
 <template>
   <div>
-    홈
+    에러
   </div>
 </template>
-
+  
 <script>
 export default {
 

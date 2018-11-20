@@ -16,7 +16,8 @@
 </template>
 
 <script>
-export default {
+
+const board = {
   data(){
     return{
       bid:0,
@@ -25,6 +26,9 @@ export default {
   },
   created(){
     this.fetchData();
+  },
+  updated(){
+
   },
   methods : {
     fetchData(){
@@ -36,6 +40,9 @@ export default {
     }
   }
 }
+
+export default board
+
 </script>
 
 <style>

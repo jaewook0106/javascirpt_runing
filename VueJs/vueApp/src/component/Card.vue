@@ -16,7 +16,7 @@
 
 const data = [0,1];
 
-export default {
+const card = {
   data(){
     return{
       cid:0,
@@ -46,9 +46,9 @@ export default {
       console.log('test');
     }
   }
+}
 
-    
-}               
+export default card
 </script>
 
 <style>
