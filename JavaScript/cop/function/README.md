@@ -217,18 +217,8 @@ console.log(abc());
 ```
 var people = {'seoulPeople':20,'daejeonPeople':15,'daeghuPeople':5}
 
-  function train(){
-    var seoul = function(){
-
-    };
-
-    var daejeon = function(){
-
-    };
-
-    var daegu = function(){
-
-    };
+function train(){
+  
 
 }
 console.log(train()); // 총 기차 탄 인원수

@@ -8,7 +8,7 @@
     <div v-else>
       카드로딩완료
     </div>
-
+  
   </div>
 </template>
 

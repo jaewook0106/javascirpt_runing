@@ -17,7 +17,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
   .wrap_nav{overflow:hidden;margin-top:38px}
   .list_nav li{float:left;margin-left:10px}
   .list_nav li a{display:block;font-size:15px;color:#eee}
