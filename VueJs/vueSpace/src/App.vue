@@ -1,7 +1,10 @@
 <template>
   <div id="app">
     <div id="spaceWeb">
-      <div class="wrap_head">
+      <div class="wrap_logo">
+        <h1 class="tit_logo">Space Travel By VueJs</h1>
+      </div>
+      <div class="wrap_head">  
         <NavListBar></NavListBar>
       </div>
       <div class="wrap_content">
@@ -60,9 +63,48 @@ export default {
   .screen_hide{height:0;font-size:0;line-height:0;visibility:hidden}
 
   #spaceWeb{
+    .wrap_logo{
+      height:80px;
+      text-align:center;
+      .tit_logo{
+        padding-top:22px;
+        font-size:24px;
+        letter-spacing:-0.5px;
+        color:#094d7c;
+      }
+    }
     .wrap_head{
-      height:100px;
       background-color:#333;
     }
+
+    .wrap_top{
+      padding-top:20px;
+      // border-bottom:1px solid #888;
+      // background-color:#f4ec19;
+      text-align:center;
+      
+      .tit_item{
+      font-size:18px;
+      }
+    }
+
+    .wrap_cont{
+      padding:0 20px;
+    }
+
+    .cont_info{
+      margin-top:20px;
+      padding:20px;
+      border:1px solid #ddd;
+      border-radius:10px;
+      background-color:#eee;
+
+      .tit_info{
+        color:#333;
+      }
+    }
+    
   }
+
+  
 </style>

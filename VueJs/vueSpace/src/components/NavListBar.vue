@@ -2,21 +2,28 @@
   <div class="wrap_nav">
     <ul class="list_nav">
       <li>
-        <router-link to="/">Home</router-link>
+        <router-link to="/Home">Home</router-link>
+      </li>
+      <li v-for="(item) in NavData" :key="item.navName">
+        <router-link :to="`${item.linkName}`">{{item.navName}}</router-link>
       </li>
     </ul>
   </div>
 </template>
 
 <script>
-const NavData = ['vue'];
+import {NavData} from '../util/data.js'
+
+// const NavData = ['vue','aaa'];
 export default {
   data () {
     return {
-   
+      NavData
     }
   }
 }
+
+
 
 </script>
 
@@ -24,7 +31,7 @@ export default {
 
   .wrap_nav{
     overflow:hidden;
-    padding:40px 0 0 30px;
+    padding:30px;
   }
   .list_nav{
     li{
@@ -39,7 +46,7 @@ export default {
         color:#eee;
       }
       .active{
-        color:yellow;
+        color:#f4ec19;
       }
     }
   } 
