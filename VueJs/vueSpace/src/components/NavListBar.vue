@@ -18,7 +18,7 @@ import {NavData} from '../util/data.js'
 export default {
   data () {
     return {
-      NavData
+      NavData:NavData
     }
   }
 }

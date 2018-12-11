@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Props Sample</title>
+  </head>
+  <body>
+    <div id="app">
+      <!-- passedData (props) equals to be passed-data  -->
+      <!-- read the bind property from right to left (from bottom to top in app.js)-->
+
+      <!-- props 명 == 상위 컴포넌트 -->
+      <child-component v-bind:passed-data="message"></child-component>
+      <sibling-component v-bind:txt-data="message2"></sibling-component>
+      <test-component v-bind:test-vue="message3"></test-component>
+      <!-- #할일 3 -->
+      <!-- sibling-component 등록 -->
+    </div>
+
+    <script src="js/vendor/vue.js"></script>
+    <script src="js/app.js"></script>
+
+   <!--<script>-->
+     <!--Vue.component('child-component',{-->
+
+       <!--props: ['passedData'],-->
+       <!--template: '<p>{{passData}}</p>'-->
+     <!--});-->
+
+     <!--var app = new Vue({-->
+       <!--el:'#app',-->
+       <!--data:{-->
+         <!--message: 'hello edward parent component'-->
+       <!--}-->
+     <!--});-->
+   <!--</script>-->
+  </body>
+</html>

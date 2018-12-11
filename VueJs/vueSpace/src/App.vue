@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" v-cloak>
     <div id="spaceWeb">
       <div class="wrap_logo">
         <h1 class="tit_logo">Space Travel By VueJs</h1>
@@ -18,6 +18,7 @@
 <script>
 import NavListBar from './components/NavListBar.vue';
 
+
 export default {
   name: 'app',
   components:{
@@ -32,6 +33,7 @@ export default {
 </script>
 
 <style lang="scss">
+  
   body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,textarea,p,blockquote,th,td,input,select,button{margin:0;padding:0}
   fieldset,img{border:0 none}
   dl,ul,ol,menu,li{list-style:none}
@@ -62,19 +64,27 @@ export default {
   .screen_out{display:block;overflow:hidden;position:absolute;left:-9999px;width:1px;height:1px;font-size:0;line-height:0;text-indent:-9999px}
   .screen_hide{height:0;font-size:0;line-height:0;visibility:hidden}
 
+  [v-cloak]{
+    display:none;
+  }
+
   #spaceWeb{
     .wrap_logo{
       height:80px;
+      background-color:#f4ec19;
       text-align:center;
       .tit_logo{
         padding-top:22px;
         font-size:24px;
         letter-spacing:-0.5px;
-        color:#094d7c;
+        color:#30281b;
       }
     }
     .wrap_head{
-      background-color:#333;
+      background-color:#30281b;
+    }
+    .wrap_content{
+      margin-bottom:50px
     }
 
     .wrap_top{
@@ -100,9 +110,48 @@ export default {
       background-color:#eee;
 
       .tit_info{
+        text-align:center;
         color:#333;
       }
+      .content_exam{
+        margin-top:10px;
+      }
     }
+    
+    .btn_comm{
+      display:inline-block;
+      margin:10px;
+      padding:10px 20px;
+      border:1px solid #fff;
+      border-radius:10px;
+      background-color:#30281b;
+      box-shadow:1px 2px 2px #aaa;
+      color:#f4ec19;
+      &:hover{
+        background-color:#52452d;
+      }
+     
+    }
+
+    .tbl_info{
+      width:100%;
+      margin-top:10px;
+      th,td{
+        padding:10px;
+        text-align: center;
+      }
+      th{
+        background-color:#bbb;
+      }
+      td{
+        border-bottom:1px solid #ddd;
+      }
+    }
+
+    .inp_comm{
+      padding:5px;
+    }
+
     
   }
 
