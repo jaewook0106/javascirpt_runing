@@ -4,6 +4,7 @@ import {NavData} from '../util/data.js'
 import Home from '../components/Home'
 import Chapter01 from '../components/Chapter01'
 import Chapter02 from '../components/Chapter02'
+import Chapter03 from '../components/Chapter03'
 import NotFound from '../components/NotFound'
 
 
@@ -13,6 +14,9 @@ const routerDataArr = [
   },
   {
     componentName:Chapter02
+  },
+  {
+    componentName:Chapter03
   }
 ]
 
@@ -21,7 +25,7 @@ const routerData = function(routerDataArr,NavData,homeIn){
   const dataList = [];
 
   if(homeIn === true){
-    dataList.push({path:'/Home', component: Home})
+    dataList.push({path:'/', component: Home})
   }
  
   routerDataArr.forEach( (item,idx) => {

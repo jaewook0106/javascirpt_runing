@@ -2,7 +2,7 @@
   <div id="app" v-cloak>
     <div id="spaceWeb">
       <div class="wrap_logo">
-        <h1 class="tit_logo">Space Travel By VueJs</h1>
+        <h1 class="tit_logo"> <router-link to="/">Space Travel By VueJs</router-link></h1>
       </div>
       <div class="wrap_head">  
         <NavListBar></NavListBar>
@@ -67,7 +67,7 @@ export default {
   [v-cloak]{
     display:none;
   }
-
+  
   #spaceWeb{
     .wrap_logo{
       height:80px;
@@ -77,11 +77,13 @@ export default {
         padding-top:22px;
         font-size:24px;
         letter-spacing:-0.5px;
-        color:#30281b;
+        a{
+          color:#30281b;
+        }
       }
     }
     .wrap_head{
-      background-color:#30281b;
+      background-color:#0a5390;
     }
     .wrap_content{
       margin-bottom:50px
@@ -124,11 +126,11 @@ export default {
       padding:10px 20px;
       border:1px solid #fff;
       border-radius:10px;
-      background-color:#30281b;
+      background-color:#0277ca;
       box-shadow:1px 2px 2px #aaa;
-      color:#f4ec19;
+      color:#fff;
       &:hover{
-        background-color:#52452d;
+        background-color:#014a7d;
       }
      
     }
@@ -141,7 +143,8 @@ export default {
         text-align: center;
       }
       th{
-        background-color:#bbb;
+        background-color:#ddd;
+        color:#094d7c
       }
       td{
         border-bottom:1px solid #ddd;
@@ -150,9 +153,53 @@ export default {
 
     .inp_comm{
       padding:5px;
+      &.inp_contact{
+        width:200px
+      }
     }
 
+    .list_comm{
+      overflow:hidden;
+      margin:0 -10px;
+      li{
+        float:left;
+        width:25%;
+        padding:10px;
+        box-sizing:border-box;
+      }
+    }
+    .wrap_thumb{
+      border:1px solid #ddd;
+      border-bottom:0 none;
+      img{
+        width:100%;
+        vertical-align:top;
+      }
+    }
+    .wrap_info{
+      height:130px;
+      padding:10px;
+      border:1px solid #ddd;
+      border-radius:0 0 5px 5px;
+      background-color:#fff;
+      span:first-child{
+        margin-top:0
+      }
+      span{
+        display:block;
+        margin-top:4px;
+      }
+
+    }
+
+    .box_comm{
+      padding:10px;
+      background-color:#ddd
+    }
     
+
+
+
   }
 
   

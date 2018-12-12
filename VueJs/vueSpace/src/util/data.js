@@ -8,6 +8,10 @@ export const NavData = [
   {
     linkName: '/Chapter02',
     navName : 'Chapter02'
+  },
+  {
+    linkName: '/Chapter03',
+    navName : 'Chapter03'
   }
 ];
 

@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="wrap_top">
-      <h2 class="tit_item">계산형 속성(computed), methods</h2>
+      <h2 class="tit_item">computed(계산형 속성), methods, watch(관찰형 속성)</h2>
       <p>computed는 캐싱이 되지만, methods는 캐싱이 되질 않는다</p>
     </div>
     <div class="wrap_cont">
@@ -85,9 +85,25 @@
       </div>
 
       <div class="cont_info">
-        <h3 class="tit_info">watch (관찰속성)</h3>
+        <h3 class="tit_info">watch</h3>
         <div class="content_exam">
-          
+          <p>_.debounce 써야될뜻...</p>
+          <a href="javascript:;" @click="axiosDataConfirm" class="btn_comm">axios 데이터 통신 확인 링크 console 창에서 확인 가능</a>
+          <input type="text" class="inp_comm inp_contact" v-model="contactName" placeholder="두글자만 영어로 입력 해주세요">
+          <div v-if="isProcessing">조회중 입니다.</div>
+          <div v-if="isNone">데이터가 없습니다. 다시 검색해주세요</div>
+          <ul class="list_comm">
+            <li v-for="item in contactInfo" :key="item.name">
+              <div class="wrap_thumb">
+                <img :src="item.photo" alt="사진" class="img_thumb">
+              </div>
+              <div class="wrap_info">
+                <span class="txt_address">{{item.address}}</span>
+                <span class="txt_name">{{item.name}}</span>
+                <span class="txt_tel">{{item.tel}}</span>
+              </div>
+            </li>
+          </ul>
         </div>
       </div>
 
@@ -96,6 +112,8 @@
 </template>
 
 <script>
+import {contactData} from '../api';
+
 const countryData = [
   {
     name:'미국',
@@ -151,7 +169,13 @@ export default {
       payData:payData,
 
       //methods data
-      addNum : 0
+      addNum : 0,
+
+      //watch
+      isProcessing:false,
+      isNone:false,
+      contactName: '',
+      contactInfo: []
     }
   },
   computed:{
@@ -169,13 +193,13 @@ export default {
       });
     },
 
-
     payReult:{
       get: function(){
         const payString = '' + this.payData.money;
+        const payLength = payString.length - 1;
         let result = '';
         let num = 0;
-        for(let i = payString.length-1; i >= 0; i-=1){
+        for(let i = payLength; i >= 0; i-=1){
           result = payString[i] + result;
           if(num % 3 === 2 && i !== 0){
             result = ','+result;
@@ -194,6 +218,16 @@ export default {
       }
     }
   },
+  watch:{
+    contactName: function(val){
+      // console.log(val)
+      if(val.length >= 2){
+        this.fetchContact()
+      }else{
+         this.contactInfo = []
+      }
+    }
+  },
   methods:{
     setGet(){
       this.payReult = '2,000,000'
@@ -206,7 +240,32 @@ export default {
       }
       return ((1+inpNum)*inpNum / 2);
       // (isNaN(inpNum) || inpNum < 1) ? 0 : ((1+inpNum)*inpNum / 2)
+    },
+    axiosDataConfirm(){
+      console.log(this.contactInfo)
+    },
+    fetchContact(){
+      this.isProcessing = true
+      this.isNone = false
+      contactData.contact(this.contactName)
+      .then(response =>{
+        this.contactInfo = response.data
+        // console.log(this.contactInfo)
+        this.isProcessing = false
+
+        if(this.contactInfo.length === 0){
+          this.isNone = true
+        }
+        
+        return this.contactInfo
+      }).catch(ex =>{
+        console.log('err')
+        this.isProcessing = false
+        this.contactInfo = []
+      })
     }
+
+
   }
 }
 </script>

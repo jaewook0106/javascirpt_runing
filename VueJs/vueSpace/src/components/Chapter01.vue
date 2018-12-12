@@ -84,6 +84,10 @@
         <h3 class="tit_info">v-for</h3>
         <div class="content_exam">
           <span>배열로 할경우</span>
+          <div v-pre class="box_comm">
+            v-for="(item,idx) in examData" :key="item.name"
+            <p>item = value값 / idx = index값</p>
+          </div>
           <ul>
             <li v-for="(item,idx) in examData" :key="item.name">
               <span>{{idx+1}}. 이름은 {{item.name}}</span><br>
@@ -91,6 +95,10 @@
             </li>
           </ul>
           <span style="display:block;margin-top:10px">객체로 할경우</span>
+          <div v-pre class="box_comm">
+            v-for="(value,key,idx) in examData" :key="item.name"
+            <p>value = value값 / idx = index값 / key = key값</p>
+          </div>
           <ul>
             <li v-for="(value,key,idx) in examObjData" :key="value">
               <span>{{idx+1}}. {{key}} : {{value}}</span>
@@ -106,7 +114,7 @@
             <span v-once>v-once : html 요소를 단 한번만 랜더링 하도록 설정</span>
           </div>
           <div>
-             v-pre : 컴파일에 영향받지 안고 그대로 보여준다 <span v-pre>{{textMessage}}</span>
+             v-pre : 컴파일에 영향받지 않고 그대로 보여준다 <span v-pre>{{textMessage}}</span>
           </div>
           <div v-cloak>
             v-cloak : 화면 초기에 컴파일이 되지 않은 템플릿은 나타나지않도록 하는 것
