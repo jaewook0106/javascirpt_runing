@@ -134,6 +134,16 @@ export default {
       }
      
     }
+    .box_pre{
+      
+      border:1px solid #29a3f9;
+      background-color:#333;
+    }
+    .pre_comm{
+      padding:10px;
+      border:1px solid #fff;
+      color:#fff;
+    }
 
     .tbl_info{
       width:100%;
@@ -197,7 +207,7 @@ export default {
       background-color:#ddd
     }
     
-
+    
 
 
   }

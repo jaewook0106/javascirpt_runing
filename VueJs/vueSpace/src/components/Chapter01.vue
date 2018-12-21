@@ -185,7 +185,7 @@ export default {
       fruit:[],
 
       //v-show
-      showBoolean:true,
+      showBoolean:false,
 
       //v-if, v-else, v-else-if
       ifNum:0,
@@ -204,7 +204,7 @@ export default {
   },
   methods: {
     toggleShow(){
-      this.showBoolean === true ? this.showBoolean = false : this.showBoolean = true
+      this.showBoolean = !this.showBoolean
     }
   }
 }
