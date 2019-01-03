@@ -66,11 +66,38 @@
       </div>
 
       <div class="cont_info">
-        <h3 class="tit_info">애니메이션 / transition</h3>
+        <h3 class="tit_info">fade / transition</h3>
         <div class="content_exam">
-          
+          <a href="javascript:;" @click="fadeTrue = !fadeTrue" class="btn_comm">fade기능</a>
+          <transition name="fade">
+            <div v-if="fadeTrue">
+              <div class="box_fade">transition 기능을 살펴보자</div>
+            </div>
+          </transition>
         </div>
       </div>
+
+      <div class="cont_info">
+        <h3 class="tit_info">애니메이션 / transition</h3>
+        <div class="content_exam">
+          <a href="javascript:;" @click="aniTrue = !aniTrue" class="btn_comm">animation기능</a>
+
+          <transition name="ani">
+            <div v-if="aniTrue">
+              <div class="box_fade">animation 기능을 살펴보자</div>
+            </div>
+          </transition>
+        </div>
+      </div>
+
+      <div class="cont_info">
+        <h3 class="tit_info">class 제어</h3>
+        <div class="content_exam">
+          <a href="javascript:;" @click="classControl = !classControl" class="btn_comm" v-bind:class="{on:classControl}">클래스 on 추가해보자</a>
+        </div>
+      </div>
+
+
     </div>
   </div>
 </template>
@@ -88,6 +115,9 @@ export default {
       //cㅣick
       moneyNum : 0,
       cashNum : 0,
+      fadeTrue :true,
+      aniTrue:true,
+      classControl:false
         
     }
   },
@@ -113,6 +143,35 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+    /* transition */
+
+    .box_fade{
+      display:inline-block;
+      padding:10px;
+      border:1px solid #333;
+      background-color:#f4ec19;
+    }
+
+    .fade-enter-active, .fade-leave-active{
+      transition:all 1s;
+    }
+    .fade-enter, .fade-leave-to{
+      opacity: 0;
+      margin-left:50px;
+    }
+
+    .ani-enter-active{
+      animation:aniTest 1s;
+    }
+    .ani-leave-active{
+      animation:aniTest 1s reverse;
+    }
+
+    @keyframes aniTest {
+      0% {transform:scale(0)rotate(0)}
+      50% {transform:scale(1.5)rotate(180deg)}
+      100% {transform:scale(1)rotate(0)}
+    }
 
 </style>
