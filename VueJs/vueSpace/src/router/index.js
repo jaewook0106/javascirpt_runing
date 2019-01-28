@@ -5,6 +5,7 @@ import Home from '../components/Home'
 import Chapter01 from '../components/Chapter01'
 import Chapter02 from '../components/Chapter02'
 import Chapter03 from '../components/Chapter03'
+import Chapter04 from '../components/Chapter04'
 import NotFound from '../components/NotFound'
 
 
@@ -17,6 +18,9 @@ const routerDataArr = [
   },
   {
     componentName:Chapter03
+  },
+  {
+    componentName:Chapter04
   }
 ]
 

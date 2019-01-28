@@ -12,6 +12,10 @@ export const NavData = [
   {
     linkName: '/Chapter03',
     navName : 'Chapter03'
+  },
+  {
+    linkName: '/Chapter04',
+    navName : 'Chapter04'
   }
 ];
 
