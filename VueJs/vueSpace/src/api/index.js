@@ -23,14 +23,12 @@ const request = (mehod,url,data) =>{
     url: url,
     data
   }).then(response => {
-
     return response
   }).catch(ex => {
     console.log('err', ex)
     alert('호출 실패')
     throw ex
-  })
-    
+  })    
 }
 
 export const contactData = {

@@ -5,6 +5,14 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
   state:{
+    onAuto:true
+  },
+  mutations:{
+    toggleAuto(state) {
+      state.onAuto = state.onAuto;
+    }
+  },
+  actions:{
     
   }
 })
