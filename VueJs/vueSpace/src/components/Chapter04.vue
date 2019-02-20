@@ -7,10 +7,19 @@
     <div class="wrap_cont">
       <div class="cont_info">
         <h3 class="tit_info">vuex</h3>
-        <a href="javascript:;" @click="toggleAuto">test</a>
-        <!-- <div v-if="onAuto" class="content_exam">
+        <a href="javascript:;" @click="toggleAuto" class="btn_comm">test</a>
+        <div v-if="onAuto" class="content_exam">
           아....
-        </div> -->
+        </div>
+      </div>
+      <div class="cont_info">
+        <h3 class="tit_info">vuex</h3>
+        <ul>
+          <li v-for="item in musicList" :key="item.id">
+            {{item.id}}<br>
+            {{item.song}}
+          </li>
+        </ul>
       </div>
     </div>
   </div>
@@ -18,6 +27,7 @@
 
 <script>
 import {mapState} from 'vuex'
+import {mapMutations} from 'vuex'
 
 export default {
   data() {
@@ -25,21 +35,31 @@ export default {
       
     }
   },
-  onCreate(){
-    console.log(store);
-  },
-  // computed: {
-  //   ...mapState([
-  //     'onAuto'
-  //   ])
+  computed: {
+    ...mapState([
+      'onAuto','musicList'
+    ])
     
-  // },
-  methods: {
-    toggleAuto() {
-      store.state.commit('toggleAuto')
-      console.log(store.state.onAuto);
-    }
   },
+  
+  methods: {
+    ...mapMutations([
+      'toggleAuto'
+    ])
+  },
+
+  //두번째 방법 (... helper 함수 안쓸 경우)
+  // computed: {
+  //   onAuto() {
+  //     return this.$store.state.onAuto;
+  //   }
+  // },
+  // methods:{
+  //   toggleAuto() {
+  //     this.$store.commit('toggleAuto')
+  //     console.log(this.$store.state.onAuto);
+  //   }
+  // }
 }
 
 </script>
