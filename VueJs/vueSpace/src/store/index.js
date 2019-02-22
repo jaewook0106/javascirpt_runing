@@ -15,16 +15,23 @@ const store = new Vuex.Store({
         id:1,
         song:'luna'
       }
-    ]
+    ],
+    count:0,
+    countNum:7
   },
+  // 동기
   mutations:{
     // toggleAuto(state) {
     //   state.onAuto = !state.onAuto;
     // }
     toggleAuto: state => state.onAuto = !state.onAuto,
+    increment: (state, n) => state.count += n,
+    decrement: (state, n) => state.count -= n,
+    reset: state => state.count = 0
   },
+  // 비동기
   actions:{
-      
+    
   }
 })
 
