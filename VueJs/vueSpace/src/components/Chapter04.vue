@@ -23,6 +23,9 @@
       </div>
       <div class="cont_info">
         <h3 class="tit_info">vuex</h3>
+        <div class="inp_cont">
+          <input type="text" class="inp_comm" placeholder="숫자입력" v-model="countNum">
+        </div>
         <div>{{count}}</div>
         <div>
           <button type="button" class="btn_comm" @click="increment(countNum)">+</button>
@@ -30,34 +33,79 @@
           <button type="button" class="btn_comm" @click="reset">reset</button>
         </div>
       </div>
+      <div class="cont_info">
+        <h3 class="tit_info">slot</h3>
+        <div>
+          <slotName>
+            <div slot="slider">
+              <ul class="list_name">
+                <li>사과</li>
+                <li>바나나</li>
+                <li>복숭아</li>
+                <li>멜론</li>
+              </ul>
+            </div>
+          </slotName>
+
+          <slotName>
+            <div slot="slider">
+              <ul class="list_space">
+                <li>오노</li>
+                <li>아놔</li>
+                <li>술</li>
+                <li>쉬자</li>
+              </ul>
+            </div>dlftk
+          </slotName>
+
+          <slotName>
+            <div slot="header">
+              <h2>asdasdasd</h2>
+            </div>
+          </slotName>
+
+          <slotName>
+            <div slot="header">
+              <h3>asdasdasd</h3>
+            </div>
+           
+          </slotName>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import slotName from './slotset/slotName.vue'
 import {mapState} from 'vuex'
+import { mapGetters } from 'vuex'
 import {mapMutations} from 'vuex'
 
 
 export default {
   data() {
     return {
-      
+      countNum:''
     }
+  },
+  components:{
+    slotName
   },
   created() {
     console.log(this.$store.state)
   },
   computed: {
     ...mapState([
-      'onAuto','musicList','count','countNum'
-    ])   
+      'onAuto','musicList','count'
+    ]),
+   
 
   },
   methods: {
     ...mapMutations([
-      'toggleAuto','increment','decrement','reset',
-    ])
+      'toggleAuto','increment','decrement','reset'
+    ]),
   },
   
 

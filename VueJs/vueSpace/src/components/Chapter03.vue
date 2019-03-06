@@ -121,6 +121,9 @@ export default {
         
     }
   },
+  created() {
+    console.log('vuexTest' ,this.$store.state.count)
+  },
   computed:{
     
   },

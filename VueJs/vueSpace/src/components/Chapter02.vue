@@ -26,7 +26,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr v-for="item in filterCountry" :key="item.name">
+              <tr v-for="(item, idx) in filterCountry" :key="idx">
                 <td>{{item.name}}</td>
                 <td>{{item.city}}</td>
                 <td>{{item.ranking}}</td>
@@ -159,7 +159,7 @@ const payData = {
 
 
 export default {
-
+  name:'chapter02',
   data(){
     return{
       countryName:'',
@@ -178,6 +178,7 @@ export default {
       contactInfo: []
     }
   },
+  
   computed:{
     filterCountry : function(){
       const countryName = this.countryName.trim();

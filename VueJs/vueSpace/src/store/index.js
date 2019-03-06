@@ -16,8 +16,10 @@ const store = new Vuex.Store({
         song:'luna'
       }
     ],
-    count:0,
-    countNum:7
+    count:0
+  },
+  getters:{
+
   },
   // 동기
   mutations:{
@@ -25,9 +27,11 @@ const store = new Vuex.Store({
     //   state.onAuto = !state.onAuto;
     // }
     toggleAuto: state => state.onAuto = !state.onAuto,
-    increment: (state, n) => state.count += n,
-    decrement: (state, n) => state.count -= n,
-    reset: state => state.count = 0
+    increment: (state, n) => state.count += Number(n),
+    decrement: (state, n) => state.count -= Number(n),
+    reset: state => {
+      state.count = 0
+    }
   },
   // 비동기
   actions:{
