@@ -72,6 +72,7 @@
           </slotName>
         </div>
       </div>
+      
     </div>
   </div>
 </template>
@@ -93,12 +94,17 @@ export default {
     slotName
   },
   created() {
-    console.log(this.$store.state)
+    console.log('ss',this.$store.state)
+    
+    
   },
   computed: {
     ...mapState([
       'onAuto','musicList','count'
     ]),
+    ...mapGetters([
+      
+    ])
    
 
   },
@@ -106,8 +112,8 @@ export default {
     ...mapMutations([
       'toggleAuto','increment','decrement','reset'
     ]),
+   
   },
-  
 
   //두번째 방법 (... 객체 전개 연산자 안쓸 경우)
   // computed: {
@@ -121,10 +127,36 @@ export default {
   //     console.log(this.$store.state.onAuto);
   //   }
   // }
+
+  beforeCreate(){
+    console.log('beforeCreate')
+  },
+  created(){
+    console.log('created')
+  },
+  beforeMount(){
+    console.log('beforeMount')
+  },
+  mounted(){
+    console.log('mounted')
+    console.log('route', this.$route.path)
+  },
+  beforeUpdate(){
+    console.log('beforeUpdate')
+  },
+  updated(){
+    console.log('updated')
+  },
+  beforeDestroy(){
+    console.log('beforeDestroy')
+  },
+  destroyed(){
+    console.log('destroyed')
+  }
 }
 
 </script>
 
-<style>
-
+<style lang="scss" scoped>
+ 
 </style>

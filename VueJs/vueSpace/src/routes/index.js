@@ -37,12 +37,14 @@ const routerData = function(routerDataArr,NavData,homeIn){
 
     objList.path = NavData[idx].linkName;
     objList.component = item.componentName;
+    objList.name = NavData[idx].navName;
     dataList.push(objList);
     // routerList[idx].path = ''
     // routerList.push({"path:'" + item +"/'" , component: Home}
   });
-
-  dataList.push({path:'*', component: NotFound})
+  dataList.push({path:'/404', component: NotFound, name: '404'})
+  dataList.push({path:'*', redirect:{name:'404'}})
+  console.log(dataList)
   return dataList
 }
 

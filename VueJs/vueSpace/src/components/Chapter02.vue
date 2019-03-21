@@ -33,6 +33,28 @@
               </tr>
             </tbody>
           </table>
+          <table class="tbl_info">
+            <caption class="screen_out">국가표</caption>
+            <colgroup>
+              <col width="40%">
+              <col width="30%">
+              <col width="30%">
+            </colgroup>
+            <thead>
+              <tr>
+                <th>국가명</th>
+                <th>도시</th>
+                <th>랭킹</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="(item, idx) in filterCountry" :key="idx">
+                <td>{{item.name}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.name}}</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
       <div class="cont_info">
@@ -159,7 +181,7 @@ const payData = {
 
 
 export default {
-  name:'chapter02',
+  
   data(){
     return{
       countryName:'',

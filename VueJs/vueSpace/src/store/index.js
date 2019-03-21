@@ -19,7 +19,7 @@ const store = new Vuex.Store({
     count:0
   },
   getters:{
-
+   
   },
   // 동기
   mutations:{
