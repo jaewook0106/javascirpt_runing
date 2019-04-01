@@ -301,8 +301,6 @@ Popping on the other end is the act of removing something from the stack.
 - https://www.valentinog.com/
 - https://www.valentinog.com/react  
 
-글쓴이 Valentino Gagliardi  
+글쓴이 : Valentino Gagliardi  
 
 
-
-  

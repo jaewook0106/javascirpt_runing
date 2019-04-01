@@ -72,6 +72,14 @@
           </slotName>
         </div>
       </div>
+
+      <div class="cont_info">
+        <h3 class="tit_info">d3</h3>
+        
+        <div class="wrap_svg">
+          
+        </div>  
+      </div>
       
     </div>
   </div>
@@ -83,11 +91,65 @@ import {mapState} from 'vuex'
 import { mapGetters } from 'vuex'
 import {mapMutations} from 'vuex'
 
+import * as d3 from 'd3'
+
 
 export default {
   data() {
     return {
-      countNum:''
+      countNum:'',
+      dataTest : {
+        "name": "Clifford Shanks",
+        "born": 1862,
+        "died": 1906,
+        "location": "Petersburg, VA",
+        "parents": [
+          {
+            "name": "James Shanks",
+            "born": 1831,
+            "died": 1884,
+            "location": "Petersburg, VA",
+            "parents": [
+              {
+                "name": "Robert Shanks",
+                "born": 1781,
+                "died": 1871,
+                "location": "Ireland/Petersburg, VA"
+              },
+              {
+                "name": "Elizabeth Shanks",
+                "born": 1795,
+                "died": 1871,
+                "location": "Ireland/Petersburg, VA"
+              }
+            ]
+          },
+          {
+            "name": "Ann Emily Brown",
+            "born": 1826,
+            "died": 1866,
+            "location": "Brunswick/Petersburg, VA",
+            "parents": [
+              {
+                "name": "Henry Brown",
+                "born": 1792,
+                "died": 1845,
+                "location": "Montgomery, NC"
+              },
+              {
+                "name": "Sarah Houchins",
+                "born": 1793,
+                "died": 1882,
+                "location": "Montgomery, NC"
+              }
+            ]
+          }
+        ]
+      }
+      
+
+
+      
     }
   },
   components:{
@@ -95,6 +157,9 @@ export default {
   },
   created() {
     console.log('ss',this.$store.state)
+
+    console.log('test',d3)
+
     
     
   },
@@ -131,9 +196,9 @@ export default {
   beforeCreate(){
     console.log('beforeCreate')
   },
-  created(){
-    console.log('created')
-  },
+  // created(){
+  //   console.log('created')
+  // },
   beforeMount(){
     console.log('beforeMount')
   },
