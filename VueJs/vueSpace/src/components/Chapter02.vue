@@ -275,7 +275,7 @@ export default {
         this.contactInfo = response.data
         // console.log(this.contactInfo)
         this.isProcessing = false
-
+        
         if(this.contactInfo.length === 0){
           this.isNone = true
         }
