@@ -13,7 +13,7 @@ const requireAuth = (to, from, next) =>{
   const isAuth = localStorage.getItem('token')
   const loginPath = `/login?rPath=${encodeURIComponent(to.path)}`
   console.log('token',isAuth);
-  console.log(next());
+  // console.log(next());
   isAuth ? next() : next(loginPath)
 }
 
