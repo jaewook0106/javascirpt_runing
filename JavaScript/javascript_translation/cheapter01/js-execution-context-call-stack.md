@@ -1,6 +1,9 @@
-# Javascript : 실행 컨텍스트(Context)란 무엇인가? / 콜 스택(Call Stack)은 무엇인가?
+# 이건 우리 고급 자바스크립트 코스의 일부입니다. 이 게시물이 마음에 들면 확인보세요.
 
-## 자바스크립트에서 실행 컨텍스트는 무엇인가?
+자바스크립트의 가장 오해 된 부분 중 하나는 this 키워드입니다. 
+이 글에서는 this 키워드가 참조하고있는 것을 알아내는 다섯 가지 규칙을 배웁니다. 
+Implicit Binding, Explicit Binding, new binding, window binding, Lexical Binding.
+이 기술을 다루는 데있어 .call, .apply, .bind 및 new 키워드와 같은 자바스크립트의 다른 부분도 배우게됩니다.
 
 <!-- ![고급 자바스크립트](https://www.valentinog.com/blog/wp-content/uploads/2018/05/javascript-what-is-execution-context-call-stack-ft.png) -->
 
