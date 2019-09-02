@@ -38,6 +38,7 @@ const board = {
         this.loading = false;
       },500);
     }
+    
   }
 }
 
