@@ -200,6 +200,8 @@
       for(var i = 0; this.countNum > i; i++){
         this.ballArr.push('<span class="box_ball" style="width:'+this.ballWidth/this.countDivisionNum+'px; height:'+this.ballHeight/this.countDivisionNum+'px; top:'+this.ballY+'px; left:'+this.ballX+'px;"></span>');
         this.ballWrap.innerHTML = this.ballArr.join('');
+
+        
       }
       this.ball = this.ballWrap.querySelectorAll('.box_ball');
       
