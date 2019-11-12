@@ -53,13 +53,14 @@
       this.ball[0].style.left = 0;
 
       this.bindEvent();
-
+      
       this.time = 5;   //속도
       this.xIndex = 0;  //기본시작값
       this.yIndex = 0;   //기본시작값
       // this.tf = true;
 
       this.countNum = 1;
+      this.countDivisionNum = 1;
       this.listNum = 0;
     }
 
@@ -191,23 +192,28 @@
       clearInterval(this.moveBack);
       clearInterval(this.moveTop);
       clearInterval(this.moveBackTop);
-
-      this.indexNum = this.countNum * 4;
-      this.countNum = this.indexNum;
+      
+      this.countNum = this.countNum * 4;
+      this.countDivisionNum = this.countDivisionNum * 2;
 
       this.ballArr = [];
-      for(var i = 0; 4 > i; i++){
-        this.ballArr.push('<span class="box_ball" style="width:'+this.ballWidth/2+'px; height:'+this.ballHeight/2+'px; top:'+this.ballY+'px; left:'+this.ballX+'px;"></span>');
+      for(var i = 0; this.countNum > i; i++){
+        this.ballArr.push('<span class="box_ball" style="width:'+this.ballWidth/this.countDivisionNum+'px; height:'+this.ballHeight/this.countDivisionNum+'px; top:'+this.ballY+'px; left:'+this.ballX+'px;"></span>');
         this.ballWrap.innerHTML = this.ballArr.join('');
       }
-      this.ball = this.ballWrap.getElementsByClassName('box_ball');
+      this.ball = this.ballWrap.querySelectorAll('.box_ball');
+      
+      console.log(this.ball);
+      
+      
 
-      this.ball[1].style.left = this.ballWidth/2 + this.ballX + 'px';
-      this.ball[2].style.top = this.ballHeight/2 + this.ballY + 'px';
-      this.ball[3].style.left = this.ballWidth/2 + this.ballX + 'px';
-      this.ball[3].style.top = this.ballHeight/2 + this.ballY + 'px';
-      this.x = this.wrapWidth - this.ballWidth/2;   // 오른쪽 벽 위치
-      this.y = this.wrapHeight - this.ballHeight/2; //하단 벽 위치
+
+      // this.ball[1].style.left = this.ballWidth/2 + this.ballX + 'px';
+      // this.ball[2].style.top = this.ballHeight/2 + this.ballY + 'px';
+      // this.ball[3].style.left = this.ballWidth/2 + this.ballX + 'px';
+      // this.ball[3].style.top = this.ballHeight/2 + this.ballY + 'px';
+      // this.x = this.wrapWidth - this.ballWidth/2;   // 오른쪽 벽 위치
+      // this.y = this.wrapHeight - this.ballHeight/2; //하단 벽 위치
 
 
       // this.listNum = 0;
@@ -224,12 +230,12 @@
       // clearInterval(this.moveTop);
       // this.moveBackTop = setInterval(this.ballFrameBackTop.bind(this), this.time);
 
-      this.listNum = 2;
-      this.yIndex = this.ballHeight/2 + this.ballY;
-      clearInterval(this.moveBack);
-      this.moveBack = setInterval(this.ballFrameBack.bind(this), this.time);
-      clearInterval(this.moveBackTop);
-      this.moveTop = setInterval(this.ballFrameTop.bind(this), this.time);
+      // this.listNum = 2;
+      // this.yIndex = this.ballHeight/2 + this.ballY;
+      // clearInterval(this.moveBack);
+      // this.moveBack = setInterval(this.ballFrameBack.bind(this), this.time);
+      // clearInterval(this.moveBackTop);
+      // this.moveTop = setInterval(this.ballFrameTop.bind(this), this.time);
 
       // this.listNum = 3;
       // this.xIndex = this.ballWidth/2 + this.ballX;
