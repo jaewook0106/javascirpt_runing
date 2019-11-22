@@ -51,7 +51,7 @@
       this.y = this.wrapHeight - this.ballHeight; //하단 벽 위치
       this.ball[0].style.top = 0;
       this.ball[0].style.left = 0;
-
+      
       this.bindEvent();
       
       this.time = 5;   //속도
@@ -173,7 +173,7 @@
       clearInterval(this.moveBack);
       clearInterval(this.moveTop);
       clearInterval(this.moveBackTop);
-      this.ball[0].style.display = 'none';
+      this.ball[0].style.display = 'block';
       this.ball[0].style.top = 0;
       this.ball[0].style.left = 0;
       this.xIndex = 0;
@@ -197,18 +197,19 @@
       this.countDivisionNum = this.countDivisionNum * 2;
 
       this.ballArr = [];
-      for(var i = 0; this.countNum > i; i++){
+      for(let i = 0; this.countNum > i; i++){
         this.ballArr.push('<span class="box_ball" style="width:'+this.ballWidth/this.countDivisionNum+'px; height:'+this.ballHeight/this.countDivisionNum+'px; top:'+this.ballY+'px; left:'+this.ballX+'px;"></span>');
-        this.ballWrap.innerHTML = this.ballArr.join('');
-
-        
+        // this.ballWrap.innerHTML = this.ballArr.join('');  
       }
       this.ball = this.ballWrap.querySelectorAll('.box_ball');
       
       console.log(this.ball);
       
+      const ballElementChunk = this.chunk(this.ballArr, 4);
       
-
+      console.log(ballElementChunk);
+      
+      
 
       // this.ball[1].style.left = this.ballWidth/2 + this.ballX + 'px';
       // this.ball[2].style.top = this.ballHeight/2 + this.ballY + 'px';
@@ -266,14 +267,22 @@
       // }
 
     }
+    BallMove.prototype.chunk = (arr,chunkNum)=> {
+      const chunkArr = [];
+      let i;
+      for (i = 0; i < arr.length; i += chunkNum) {
+        chunkArr.push(arr.slice(i, i + chunkNum));
+      }
+      return chunkArr;
+    };
 
 
 		/* ball시작 */
-    var ballShow = new BallMove();
+    let ballShow = new BallMove();
 
     console.log(ballShow);
 
-    // var ball = {
+    // const ball = {
     // 	x: 0,
     // 	y: 0
     // };
