@@ -49,7 +49,17 @@
 
 <body>
   <div id="eventMovie">
-    <div class="wrap_content01"></div>
+    <div class="wrap_content01">
+      <div>
+          <input type="radio" class="inp" name="a"> asdasdasd
+      </div>
+      <div>
+          <input type="radio" class="inp" name="a"> asdasdasd
+      </div>
+      <div>
+          <input type="radio" class="inp" name="a"> asdasdasd
+      </div>
+    </div>
     <div class="wrap_content02">
       <div class="card">
         <img src="./images/img_head1.png" alt="">
@@ -128,6 +138,20 @@
 
     aClassProto.classTest();
 
+
+    console.log('///////////////////////////////////////////////') 
+    
+
+    function selectAll(target, parentDOM){
+      return Array.prototype.slice.call(parentDOM.querySelectorAll(target));
+    }
+    function selectOne(target, parentDOM){
+      return Array.prototype.slice.call(parentDOM.querySelectorAll(target))[0];
+    }
+    function hasClass(target, className){
+      const regex = new RegExp('(\\s|^)' + className + '(\\s|$)');
+      return regex.test(target.getAttribute('class'));
+    }
   })();
 
 </script>
