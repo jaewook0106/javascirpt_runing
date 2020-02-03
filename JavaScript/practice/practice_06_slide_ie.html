@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="utf-8" />
-	<title>카카오 페이 KB 국민 체크카드</title>
+	<title>슬라이드 ie 테스트</title>
 	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
 	<style>
 		body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,textarea,p,blockquote,th,td,input,select,button{margin:0;padding:0}
@@ -50,9 +50,10 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  /* transform: translate(-50%, -50%); */
   width: 400px;
   height: 300px;
+  margin:-150px 0 0 -200px;
   box-shadow: 3px 3px 10px rgba(0,0,0,.2);
 }
 .wrapper {
@@ -67,7 +68,7 @@ body {
   /* display: flex; */
   position: relative;
   top: 0;
-  left: -400px;
+  left: 0;
   width: 10000px;
 }
 
@@ -83,7 +84,7 @@ body {
   float:left;
   /* flex-direction: column; */
   /* justify-content: center; */
-  transition: all 1s;
+  /* transition: all 1s; */
   position: relative;
   background: #FFCF47;
   border-radius: 2px;
@@ -153,17 +154,31 @@ body {
     <a id="next" class="control next"></a>
   </div>
 
-<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.compatibility.min.js"></script>
 <script type="text/javascript">
 
 	'use strict';
 
   (function(){
     const slider = document.getElementById('slider'),
-        sliderItems = document.getElementById('slides'),
-        prev = document.getElementById('prev'),
-        next = document.getElementById('next');
+          sliderItems = document.getElementById('slides'),
+          prev = document.getElementById('prev'),
+          next = document.getElementById('next');
+    const browser = (function() {
+      const regexBrowser = function(regexp) {
+        return regexp.test(window.navigator.userAgent);
+      }
+      switch (true) {
+        case regexBrowser(/Edg/i): return "edge";
+        case regexBrowser(/edge/i): return "edge";
+        case regexBrowser(/opr/i) && (!!window.opr || !!window.opera): return "opera";
+        case regexBrowser(/chrome/i) && !!window.chrome: return "chrome";
+        case regexBrowser(/trident/i): return "ie";
+        case regexBrowser(/firefox/i): return "firefox";
+        case regexBrowser(/safari/i): return "safari";
+        default: return "other";
+      }
+    })();
+    console.log(browser);
 
     function slide(wrapper, items, prev, next) {
       let posX1 = 0,
@@ -186,94 +201,78 @@ body {
       // Clone first and last slide
       items.appendChild(cloneFirst);
       items.insertBefore(cloneLast, firstSlide);
-      wrapper.classList.add('loaded');
+      items.style.left = -(1 * slideSize) + "px";
+      // wrapper.classList.add('loaded');
       
 
       // Click events
-      prev.addEventListener('click', function (e) { 
-        shiftSlide(e, -1);
-        e.stopPropagation();
-        
-      });
-      next.addEventListener('click', function (e) { 
-        shiftSlide(e, 1);
-        e.stopPropagation(); 
-      });
-      
-      function shiftSlide(e, dir) {
-        
-        posInitial = items.offsetLeft;
-        let setMove = '';
-        console.log(allowShift);
-
-          if (dir === 1) {
-            
-            setMove = setInterval(() => {
-              if((posInitial - slideSize) < posIndex){
-                posIndex -= speed;
-                items.style.left = posIndex + 'px';
-                // allowShift = false; 
-              } else{
-                console.log('else')
-                clearInterval(setMove);
-                if (index === slidesLength) {
-                  items.style.left = -(1 * slideSize) + "px";
-                  index = 0;
-                  posIndex = (slideSize * -1);
-                 
-                }
-                // allowShift = true;
-              }
-            },1)
-            // e.stopPropagation();
-            index++;    
-          } else if (dir === -1) {
-            setMove = setInterval(() => {
-              if((posInitial + slideSize) > posIndex){
-                posIndex += speed;
-                items.style.left = posIndex + 'px'; 
-                // allowShift = false;
-              } else{
-                clearInterval(setMove);
-                if (index === -1) {
-                  items.style.left = -(slidesLength * slideSize) + "px";
-                  index = slidesLength - 1;
-                  posIndex = -(slideSize * slidesLength);
-                  
-                }
-                // allowShift = true;
-              }
-            },1)
-            index--;      
-          }
-        
-        // allowShift = false;  
-        
-        
-
-        
-        
-        
-       
-   
-
+      if (browser === 'ie') {
+        prev.attachevent('onclick', function(e){
+          slideEvent(e, -1);
+        });
+        next.attachevent('onclick', function(e){
+          slideEvent(e, 1);
+        });
+      } else {
+        prev.addEventListener('click', function(e){
+          slideEvent(e, -1);
+        });
+        next.addEventListener('click', function(e){
+          slideEvent(e, 1);
+        });
       }
-        
-      // function checkIndex (){
-      //   items.classList.remove('shifting');
+      
+      
+      function slideEvent(e, dir) {
+        if (allowShift) {
+          shiftSlide(e, dir);
+        } else {
+          return;
+        }
+      }
 
-      //   if (index == -1) {
-      //     items.style.left = -(slidesLength * slideSize) + "px";
-      //     index = slidesLength - 1;
-      //   }
+      function shiftSlide(e, dir) {
+        let setMove = '';
+        posInitial = items.offsetLeft;
+        allowShift = false;     
 
-      //   if (index == slidesLength) {
-      //     items.style.left = -(1 * slideSize) + "px";
-      //     index = 0;
-      //   }
-        
-      //   allowShift = true;
-      // }
+        if (dir === 1) {  
+          setMove = setInterval(() => {
+            if((posInitial - slideSize) < posIndex){
+              posIndex -= speed;
+              items.style.left = posIndex + 'px';
+              
+            } else {
+              clearInterval(setMove);
+              if (index === slidesLength) {
+                items.style.left = -(1 * slideSize) + "px";
+                index = 0;
+                posIndex = (slideSize * -1);
+                
+              }
+              allowShift = true;
+            }
+          }, 1)
+          index++;    
+        } else if (dir === -1) {
+          setMove = setInterval(() => {
+            if((posInitial + slideSize) > posIndex){
+              posIndex += speed;
+              items.style.left = posIndex + 'px'; 
+            } else {
+              clearInterval(setMove);
+              if (index === -1) {
+                items.style.left = -(slidesLength * slideSize) + "px";
+                index = slidesLength - 1;
+                posIndex = -(slideSize * slidesLength);
+                
+              }
+              allowShift = true;
+            }
+          }, 1)
+          index--;      
+        }
+      } 
     }
 
     slide(slider, sliderItems, prev, next);
