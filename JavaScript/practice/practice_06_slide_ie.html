@@ -170,34 +170,32 @@
 
   (function(){
     var slider = document.getElementById('slider'),
-          sliderItems = document.getElementById('slides'),
-          prev = document.getElementById('prev'),
-          next = document.getElementById('next');
-    var browser = (function() {
-      var regexBrowser = function(regexp) {
-        return regexp.test(window.navigator.userAgent);
-      }
-      switch (true) {
-        case regexBrowser(/Edg/i): return "edge";
-        case regexBrowser(/edge/i): return "edge";
-        case regexBrowser(/opr/i) && (!!window.opr || !!window.opera): return "opera";
-        case regexBrowser(/chrome/i) && !!window.chrome: return "chrome";
-        case regexBrowser(/trident/i): return "ie";
-        case regexBrowser(/firefox/i): return "firefox";
-        case regexBrowser(/safari/i): return "safari";
-        default: return "other";
-      }
-    })();
-    console.log(browser);
+        sliderItems = document.getElementById('slides'),
+        prev = document.getElementById('prev'),
+        next = document.getElementById('next');
+
+    // var browser = (function() {
+    //   var regexBrowser = function(regexp) {
+    //     return regexp.test(window.navigator.userAgent);
+    //   }
+    //   switch (true) {
+    //     case regexBrowser(/Edg/i): return "edge";
+    //     case regexBrowser(/edge/i): return "edge";
+    //     case regexBrowser(/opr/i) && (!!window.opr || !!window.opera): return "opera";
+    //     case regexBrowser(/chrome/i) && !!window.chrome: return "chrome";
+    //     case regexBrowser(/trident/i): return "ie";
+    //     case regexBrowser(/firefox/i): return "firefox";
+    //     case regexBrowser(/safari/i): return "safari";
+    //     default: return "other";
+    //   }
+    // })();
+    // console.log(browser);
 
     function slide(wrapper, items, prev, next) {
-      var posX1 = 0,
-          posX2 = 0,
-          posInitial,
-          posFinal,
-          slides = items.getElementsByClassName('slide'),
+      var posInitial,
+          slides = items.querySelectorAll('.slide'),
           slidesLength = slides.length,
-          slideSize = items.getElementsByClassName('slide')[0].offsetWidth,
+          slideSize = items.querySelectorAll('.slide')[0].offsetWidth,
           firstSlide = slides[0],
           lastSlide = slides[slidesLength - 1],
           cloneFirst = firstSlide.cloneNode(true),
@@ -206,6 +204,13 @@
           posIndex = (slideSize * -1),
           allowShift = true,
           speed = 5;
+        console.log(slides)
+      // var userBrowser = window.navigator.userAgent;
+      // var downBrowser = false;
+      // if (userBrowser.indexOf('MSIE 6') >= 0 || userBrowser.indexOf('MSIE 7') >= 0 || userBrowser.indexOf('MSIE 8') >= 0) {
+      //   downBrowser = true;
+      // }   
+
 
       // Clone first and last slide
       items.appendChild(cloneFirst);
@@ -215,11 +220,11 @@
       
 
       // Click events
-      if (browser === 'ie') {
-        prev.attachevent('onclick', function(e){
+      if (isIE() && isIE() < 9) {
+        prev.attachEvent('onclick', function(e){
           slideEvent(e, -1);
         });
-        next.attachevent('onclick', function(e){
+        next.attachEvent('onclick', function(e){
           slideEvent(e, 1);
         });
       } else {
@@ -229,6 +234,11 @@
         next.addEventListener('click', function(e){
           slideEvent(e, 1);
         });
+      }
+
+      function isIE() {
+        var userBrowser = navigator.userAgent.toLowerCase();
+        return (userBrowser.indexOf('msie') != -1) ? parseInt(userBrowser.split('msie')[1]) : false;
       }
       
       
