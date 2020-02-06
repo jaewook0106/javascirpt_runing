@@ -1,13 +1,22 @@
-function word(){
-  normal:{
-    a:{
-      text:'안녕'
+const word = () => {
+  const a = {
+    normal:{
+      a:{
+        text:'안녕'
+      }
     }
   }
-  return {
-    normal
-  }
+  return {a};
 }
 
-export { word }
-
+// function word(){
+//   const a = {
+//     normal:{
+//       a:{
+//         text:'안녕'
+//       }
+//     }
+//   }
+//   const b = 'hi'
+//   return {a, b}
+// }
