@@ -28,7 +28,7 @@ const request = (mehod,url,data) =>{
     console.log('err', ex)
     alert('호출 실패')
     throw ex
-  })    
+  })
 }
 
 export const contactData = {

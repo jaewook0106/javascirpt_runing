@@ -103,9 +103,27 @@
     console.log(result);
 
     console.log('///////////////////////////////////////////////')  
-
     
 
+    var request = new XMLHttpRequest()
+
+  // Open a new connection, using the GET request on the URL endpoint
+    request.open('GET', 'https://ghibliapi.herokuapp.com/films', true)
+    
+    request.onload = function() {
+      const data = JSON.parse(this.response)
+      console.log('load')
+      console.log('data', data)
+    }
+    request.onerror = function() {
+      console.log('error')
+    }
+    // Send request
+    request.send()
+    
+    
+    console.log('///////////////////////////////////////////////')  
+    
     function Proto() {
       this.name = 'edward';
       this.arrowTest = () => {
