@@ -1,15 +1,432 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta charset="utf-8">
+    <title>PIPA System</title>
+    <meta http-equiv="X-UA-Compatible">
+    <link rel="stylesheet" type="text/css" href="/css/jquery-ui.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/popup.css">
+    <script src="/js/jquery-1.12.4.min.js"></script>
+    <script src="/js/jquery-ui.js"></script><!-- 2019-11-11 추가 -->
+    <script src="/js/jquery.dataTables.min.js"></script>
+    <script src="/js/popup_ui.js"></script><!-- 2019-11-11 추가 -->
+
+    <script src="/js/util.js"></script>
+    <script src="/js/lib/browser.js"></script>
+    <!--    <script src="/js/libs/jquery.alerts.js"></script>-->
+    <!--    <script src="/js/libs/jquery.validate.js"></script>-->
+    <!--    <script src="/js/message.js"></script>-->
+
+    <!-- 2019-11-11 추가 -->
+    <style>
+        .download_report .section_detail {
+            margin-top: 0;
+        }
+
+        .section_detail:after {
+            display: block;
+            width: 100%;
+            height: 50px;
+            content: '';
+        }
+    </style>
 </head>
+
 <body>
-  <script>
-    
-    $(".btn_print").click(function () {
+<div class="kakao_popup">
+    <div class="popup_head">
+        <h1 class="tit_popup">보고서 미리보기</h1>
+    </div>
+    <div class="popup_body">
+        <div class="download_report">
+            <div class="wrap_btn">
+                <div class="pos_right">
+                    <a href="#none" class="btn_type1 btn_medium btn_print">인쇄</a>
+                    <a href="#none" class="btn_type1 btn_medium btn_download"><span class="ico_pipa ico_down"></span>PDF 다운로드</a>
+                </div>
+            </div>
+            <div class="box_download">
+                <div class="section">
+                    <h2>
+                        <span class="txt_service">PIPA system</span> 2020년
+                        멜론 이벤트 개인정보보호 점검결과 보고서
+                    </h2>
+                </div>
+                <div class="section_info section">
+                    <div class="info_report">
+                        <dl>
+                            <dt>서비스</dt>
+                            <dd>
+                                CMO &gt; 컨텐츠 &gt;
+                                멜론이벤트
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>서비스 담당자</dt>
+                            <dd>
+                                
+                                    <span class="txt_user">aaron.kss (김성수)</span>
+                                
+                                
+                                        <span class="txt_user">angela.k (강동영)
+                                    </span>
+                                
+                                        <span class="txt_user">chloe.kk (김예지)
+                                    </span>
+                                
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>개인정보보호 담당자</dt>
+                            <dd>
+                                
+                                    <span class="txt_user">wonny.shin (신혜원)</span>
+                                
+                                
+                                        <span class="txt_user">aaron.kss (김성수)
+                                    </span>
+                                
+                                        <span class="txt_user">keany.song (송다희)
+                                    </span>
+                                
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+
+                <div class="section_detail section">
+                    <h3>1. 점검 목적</h3>
+                    <div class="data_detail">
+                        <p>회사의 대외 서비스에 대한 관리적 보안현황(개인정보보호 및 정보보호 관리체계)을 점검하여 회사의 법률적·관리적 리스크를 사전에 파악하고 대응하기 위함
+<br></p>
+                    </div>
+                </div>
+                <div class="section_detail section">
+                    <h3>2. 점검 기간</h3>
+                    <div class="data_detail">
+                        <p>2020-02-17 ~
+                            2020-03-06</p>
+                    </div>
+                </div>
+                <div class="section_detail section">
+                    <h3>3. 고객정보 취급 현황</h3>
+                    <p>멜론 이벤트는 로그인 기반으로 멜론 회원의 경우에만 참여 가능하며, 멜론을 가입한 카카오 통합계정 및 기존 멜론 회원 모두 이벤트에 참여 가능함 
+<br>멜론 이벤트는 멜론이벤트/앨범이벤트/공연이벤트/멜론메거진이벤트 4가지로 분류됨
+<br>※ 개인정보 처리업무 위탁 시, 위탁동의를 받아야 하나 현재 동의를 받지 않음
+<br>※ 이벤트 주관사가 기획사 및 유통사인 경우 개인정보 수집 주체가 기획사 및 유통사가 되어야 하나,  개인정보 수집 주체가 카카오로 되어 기획사 및 유통사에게 당첨자의 정보를 제공해주고 있음 
+<br></p>
+                    <div class="data_detail">
+                        <dl>
+                            <dt>수집・이용</dt>
+                            <dd>&lt;수집&gt;
+<br>이벤트 참여 시 별도 수집하는 개인정보 없음 
+<br>이벤트 당첨자에게 당첨안내 및 경품 전달을 위해 Outcall 또는 EMT를 통하여 아래 정보를 추가 수집함
+<br>: 이름, 휴대폰번호, (경품배송이 있는 경우) 주소
+<br>: (제세공과금 처리가 필요한 경우) 이름, 주민등록번호, 주소, 이메일 
+<br>
+<br>&lt;저장&gt; 
+<br>멜론 이벤트의 데이터는 모두 보안존에 저장하고 있음
+<br>[DB명] melon-poc.mydb.daumkakao.io,
+<br>[Instance명] melon-poc-my1.dakao.io, melon-poc-my2.dakao.io, melon-poc-my3.dakao.io, melon-poc-my4.dakao.io, melon-poc-my5.dakao.io. 
+<br>[DB명] melondb-vip1.ora.daumkakao.io
+<br>[Instance명] melon-main01-rac1.dakao.io
+<br>
+<br>&lt;이용&gt; 
+<br>이벤트 발표 후 당첨자에게 수집하는 개인정보는 이용자 경품 전달에 이용함</dd>
+                        </dl>
+                        <dl>
+                            <dt>제공・위탁</dt>
+                            <dd>기획사 및 유통사의 요청에 의해 진행하는 이벤트의 경우, 기획사 및 유통사에 이벤트 당첨자 정보를 제공함
+<br>젤라블루와 KnWorks에 이벤트 운영을 위탁함
+<br>젤라블루: 이벤트 당첨안내 TM 및 LMS 발송, 경품배송, 현장 티켓배부
+<br>KnWorks: 이벤트 응모자 확인, 당첨자 EMT 등록 등 전반전인 이벤트 운영</dd>
+                        </dl>
+                        <dl>
+                            <dt>파기</dt>
+                            <dd>이벤트 경품지급 완료 후 CS처리를 위해 30일간 보관하고 파기</dd>
+                        </dl>
+                        <dl>
+                            <dt>보호조치</dt>
+                            <dd></dd>
+                        </dl>
+                    </div>
+                </div>
+                <div class="section_detail section">
+                    <h3>4. 점검 결과 요약</h3>
+                    <div class="data_detail">
+                        <strong class="tit_result">전체 점검항목 <span class="txt_num">72</span>개중 <em class="txt_num">5</em>개
+                            점검항목에서 문제점이 발견되었습니다.</strong>
+                        <dl>
+                            <dt>총평</dt>
+                            <dd>멜론 이벤트 개인정보보호에 대한 점검 결과 다음의 사항에 대한 개선이 필요함
+<br>개인정보 수집 및 이용에 대한 동의 누락
+<br>만 14세 미만 확인 및 법정대리인 동의절차 누락
+<br>이벤트 주관사와 위탁업무 관계 정립 미흡 
+<br>개인정보 처리 위탁에 대한 동의 누락
+<br>멜론 이벤트 관리자시스템 내 퇴사/휴직자함 계정관리 미흡
+<br>멜론 이벤트 관리자시스템의 접속기록 관리 미흡
+<br>멜론 이벤트 관리자시스템의 변경사항 및 개인정보취급자 현황 관리 미흡</dd>
+                        </dl>
+                        <!-- 2020-01-13 추가 끝 -->
+                    </div>
+                </div>
+                <div class="section_detail section">
+                    <h3>5. 세부 문제점 및 대응 방안</h3>
+                    <div class="data_detail">
+                        
+                            <h4>1) 개인정보 수집 및 이용에 대한 동의 누락</h4>
+                            <dl>
+                                <dt>문제점 상세</dt>
+                                <dd>‘멜론이벤트'에서 당첨자가 기존 멜론 회원인 경우, 젤라블루를 통하여 당첨안내Outcall 및 (경품배송이 있는 경우) 개인정보를 수집하여 배송을 진행하고 있음
+<br>개인정보 수집 시, 이용자의 개인정보 수집 및 이용에 대한 안내 없음</dd>
+                            </dl>
+                            <dl>
+                                <dt>대응방안</dt>
+                                <dd>젤라블루를 통한 개인정보 수집이 아닌, EMT를 통한 이벤트 당첨자의 정보를 수집하는 것으로 변경이 필요하며, 개인정보 수집 및 이용에 대한 동의이력 관리가 필요함</dd>
+                            </dl>
+                            <dl>
+                                <dt>관련법령</dt>
+                                <dd>[정보통신망법]
+<br>제22조(개인정보의 수집ㆍ이용 동의 등) 제1항
+<br>
+<br>[개인정보보호법]
+<br>&nbsp;제15조(개인정보의 수집ㆍ이용) 제2항</dd>
+                            </dl>
+                            <!-- 2019-12-30 대응방안, 관령법령 추가 끝 -->
+                            <!-- 2020-01-07 추가 시작 -->
+                            <dl>
+                                <dt>관련 벌칙 및 <br>과징금</dt>
+                                <dd>[정보통신망법]
+<br>* 이용자의 동의를 받지않고 개인정보를 수집한 경우
+<br>- 매출액이 100분의 3 이하의 과징금 &lt;제64조의 3 (과징금의 부과 등) &gt;
+<br>- 5년 이하의 징역 또는 5천만원 이하의 벌금 &lt;제71조(벌칙)&gt;
+<br>
+<br>[개인정보보호법]
+<br>* 정보주체에게 고지하지 않은 경우
+<br>- 3천만원 이하의 과태료 &lt;제75조(과태료)&gt;</dd>
+                            </dl>
+                        
+                            <h4>2) 만 14세 미만 확인 및 법정대리인 동의절차 누락</h4>
+                            <dl>
+                                <dt>문제점 상세</dt>
+                                <dd>기존 멜론 회원의 경우, 만 14세 미만 확인 및 이에 따른 법정대리인 동의 절차가 누락되어 있음 - ‘멜론이벤트' : 젤라블루를 통한 당첨안내 및 개인정보 수집 시, 만 14세 미만 확인 및 법정대리인 동의절차 없음  - ‘앨범이벤트/공연이벤트/멜론메거진이벤트' : EMT에 만14세 미만 확인 및 법정대리인 동의절차 없음</dd>
+                            </dl>
+                            <dl>
+                                <dt>대응방안</dt>
+                                <dd>기존 멜론 회원의 경우 EMT를 통한 이벤트 당첨자의 정보를 수집하는 것으로 프로세스 변경이 필요하며, EMT에 만 14세 미만의 경우 법정대리인 동의절차 추가 및 이에 대한 동의이력이 관리될 수 있도록 기능 변경이 필요함</dd>
+                            </dl>
+                            <dl>
+                                <dt>관련법령</dt>
+                                <dd>[정보통신망법]
+<br>제23조(개인정보의 수집 제한 등) 제2항</dd>
+                            </dl>
+                            <!-- 2019-12-30 대응방안, 관령법령 추가 끝 -->
+                            <!-- 2020-01-07 추가 시작 -->
+                            <dl>
+                                <dt>관련 벌칙 및 <br>과징금</dt>
+                                <dd></dd>
+                            </dl>
+                        
+                            <h4>3) 이벤트 주관사와 위탁업무 관계 정립 미흡</h4>
+                            <dl>
+                                <dt>문제점 상세</dt>
+                                <dd>앨범/공연/매거진 이벤트의 경우, 카카오엠과 유통사가 확정한 이벤트를 카카오에 공유하고, 카카오는 해당 이벤트를 멜론 플랫폼에 게시하는 형식으로 이벤트를 진행하고 있음
+<br>이벤트의 주관사는 카카오엠과 유통사이지만, 카카오가 수집주체가 되어 카카오엠 또는 유통사로 제3자제공동의를 받고 개인정보를 제공하고 있음</dd>
+                            </dl>
+                            <dl>
+                                <dt>대응방안</dt>
+                                <dd>이벤트 당첨자 정보 수집 시, 카카오엠과 유통사를 수집주체로 명시하여 개인정보를 수집하고 전달하는 방식으로 진행 필요</dd>
+                            </dl>
+                            <dl>
+                                <dt>관련법령</dt>
+                                <dd>[정보통신망법]
+<br>제25조(개인정보의 처리위탁) 제1항
+<br>제25조(개인정보의 처리위탁) 제2항</dd>
+                            </dl>
+                            <!-- 2019-12-30 대응방안, 관령법령 추가 끝 -->
+                            <!-- 2020-01-07 추가 시작 -->
+                            <dl>
+                                <dt>관련 벌칙 및 <br>과징금</dt>
+                                <dd>[정보통신망법]
+<br>*이용자의 동의를 받지 않고 개인정보 처리위탁을 한 경우
+<br>- 매출액의 100분의 3이하의 과징금 &lt;제64조의3(과징금의 부과 등)&gt;
+<br>- 5년 이하의 징역 또는 5천만원 이하의 버금 &lt;제71조(벌칙)&gt;
+<br>
+<br>* 이용자에게 개인정보 처리위탁에 관한 사항을 공개하지 않거나 알리지 않은 경우
+<br>- 2천만원 이하의 과태료 &lt;제75조(과태료)&gt;</dd>
+                            </dl>
+                        
+                            <h4>4) 개인정보 처리 위탁에 대한 동의 누락</h4>
+                            <dl>
+                                <dt>문제점 상세</dt>
+                                <dd>‘멜론이벤트’에서 당첨자가 기존 멜론 회원인 경우, 젤라블루에서 이벤트 당첨안내 TM 및 경품배송을 위탁하고 있으나 위탁에 대한 동의 누락</dd>
+                            </dl>
+                            <dl>
+                                <dt>대응방안</dt>
+                                <dd>멜론 이벤트 참여 시, 위탁업체명 및 위탁업무를 명시하여 이용자에게 동의받고 동의이력을 관리 필요</dd>
+                            </dl>
+                            <dl>
+                                <dt>관련법령</dt>
+                                <dd>[정보통신망법]
+<br>제30조(이용자의 권리 등) 제1항</dd>
+                            </dl>
+                            <!-- 2019-12-30 대응방안, 관령법령 추가 끝 -->
+                            <!-- 2020-01-07 추가 시작 -->
+                            <dl>
+                                <dt>관련 벌칙 및 <br>과징금</dt>
+                                <dd></dd>
+                            </dl>
+                        
+                            <h4>5) </h4>
+                            <dl>
+                                <dt>문제점 상세</dt>
+                                <dd></dd>
+                            </dl>
+                            <dl>
+                                <dt>대응방안</dt>
+                                <dd></dd>
+                            </dl>
+                            <dl>
+                                <dt>관련법령</dt>
+                                <dd></dd>
+                            </dl>
+                            <!-- 2019-12-30 대응방안, 관령법령 추가 끝 -->
+                            <!-- 2020-01-07 추가 시작 -->
+                            <dl>
+                                <dt>관련 벌칙 및 <br>과징금</dt>
+                                <dd></dd>
+                            </dl>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="popup_foot">
+        <button type="button" class="btn_close">
+            <span class="ico_pipa ico_close">닫기</span>
+        </button>
+    </div>
+    <div class="loading_pipa" style="display:none"><img src="/images/loading.gif" width="110" height="135" alt="로딩 중"></div>
+</div>
+
+<script src="/js/pdf/es6-promise.auto.min.js"></script>
+<script src="/js/pdf/jspdf.min.js"></script>
+<script src="/js/pdf/html2canvas.min.js"></script>
+<script>
+    (function ($) {
+        "use strict";
+
+        function _toConsumableArray(arr) {
+            return (
+                _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread()
+            );
+        }
+
+        function _nonIterableSpread() {
+            throw new TypeError("Invalid attempt to spread non-iterable instance");
+        }
+
+        function _iterableToArray(iter) {
+            if (
+                Symbol.iterator in Object(iter) ||
+                Object.prototype.toString.call(iter) === "[object Arguments]"
+            )
+                return Array.from(iter);
+        }
+
+        function _arrayWithoutHoles(arr) {
+            if (Array.isArray(arr)) {
+                for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) {
+                    arr2[i] = arr[i];
+                }
+                return arr2;
+            }
+        }
+
+        function getFileName(elem) {
+            var d = new Date();
+            var year = d.getFullYear();
+            var month = d.getMonth() + 1;
+            var day = d.getDate();
+            var date = ""
+                .concat(year)
+                .concat(month)
+                .concat(day);
+            var title = $.trim(elem.text());
+            return ""
+                .concat(title, "_")
+                .concat(date, ".pdf")
+                .replace(/-| /gi, "");
+        }
+
+        function createPdf() {
+            var deferreds = [];
+            $('.loading_pipa').css('display', 'block');
+
+            $(".section").each(function (idx, item) {
+                var deferred = $.Deferred();
+                deferreds.push(deferred.promise());
+                createImg(item, idx, deferred);
+            });
+            $.when.apply($, deferreds).done(function () {
+                sortArr(imgArr, "id");
+                imgArr.forEach(function (item, idx) {
+                    addImg(item);
+                });
+                doc.save(getFileName($(".box_download h2")));
+                $('.loading_pipa').css('display', 'none');
+
+                position = 0;
+            });
+        }
+
+        function createImg(item, idx, deferred) {
+            html2canvas(item).then(function (canvas) {
+                var img = canvas.toDataURL();
+                var width = 190;
+                var height = (canvas.height * width) / canvas.width;
+                imgArr = [].concat(_toConsumableArray(imgArr), [
+                    {
+                        id: idx,
+                        imgData: canvas.toDataURL("image/png"),
+                        width: width,
+                        height: height
+                    }
+                ]);
+                deferred.resolve();
+            });
+        }
+
+        function sortArr(arr, key) {
+            arr.sort(function (a, b) {
+                return a[key] > b[key] ? 1 : -1;
+            });
+        }
+
+        function addImg(img) {
+            if (docHeight - position < img.height) {
+                position = 10;
+                doc.addPage();
+                doc.addImage(img.imgData, "PNG", 10, position, img.width, img.height);
+                position = position + img.height;
+            } else {
+                doc.addImage(img.imgData, "PNG", 10, position, img.width, img.height);
+                position = position + img.height;
+            }
+        }
+
+
+        var doc = new jsPDF("p", "mm", "a4");
+        var imgArr = [];
+        var position = 10;
+        var docWidth = doc.internal.pageSize.getWidth();
+        var docHeight = doc.internal.pageSize.getHeight();
+        var len = $(".section").length;
+
+        $(".btn_download").click(function () {
+            createPdf();
+        });
+
+        $(".btn_print").click(function () {
             let $container = $(".box_download").clone();   // 프린트 할 특정 영역 복사
             let cssText = "<style>"
                 + "@page a4sheet { size: 21.0cm 29.7cm } \n"
@@ -78,6 +495,9 @@
                 popupWindow.close()         // 프린트 도구 닫혔을 경우 팝업 닫기
             }, 1000)
         });
-  </script>
-</body>
-</html>
+    })(jQuery);
+
+</script>
+
+
+</body></html>
