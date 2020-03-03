@@ -2,15 +2,13 @@
     <meta charset="utf-8">
     <title>PIPA System</title>
     <meta http-equiv="X-UA-Compatible">
-    <link rel="stylesheet" type="text/css" href="/css/jquery-ui.min.css">
-    <link rel="stylesheet" type="text/css" href="/css/popup.css">
-    <script src="/js/jquery-1.12.4.min.js"></script>
-    <script src="/js/jquery-ui.js"></script><!-- 2019-11-11 추가 -->
-    <script src="/js/jquery.dataTables.min.js"></script>
-    <script src="/js/popup_ui.js"></script><!-- 2019-11-11 추가 -->
+    <!-- <link rel="stylesheet" type="text/css" href="/css/jquery-ui.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/popup.css"> -->
+    <script
+  src="https://code.jquery.com/jquery-1.12.4.min.js"
+  integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+  crossorigin="anonymous"></script>
 
-    <script src="/js/util.js"></script>
-    <script src="/js/lib/browser.js"></script>
     <!--    <script src="/js/libs/jquery.alerts.js"></script>-->
     <!--    <script src="/js/libs/jquery.validate.js"></script>-->
     <!--    <script src="/js/message.js"></script>-->
@@ -305,126 +303,17 @@
             <span class="ico_pipa ico_close">닫기</span>
         </button>
     </div>
-    <div class="loading_pipa" style="display:none"><img src="/images/loading.gif" width="110" height="135" alt="로딩 중"></div>
+    <!-- <div class="loading_pipa" style="display:none"><img src="/images/loading.gif" width="110" height="135" alt="로딩 중"></div> -->
 </div>
 
-<script src="/js/pdf/es6-promise.auto.min.js"></script>
+<!-- <script src="/js/pdf/es6-promise.auto.min.js"></script>
 <script src="/js/pdf/jspdf.min.js"></script>
-<script src="/js/pdf/html2canvas.min.js"></script>
+<script src="/js/pdf/html2canvas.min.js"></script> -->
 <script>
     (function ($) {
         "use strict";
 
-        function _toConsumableArray(arr) {
-            return (
-                _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread()
-            );
-        }
-
-        function _nonIterableSpread() {
-            throw new TypeError("Invalid attempt to spread non-iterable instance");
-        }
-
-        function _iterableToArray(iter) {
-            if (
-                Symbol.iterator in Object(iter) ||
-                Object.prototype.toString.call(iter) === "[object Arguments]"
-            )
-                return Array.from(iter);
-        }
-
-        function _arrayWithoutHoles(arr) {
-            if (Array.isArray(arr)) {
-                for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) {
-                    arr2[i] = arr[i];
-                }
-                return arr2;
-            }
-        }
-
-        function getFileName(elem) {
-            var d = new Date();
-            var year = d.getFullYear();
-            var month = d.getMonth() + 1;
-            var day = d.getDate();
-            var date = ""
-                .concat(year)
-                .concat(month)
-                .concat(day);
-            var title = $.trim(elem.text());
-            return ""
-                .concat(title, "_")
-                .concat(date, ".pdf")
-                .replace(/-| /gi, "");
-        }
-
-        function createPdf() {
-            var deferreds = [];
-            $('.loading_pipa').css('display', 'block');
-
-            $(".section").each(function (idx, item) {
-                var deferred = $.Deferred();
-                deferreds.push(deferred.promise());
-                createImg(item, idx, deferred);
-            });
-            $.when.apply($, deferreds).done(function () {
-                sortArr(imgArr, "id");
-                imgArr.forEach(function (item, idx) {
-                    addImg(item);
-                });
-                doc.save(getFileName($(".box_download h2")));
-                $('.loading_pipa').css('display', 'none');
-
-                position = 0;
-            });
-        }
-
-        function createImg(item, idx, deferred) {
-            html2canvas(item).then(function (canvas) {
-                var img = canvas.toDataURL();
-                var width = 190;
-                var height = (canvas.height * width) / canvas.width;
-                imgArr = [].concat(_toConsumableArray(imgArr), [
-                    {
-                        id: idx,
-                        imgData: canvas.toDataURL("image/png"),
-                        width: width,
-                        height: height
-                    }
-                ]);
-                deferred.resolve();
-            });
-        }
-
-        function sortArr(arr, key) {
-            arr.sort(function (a, b) {
-                return a[key] > b[key] ? 1 : -1;
-            });
-        }
-
-        function addImg(img) {
-            if (docHeight - position < img.height) {
-                position = 10;
-                doc.addPage();
-                doc.addImage(img.imgData, "PNG", 10, position, img.width, img.height);
-                position = position + img.height;
-            } else {
-                doc.addImage(img.imgData, "PNG", 10, position, img.width, img.height);
-                position = position + img.height;
-            }
-        }
-
-
-        var doc = new jsPDF("p", "mm", "a4");
-        var imgArr = [];
-        var position = 10;
-        var docWidth = doc.internal.pageSize.getWidth();
-        var docHeight = doc.internal.pageSize.getHeight();
-        var len = $(".section").length;
-
-        $(".btn_download").click(function () {
-            createPdf();
-        });
+        
 
         $(".btn_print").click(function () {
             let $container = $(".box_download").clone();   // 프린트 할 특정 영역 복사
@@ -483,8 +372,7 @@
                 "<head>"+
                 cssText+
                 "</head>"+
-                "<body><div class='kakao_popup a4'><div class='popup_body'><div class='download_report'>"+innerHtml+"</div></div></div></body>"+
-                "</html>")
+                "<body>"+innerHtml+"</html>")
 
             popupWindow.document.close()
             popupWindow.focus()
