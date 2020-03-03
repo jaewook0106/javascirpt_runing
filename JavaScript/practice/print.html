@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    
+    $(".btn_print").click(function () {
+            let $container = $(".box_download").clone();   // 프린트 할 특정 영역 복사
+            let cssText = "<style>"
+                + "@page a4sheet { size: 21.0cm 29.7cm } \n"
+                + ".a4 { page: a4sheet; page-break-after: always } "
+                + ".kakao_popup{position:relative;min-width:1440px;box-sizing:border-box}\n"
+                + ".kakao_popup *{scrollbar-face-color:#AEAEAE;scrollbar-track-color:#fff}\n"
+                + ".kakao_popup *::-webkit-scrollbar-thumb{border-radius:3px;background-color:#E1E1E1}\n"
+                + ".kakao_popup *::-webkit-scrollbar{width:5px;height:5px}\n"
+                + ".kakao_popup .wrap_btn{padding-top:0px}\n"
+                + ".popup_body{padding:0 0px 0px}\n"
+                + ".popup_body .cont_scroll{min-height:559px}\n"
+                + ".popup_body .tbl_info, .popup_body .chart_info{padding-top:17px}\n"
+                + ".popup_body .tbl_column td{padding-top:17px;padding-bottom:17px;line-height:15px;box-sizing:border-box}\n"
+                + ".download_report{margin: 0px;padding:0 15px 75px;background:#fff}\n"
+                + ".download_report .wrap_btn{padding:25px 0 14px}\n"
+                + ".download_report .box_download{padding:50px;background:#fff;box-shadow:0 2px 10px 0 rgba(0,0,0,.15)}\n"
+                + ".download_report h2{font-weight:normal;font-size:32px;color:#222}\n"
+                + ".download_report h2 .txt_service{display:block;padding:2px 0 8px;font-size:16px;color:#888}\n"
+                + ".download_report h3{font-weight:normal;font-size:16px;color:#222}\n"
+                + ".download_report h4{padding-top:30px;font-weight:normal;font-size:14px;color:#222}\n"
+                + ".download_report h4:first-child{padding-top:40px}\n"
+                + ".download_report .section_info{padding-top:50px}\n"
+                + ".download_report .section_info h3{font-size:18px}\n"
+                + ".download_report .info_report{overflow:hidden;padding:40px 33px;border-top:1px solid #222;background:#FBFBFB}\n"
+                + ".download_report .info_report dl{overflow:hidden}\n"
+                + ".download_report .info_report dl + dl{padding-top:30px}\n"
+                + ".download_report .info_report dl:last-child{overflow:hidden;width:auto}\n"
+                + ".download_report .info_report dt{font-size:16px;color:#222}\n"
+                + ".download_report .info_report dd{padding-top:8px}\n"
+                + ".download_report .info_report .txt_user{float:left}\n"
+                + ".download_report .info_report .txt_user + .txt_user{position:relative;margin-left:15px;padding-left:16px}\n"
+                + ".download_report .info_report .txt_user + .txt_user:before{position:absolute;top:2px;left:0;width:1px;height:10px;background:#E1E1E1;content:''}\n"
+                + ".download_report .section_detail{margin-top:50px;padding-top:30px;border-top:1px solid #E1E1E1}\n"
+                + ".download_report .section_detail p{padding-top:15px;line-height:16px;letter-spacing:-0.5px}r\n"
+                + "                                                                                           .download_report .data_detail p{padding-left:10px;line-height:16px;letter-spacing:-0.5px}\n"
+                + ".download_report .section_detail p + p{padding-top:16px}\n"
+                + ".download_report .section_detail dl{overflow:hidden;padding:30px 0 0 10px;letter-spacing:-0.5px}\n"
+                + ".download_report .section_detail dl dt{float:left;width:100px}\n"
+                + ".download_report .section_detail dl dd{overflow:hidden}\n"
+                + ".download_report .section_detail strong{display:block;font-weight:normal;padding-top:35px;letter-spacing:-0.5px}\n"
+                + ".download_report .section_detail strong:first-child{padding-top:30px}\n"
+                + ".download_report .section_detail h4 + dl{padding-top:20px}\n"
+                + ".download_report .section_detail strong.tit_result{margin-top:20px;padding:19px 27px 18px;font-size:16px;background:#FBFBFB}\n"
+                + ".download_report .section_detail .tit_result .txt_num{font-weight:bold;color:#222}\n"
+                + ".download_report .section_detail .tit_result em.txt_num{color:#FF404A}\n"
+                +"</style>"                            // 스타일 복사
+
+            /** 팝업 */
+            let innerHtml = $container[0].innerHTML
+
+            let popupWindow = window.open("보고서 인쇄", "_blank", "width=700,height=800")
+            popupWindow.document.write("<!DOCTYPE html>"+
+                "<html>"+
+                "<head>"+
+                cssText+
+                "</head>"+
+                "<body><div class='kakao_popup a4'><div class='popup_body'><div class='download_report'>"+innerHtml+"</div></div></div></body>"+
+                "</html>")
+
+            popupWindow.document.close()
+            popupWindow.focus()
+
+            /** 1초 지연 */
+            setTimeout(() => {
+                popupWindow.print()         // 팝업의 프린트 도구 시작
+                popupWindow.close()         // 프린트 도구 닫혔을 경우 팝업 닫기
+            }, 1000)
+        });
+  </script>
+</body>
+</html>
