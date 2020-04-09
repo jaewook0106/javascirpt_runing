@@ -379,8 +379,10 @@
 
             /** 1초 지연 */
             setTimeout(() => {
+                console.log('프린트 열기 전')
                 popupWindow.print()         // 팝업의 프린트 도구 시작
-                popupWindow.close()         // 프린트 도구 닫혔을 경우 팝업 닫기
+                console.log('프린트 열기')
+                // popupWindow.close()         // 프린트 도구 닫혔을 경우 팝업 닫기
             }, 1000)
         });
     })(jQuery);
