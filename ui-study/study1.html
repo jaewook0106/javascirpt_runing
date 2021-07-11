@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>html 스터디</title>
+  <link rel="stylesheet" href="css/reset.css">
+  <style>
+    .txt_blue{color:skyblue}
+    .txt_red{color:red}
+
+    .wrap_name:after{
+      display:block;
+      width:0;
+      height:0;
+      clear:both;
+      content:'';
+    }
+    .list_name{
+      float:left;
+      width:300px;
+      padding:10px;
+      border:1px solid #999;
+      box-sizing:border-box;
+    }
+    .list_name .txt_item{
+      font-size:20px;
+      font-weight:600;
+    }
+    .box_test{
+      height:400px;
+      background-color:slateblue;
+    }
+    .warp_position{
+      position:relative;
+      height:500px;
+      background-color:greenyellow;
+    }
+    .warp_position .box_item{
+      width:500px;
+      height:250px;
+      border:2px solid darkblue;
+    }
+    .warp_position .box_absolute{
+      position:absolute;
+      top:50px;
+      left:50px;
+      background-color:dodgerblue;
+    }
+    .warp_position .box_fixed{
+      position:fixed;
+      top:0;
+      left:0;
+      background-color:gold;
+    }
+  </style>
+
+</head>
+<body>  
+  <div class="wrap_name">
+    <ul class="list_name">
+      <li>에드워드 나이는 <span class="txt_item txt_blue">37</span>살이야</li>
+      <li>루나</li>
+      <li>빅터</li>
+    </ul>
+    <ul class="list_name">
+      <li>에드워드 나이는 <span class="txt_item txt_red">37</span>살이야</li>
+      <li>루나</li>
+      <li>빅터</li>
+    </ul>
+    
+  </div>
+  <div class="box_test">
+    안녕하세요 안녕안녕안녕 안녕
+  </div>
+
+  <div class="warp_position">
+    <div class="box_item box_absolute">앱솔루트 루나</div>
+    <div class="box_item box_fixed">픽시드 빅터</div>
+  </div>
+  <script>
+
+  </script>
+</body>
+</html>
