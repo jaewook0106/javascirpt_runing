@@ -1,0 +1,12 @@
+// auth
+export const SET_EVENT_HOLIDAY = "SET_EVENT_HOLIDAY";
+
+export const SET_ADD_WORK = "SET_ADD_WORK";
+export const SET_SELECTED_WORK = "SET_SELECTED_WORK";
+export const SET_SELECTED_ALARM = "SET_SELECTED_ALARM";
+export const SET_IS_EDIT_WORK = "SET_IS_EDIT_WORK";
+export const SET_WORK_CONTENTS = "SET_CONTENTS";
+export const SET_WORK_WORKER = "SET_USERS";
+export const SET_WORK_DATE = "SET_WORK_DATE";
+export const SET_WORK_TIME = "SET_WORK_TIME";
+export const SET_COMMENT = "SET_COMMENT";

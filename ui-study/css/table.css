@@ -1,0 +1,38 @@
+
+.wrap_container{
+  
+}
+.inner_container{
+  position: relative;
+  width:1000px;
+  margin:0 auto;
+  padding:100px 0;
+  box-sizing:border-box;
+}
+.tbl_car{
+  width:100%;
+}
+
+.tbl_car .col1{
+  width:20%
+}
+.tbl_car .col2{
+  width:30%
+}
+.tbl_car .col3{
+  width:30%
+}
+.tbl_car .col4{
+  width:20%
+}
+
+.tbl_car th, .tbl_car td{
+  padding:10px;
+  border:1px solid #eee;
+}
+.tbl_car th{
+  background-color:#ebebeb;
+}
+.tbl_car td{
+  text-align:center;
+}
