@@ -10,30 +10,7 @@ const categoryData = {
     'complete': ['card_complete', '완료'],
     'test': ['card_accept', '테스트']
 }
-const cardTypeData = {
-    'work': '업무',
-    'alarm': '알람',
-    'document': '문서'
-}
-const searchData = {
-    'content': '업무내용',
-    'comment': '댓글내용',
-    'register': '등록자',
-    'regMember': '등록자',
-    'assignee': '담당자',
-    'worker': '담당자',
-    'completer': '완료자',
-    'deadlineMember': '완료',
-    'code': '알람코드',
-    'name': '알람명칭',
-    'message': '알람메세지',
-    'part': '파트',
 
-}
-const cardPriorityData = {
-    'general': '일반',
-    'emergency': '긴급'
-}
 
 const weeks = [
     '일',

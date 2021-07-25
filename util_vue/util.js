@@ -34,43 +34,6 @@ export const setMemberType = (masterYn, partManagerYn) => {
 }
 
 
-export const verifyModule = (val) => {
-  if (!val) {
-    return false;
-  }
-  let joinModule = store.getters['member/getMyInfoData'].modules;
-  // *** test Code - start ***
-
-  // let joinModule;
-  // joinModule = 'work,alarm,info,document,delivery';
-  // joinModule = 'work,alarm,info';
-  // joinModule = 'work,alarm,document';
-  // joinModule = 'work,info';
-  // joinModule = 'alarm,info';
-  // joinModule = 'work,alarm';
-  // joinModule = 'work';
-  // joinModule = 'alarm';
-  // joinModule = 'info';
-  // joinModule = 'document';
-  // joinModule = 'work,document';
-  // joinModule = 'alarm,document';
-  // joinModule = 'info,document';
-  // *** test Code - end ***
-  // console.log('joinModule : ', joinModule)
-  if (joinModule) {
-    return joinModule.split(',').some(item => {
-      return item === val;
-    })
-  }
-  return false;
-
-  // const joinModule = store.getters['member/getMyInfoData'].modules;
-  // if(val && joinModule) {
-  //   return joinModule.split(',').some(item => tiem === val);
-  // } else {
-  //   return false
-  // }
-}
 
 export const validateErrorMsg = (val) => {
   if (!val.errors) {
