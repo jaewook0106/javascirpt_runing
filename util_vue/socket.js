@@ -16,14 +16,6 @@ const createWebSocketPlugin = () => {
   let pageName = '';
   let moduleName = '';
 
-  // console.log('partSeq', partSeq)
-  // console.log('moduleName', moduleName)
-  // console.log('pageName' , pageName)
-  // console.log('service id', getServiceId)
-  // console.log('token', token)
-  // console.log('router',route)
-
-
   stompClient.connect(
     {
       'X-token': `Bearer ${token}`
@@ -31,7 +23,6 @@ const createWebSocketPlugin = () => {
     frame => {
 
       stompClient.subscribe(`subscribe/url`, result => {
-        // 인포 모듈체크
         const resultData = JSON.parse(result.body);
         if(resultData) {
           "코드 넣기"
@@ -43,7 +34,7 @@ const createWebSocketPlugin = () => {
     error => {
       // error callback
       console.log(error);
-      // store.commit('soketTest/socketOnDisconnect')
+      // store.commit('soketTest')
     }
   );
 
