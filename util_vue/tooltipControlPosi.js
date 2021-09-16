@@ -10,7 +10,7 @@ const tooltipControlMixin = {
     }
   },
   computed: {
-    ...mapGetters('layout', ['getSmartContentDom'])
+    ...mapGetters('layout', ['getContentDom'])
   },
   mounted() {
     EventBus.$on("close:Tooltip", this.closeTooltip);
