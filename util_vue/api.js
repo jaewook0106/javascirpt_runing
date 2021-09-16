@@ -101,7 +101,7 @@ instance.interceptors.request.use((config) => {
   
   const serviceId = sessionStorageService.getServiceId();
   if (serviceId) {
-    config.headers[''] = serviceId;
+    config.headers['service-id'] = serviceId;
   }
   // 로더에 request url추가
   if(config.method === 'get') {
@@ -112,18 +112,11 @@ instance.interceptors.request.use((config) => {
     }
   }
   /* 로딩바 구현 제거 api */
-  // const masterSearchUrl = '/v1/members/check-name';
+  // const masterSearchUrl = 'url';
   // if(config.url.indexOf(masterSearchUrl) > -1) {
   //   return config;
   // }
 
-  // if(config.params) {
-  //   const setUrl = `/v1/parts/${config.params.partSeq}/members`;
-
-  //   if(config.url.indexOf(setUrl) > -1) {
-  //     return config;
-  //   }
-  // }
   /* 로딩바 구현 제거 api 끝 */
 
   addApiCall(config.url);
@@ -138,17 +131,11 @@ instance.interceptors.request.use((config) => {
 instance.interceptors.response.use((response) => {
 
   /* 로딩바 구현 제거 api */
-  // const masterSearchUrl = '/v1/members/check-name';
+  // const masterSearchUrl = 'url';
   // if(response.config.url.indexOf(masterSearchUrl) > -1) {
   //   return response;
   // }
 
-  // if(response.config.params) {
-  //   const setUrl = `/v1/parts/${response.config.params.partSeq}/members`;
-  //   if(response.config.url.indexOf(setUrl) > -1) {
-  //     return response;
-  //   }
-  // }
   /* 로딩바 구현 제거 api 끝 */
 
   removeApiCall(response.config.url);

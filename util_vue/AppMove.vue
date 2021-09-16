@@ -1,17 +1,16 @@
 <template>
   <div class="wrap_app">
-    <h1 class="screen_out">앱받기</h1>
+    <h1 class="screen_out">앱 다운로드</h1>
     <h2 class="screen_out">앱 다운로드 바로가기</h2>
 
     <div class="info_app">
-      <em class="txt_app">APP 다운로드 받기</em>
       <p class="txt_item">
         IOS 버전은 준비중입니다. 조금만 기다려주세요.
       </p>
       
       <div class="btn_box_g">
         <div class="btn_item">
-          <button ref="appBtn" class="btn_g type_main btn_g1" @click="clickAppLoad">앱 다운로드</button>
+          <button ref="appBtn" class="btn_g" @click="clickAppLoad">앱 다운로드</button>
         </div>
       </div>
     </div>
@@ -25,7 +24,7 @@
     name: "AppDownload",
     data() {
       return {
-        appLink: `앱링크주소`,
+        appLink: 'intent://tdl#Intent;scheme=jaewook;end',
         marketLink: 'market://details?id='
       }
     },
@@ -47,9 +46,6 @@
       clickAppLoad() {
         if(this.userAgent.mobile === 'android') {
           this.appIntervalCheck();
-        }
-        if(this.userAgent.mobile === 'ios') {
-          location.href = process.env.VUE_APP_INTRO_URL;
         }
       },
       appIntervalCheck() {
