@@ -16,7 +16,7 @@ address,caption,cite,code,dfn,em,var{font-style:normal;font-weight:normal}
 table{border-collapse:collapse;border-spacing:0}
 table th{font-weight:normal}
 /* global */
-#smartFactoryIndex{overflow:hidden;position:absolute;left:-9999px;width:0;height:1px;margin:0;padding:0} /* 스킵네비게이션 */
+#index{overflow:hidden;position:absolute;left:-9999px;width:0;height:1px;margin:0;padding:0} /* 스킵네비게이션 */
 .ir_pm{display:block;overflow:hidden;font-size:1px;line-height:0;color:transparent} /* 사용된 이미지내 의미있는 텍스트의 대체텍스트를 제공할때 */
 .ir_wa{display:block;overflow:hidden;position:relative;width:100%;height:100%;z-index:-1} /* 중요한 이미지 대체텍스트로 이미지off시에도 대체 텍스트를 보여주고자 할때 */
 .screen_out{overflow:hidden;position:absolute;width:0;height:0;line-height:0;text-indent:-9999px} /* 대체텍스트가 아닌 접근성을 위한 숨김텍스트를 제공할때 */

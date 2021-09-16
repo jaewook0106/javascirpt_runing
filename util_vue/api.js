@@ -101,7 +101,7 @@ instance.interceptors.request.use((config) => {
   // t-fac 서비스 인증용 사용자 ID 추가
   const serviceId = sessionStorageService.getServiceId();
   if (serviceId) {
-    config.headers['x-tfac-service-id'] = serviceId;
+    config.headers['service-id'] = serviceId;
   }
   // 로더에 request url추가
   if(config.method === 'get') {
