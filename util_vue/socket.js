@@ -7,7 +7,7 @@ import SessionStorageService from './SessionStorageService';
 
 const createWebSocketPlugin = () => {
 
-  const socket = new SocketJS('https://smartfactory-api.dev.daumkakao.io/ws/socket/connect');
+  const socket = new SocketJS('http://주소');
   const stompClient = Stomp.over(socket);
   const token = SessionStorageService.getAccessToken();
   const getServiceId = SessionStorageService.getServiceId();

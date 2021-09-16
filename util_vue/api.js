@@ -98,10 +98,10 @@ instance.interceptors.request.use((config) => {
     config.headers['Authorization'] = `Bearer ${token}`;
     // config.headers['Authorization'] = `${token}`;
   }
-  // t-fac 서비스 인증용 사용자 ID 추가
+  
   const serviceId = sessionStorageService.getServiceId();
   if (serviceId) {
-    config.headers['x-tfac-service-id'] = serviceId;
+    config.headers[''] = serviceId;
   }
   // 로더에 request url추가
   if(config.method === 'get') {
